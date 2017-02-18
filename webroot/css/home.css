@@ -78,6 +78,7 @@ header .header-title h1 {
 
 header h1 {
     color: #fff;
+    text-align: center;
 }
 
 h3, h4 {

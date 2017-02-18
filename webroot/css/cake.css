@@ -35,7 +35,7 @@ header .header-title {
 }
 
 legend {
-    color:#15848F;
+    color:#001a4d;
 }
 
 .row {
@@ -44,13 +44,13 @@ legend {
 
 .actions.columns {
     margin-top:1rem;
-    border-left: 5px solid #15848F;
+    border-left: 5px solid #4d0026;
     padding-left: 15px;
     padding: 32px 20px;
 }
 
 .actions.columns h3 {
-    color:#15848F;
+    color:#4d0026;
 }
 
 .related table {
@@ -320,11 +320,11 @@ pre {
 }
 
 .top-bar.expanded .title-area {
-    background: #01545b;
+    background: #001a4d;
 }
 
 .top-bar.expanded, .top-bar,.top-bar-section ul li,.top-bar-section li:not(.has-form) a:not(.button) {
-    background: #116d76;
+    background: #344361;
 }
 
 .top-bar-section li:not(.has-form) a:not(.button):hover {
