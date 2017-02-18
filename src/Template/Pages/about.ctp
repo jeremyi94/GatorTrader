@@ -14,7 +14,7 @@
     <a href="http://sfsuse.com/~sp17g08/648app/jeremy">Jeremy Ibay</a>
     <ul><li>Hello there.</li></ul>
     
-    <a href="http://training.cakephp.org/">Pizza Man</a>
+    <a href="http://sfsuse.com/~sp17g08/648app/rebecca">Rebecca Stankus</a>
     <ul><li>Learn to use the Cake</li></ul>
           
     <a href="http://sfsuse.com/~sp17g08/648app/about">About Page</a>
