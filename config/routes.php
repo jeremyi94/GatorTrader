@@ -49,7 +49,7 @@ Router::scope('/', function (RouteBuilder $routes) {
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
-    $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+    $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'about']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
@@ -76,6 +76,7 @@ Router::scope('/', function (RouteBuilder $routes) {
 });
 Router::connect('/about', array('controller' => 'pages', 'action' => 'display', 'about'));
 Router::connect('/jeremy', array('controller' => 'pages', 'action' => 'display', 'jeremy'));
+Router::connect('/rebecca', array('controller' => 'pages', 'action' => 'display', 'rebecca'));
 /**
  * Load all plugin routes.  See the Plugin documentation on
  * how to customize the loading of plugin routes.
