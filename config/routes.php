@@ -80,7 +80,7 @@ Router::connect('/rebecca', array('controller' => 'pages', 'action' => 'display'
 Router::connect('/kyle', array('controller' => 'pages', 'action' => 'display', 'kyle'));
 Router::connect('/farbod', array('controller' => 'pages', 'action' => 'display', 'farbod'));
 Router::connect('/kai', array('controller' => 'pages', 'action' => 'display', 'kai'));
-Router::connect('/krunal', array('controller' => 'pages', 'action' => 'display', 'kruna'));
+Router::connect('/krunal', array('controller' => 'pages', 'action' => 'display', 'krunal'));
 /**
  * Load all plugin routes.  See the Plugin documentation on
  * how to customize the loading of plugin routes.
