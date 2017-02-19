@@ -5,7 +5,6 @@
 <br>
 
 
-</body>
     <a href="http://sfsuse.com/~sp17g08/648app/jeremy">Jeremy Ibay</a>
     <br><br><br>
     
