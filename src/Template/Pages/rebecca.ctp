@@ -1,4 +1,5 @@
 
+
 <div style="background-image: url(webroot/img/redwood.jpg); margin-top: -100px; height: 100%; background-repeat: no-repeat">
     <br><br><br>
         <img src = "webroot/img/rebecca.jpg" id="aboutPic">
