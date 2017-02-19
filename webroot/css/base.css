@@ -5,12 +5,36 @@
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
+#foot{
+    margin-top: -150px;
+    width: 100%;
+}
+#aboutInfo{
+    color: #000000;
+    display: block;
+    text-align: justify;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 50px;
+}
+
+
 
 html {
     font-family: sans-serif; /* 1 */
     -ms-text-size-adjust: 100%; /* 2 */
     -webkit-text-size-adjust: 100%; /* 2 */
 }
+#aboutPic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    height: 400px;
+    width: 300px;
+    border: solid #3c3d40 1px;
+    border-radius: 10%;
+    }
 
 /**
  * Remove default margin.
