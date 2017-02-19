@@ -18,7 +18,7 @@
 }
 
 a {
-    color: #0071BC;
+    color: #001a4d;
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
     -ms-transition: all 0.2s;
@@ -78,6 +78,7 @@ header .header-title h1 {
 
 header h1 {
     color: #fff;
+    text-align: center;
 }
 
 h3, h4 {
@@ -238,3 +239,4 @@ hr {
         max-width: 940px;
     }
 }
+

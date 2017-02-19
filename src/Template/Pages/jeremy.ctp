@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html>
+
     <style>
     .center {
     text-align: center;
@@ -12,7 +11,6 @@
 
     }   
     </style>
-<body>
 <div  class ="center">   
     <p><b><font size="12">My name is Jeremy</font></b></p>
     <p>
@@ -26,5 +24,3 @@ He difficult contented we determine ourselves me am earnestly. Hour no find it p
 Gave read use way make spot how nor. In daughter goodness an likewise oh consider at procured wandered. Songs words wrong by me hills heard timed. Happy eat may doors songs. Be ignorant so of suitable dissuade weddings together. Least whole timed we is. An smallness deficient discourse do newspaper be an eagerness continued. Mr my ready guest ye after short at. 
     </p>
 </div>
-</body>
-</html>

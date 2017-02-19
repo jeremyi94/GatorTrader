@@ -1,26 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>About</title>
-</head>
-<body>
 
-<h1>About Us</h1>
-<p>Hey boys and girls, here you can learn more about the team!
-</p>
+<div class="text-center">
+    <br>
+    <h1 style="color: #364878">Meet Team 8...</h1>
+<br>
 
-<center>
-    <p><a href="http://sfsuse.com/~sp17g08/648app/jeremy">Jeremy Ibay</a>
-    <ul><li>Hello there.</li></ul>
-    </p>
+<a href="http://sfsuse.com/~sp17g08/648app/jeremy">Jeremy Ibay</a>
+  <br><br><br>
+  
     <a href="http://sfsuse.com/~sp17g08/648app/rebecca">Rebecca Stankus</a>
-    <ul><li>Learn to use the Cake</li></ul>
-          
-    <a href="http://sfsuse.com/~sp17g08/648app/about">About Page</a>
-    <ul><li>Become an expert</li></ul>
-</center>
-
-</body>
-
+    <br><br><br>
+  
+    <a href="http://sfsuse.com/~sp17g08/648app/farbod">Farbod </a>
+    <br><br><br>
+    
+    <a href="http://sfsuse.com/~sp17g08/648app/kai">Kai </a>
+    <br><br><br>
+    
+    <a href="http://sfsuse.com/~sp17g08/648app/kyle">Kyle </a>
+    <br><br><br>
+    
+    <a href="http://sfsuse.com/~sp17g08/648app/krunal">Krunal</a>
+    <br><br><br>
+    
+    <img src = "webroot/img/Mountain_Tops.png" id="foot">
 </div>
-</html>
