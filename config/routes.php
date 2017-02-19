@@ -77,6 +77,7 @@ Router::scope('/', function (RouteBuilder $routes) {
 Router::connect('/about', array('controller' => 'pages', 'action' => 'display', 'about'));
 Router::connect('/jeremy', array('controller' => 'pages', 'action' => 'display', 'jeremy'));
 Router::connect('/rebecca', array('controller' => 'pages', 'action' => 'display', 'rebecca'));
+Router::connect('/kyle', array('controller' => 'pages', 'action' => 'display', 'kyle'));
 /**
  * Load all plugin routes.  See the Plugin documentation on
  * how to customize the loading of plugin routes.
