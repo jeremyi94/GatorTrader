@@ -21,8 +21,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        <?= $cakeDescription ?>:
-        <?= $this->fetch('title') ?>
+        CSC 648 Group 8
     </title>
     <?= $this->Html->meta('icon') ?>
 
