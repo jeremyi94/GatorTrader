@@ -39,4 +39,4 @@
 *.woff2 binary
 *.ttf binary
 *.otf binary
-*.eot binary
+*.eot binary *.docx binary
