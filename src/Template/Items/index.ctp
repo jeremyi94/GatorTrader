@@ -17,13 +17,14 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('seller_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('img1') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('img2') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('img3') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('img4') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('description') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('title') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('price') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -31,17 +32,18 @@
             <?php foreach ($items as $item): ?>
             <tr>
                 <td><?= $this->Number->format($item->id) ?></td>
-                <td><?= $item->has('user') ? $this->Html->link($item->user->user_id, ['controller' => 'Users', 'action' => 'view', $item->user->user_id]) : '' ?></td>
+                <td><?= $item->has('user') ? $this->Html->link($item->user->id, ['controller' => 'Users', 'action' => 'view', $item->user->id]) : '' ?></td>
                 <td><?= h($item->img1) ?></td>
                 <td><?= h($item->img2) ?></td>
                 <td><?= h($item->img3) ?></td>
                 <td><?= h($item->img4) ?></td>
                 <td><?= h($item->description) ?></td>
                 <td><?= h($item->title) ?></td>
+                <td><?= $this->Number->format($item->price) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $item->item_id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $item->item_id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $item->item_id], ['confirm' => __('Are you sure you want to delete # {0}?', $item->item_id)]) ?>
+                    <?= $this->Html->link(__('View'), ['action' => 'view', $item->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $item->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $item->id], ['confirm' => __('Are you sure you want to delete # {0}?', $item->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>

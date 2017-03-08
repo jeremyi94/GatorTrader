@@ -19,7 +19,7 @@ class ItemsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Items', 'Users']
+            'contain' => ['Users']
         ];
         $items = $this->paginate($this->Items);
 
@@ -37,7 +37,7 @@ class ItemsController extends AppController
     public function view($id = null)
     {
         $item = $this->Items->get($id, [
-            'contain' => ['Items', 'Users']
+            'contain' => ['Users']
         ]);
 
         $this->set('item', $item);
@@ -61,9 +61,8 @@ class ItemsController extends AppController
             }
             $this->Flash->error(__('The item could not be saved. Please, try again.'));
         }
-        $items = $this->Items->Items->find('list', ['limit' => 200]);
         $users = $this->Items->Users->find('list', ['limit' => 200]);
-        $this->set(compact('item', 'items', 'users'));
+        $this->set(compact('item', 'users'));
         $this->set('_serialize', ['item']);
     }
 
@@ -88,9 +87,8 @@ class ItemsController extends AppController
             }
             $this->Flash->error(__('The item could not be saved. Please, try again.'));
         }
-        $items = $this->Items->Items->find('list', ['limit' => 200]);
         $users = $this->Items->Users->find('list', ['limit' => 200]);
-        $this->set(compact('item', 'items', 'users'));
+        $this->set(compact('item', 'users'));
         $this->set('_serialize', ['item']);
     }
 

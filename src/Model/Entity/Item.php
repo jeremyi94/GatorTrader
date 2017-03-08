@@ -7,15 +7,15 @@ use Cake\ORM\Entity;
  * Item Entity
  *
  * @property int $id
- * @property int $seller_id
+ * @property int $user_id
  * @property string $img1
  * @property string $img2
  * @property string $img3
  * @property string $img4
  * @property string $description
  * @property string $title
+ * @property float $price
  *
- * @property \App\Model\Entity\Item $item
  * @property \App\Model\Entity\User $user
  */
 class Item extends Entity
@@ -32,6 +32,6 @@ class Item extends Entity
      */
     protected $_accessible = [
         '*' => true,
-        'item_id' => false
+        'id' => false
     ];
 }

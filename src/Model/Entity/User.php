@@ -1,6 +1,7 @@
 <?php
 namespace App\Model\Entity;
 
+use Cake\Auth\DefaultPasswordHasher;
 use Cake\ORM\Entity;
 
 /**
@@ -15,10 +16,16 @@ use Cake\ORM\Entity;
  * @property int $is_admin
  * @property int $is_seller
  *
- * @property \App\Model\Entity\User $user
+ * @property \App\Model\Entity\Item[] $items
  */
 class User extends Entity
 {
+	protected function _setPassword($value)
+    {
+        $hasher = new DefaultPasswordHasher();
+        return $hasher->hash($value);
+    }
+
 
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -31,7 +38,7 @@ class User extends Entity
      */
     protected $_accessible = [
         '*' => true,
-        'user_id' => false
+        'id' => false
     ];
 
     /**
@@ -42,4 +49,5 @@ class User extends Entity
     protected $_hidden = [
         'password'
     ];
+
 }

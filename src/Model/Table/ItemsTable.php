@@ -34,10 +34,10 @@ class ItemsTable extends Table
 
         $this->table('items');
         $this->displayField('title');
-        $this->primaryKey('item_id');
+        $this->primaryKey('id');
 
         $this->belongsTo('Users', [
-            'foreignKey' => 'seller_id',
+            'foreignKey' => 'user_id',
             'joinType' => 'INNER'
         ]);
     }
@@ -73,6 +73,11 @@ class ItemsTable extends Table
             ->requirePresence('title', 'create')
             ->notEmpty('title');
 
+        $validator
+            ->decimal('price')
+            ->requirePresence('price', 'create')
+            ->notEmpty('price');
+
         return $validator;
     }
 
@@ -85,7 +90,7 @@ class ItemsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['seller_id'], 'Users'));
+        $rules->add($rules->existsIn(['user_id'], 'Users'));
 
         return $rules;
     }
