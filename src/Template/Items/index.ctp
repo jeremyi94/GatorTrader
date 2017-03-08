@@ -16,7 +16,7 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('item_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('seller_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('img1') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('img2') ?></th>
@@ -30,7 +30,7 @@
         <tbody>
             <?php foreach ($items as $item): ?>
             <tr>
-                <td><?= $item->has('item') ? $this->Html->link($item->item->title, ['controller' => 'Items', 'action' => 'view', $item->item->item_id]) : '' ?></td>
+                <td><?= $this->Number->format($item->id) ?></td>
                 <td><?= $item->has('user') ? $this->Html->link($item->user->user_id, ['controller' => 'Users', 'action' => 'view', $item->user->user_id]) : '' ?></td>
                 <td><?= h($item->img1) ?></td>
                 <td><?= h($item->img2) ?></td>

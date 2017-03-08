@@ -9,8 +9,6 @@ use Cake\Validation\Validator;
 /**
  * Users Model
  *
- * @property \Cake\ORM\Association\BelongsTo $Users
- *
  * @method \App\Model\Entity\User get($primaryKey, $options = [])
  * @method \App\Model\Entity\User newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\User[] newEntities(array $data, array $options = [])
@@ -35,11 +33,6 @@ class UsersTable extends Table
         $this->table('users');
         $this->displayField('user_id');
         $this->primaryKey('user_id');
-
-        $this->belongsTo('Users', [
-            'foreignKey' => 'user_id',
-            'joinType' => 'INNER'
-        ]);
     }
 
     /**
@@ -50,6 +43,10 @@ class UsersTable extends Table
      */
     public function validationDefault(Validator $validator)
     {
+        $validator
+            ->integer('id')
+            ->allowEmpty('id', 'create');
+
         $validator
             ->requirePresence('last_name', 'create')
             ->notEmpty('last_name');
@@ -68,18 +65,18 @@ class UsersTable extends Table
             ->notEmpty('password');
 
         $validator
-            ->requirePresence('user_name', 'create')
-            ->notEmpty('user_name');
+            ->requirePresence('screen_name', 'create')
+            ->notEmpty('screen_name');
 
         $validator
-            ->integer('admin')
-            ->requirePresence('admin', 'create')
-            ->notEmpty('admin');
+            ->integer('is_admin')
+            ->requirePresence('is_admin', 'create')
+            ->notEmpty('is_admin');
 
         $validator
-            ->integer('seller')
-            ->requirePresence('seller', 'create')
-            ->notEmpty('seller');
+            ->integer('is_seller')
+            ->requirePresence('is_seller', 'create')
+            ->notEmpty('is_seller');
 
         return $validator;
     }
@@ -94,7 +91,6 @@ class UsersTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->isUnique(['email']));
-        $rules->add($rules->existsIn(['user_id'], 'Users'));
 
         return $rules;
     }

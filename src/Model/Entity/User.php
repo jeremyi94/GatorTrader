@@ -6,14 +6,14 @@ use Cake\ORM\Entity;
 /**
  * User Entity
  *
- * @property int $user_id
+ * @property int $id
  * @property string $last_name
  * @property string $first_name
  * @property string $email
  * @property string $password
- * @property string $user_name
- * @property int $admin
- * @property int $seller
+ * @property string $screen_name
+ * @property int $is_admin
+ * @property int $is_seller
  *
  * @property \App\Model\Entity\User $user
  */

@@ -17,7 +17,7 @@ class ItemsFixture extends TestFixture
      */
     // @codingStandardsIgnoreStart
     public $fields = [
-        'item_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
+        'id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
         'seller_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'img1' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'img2' => ['type' => 'string', 'length' => 255, 'null' => true, 'default' => null, 'collate' => 'latin1_swedish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
@@ -29,8 +29,8 @@ class ItemsFixture extends TestFixture
             'seller_id_idx' => ['type' => 'index', 'columns' => ['seller_id'], 'length' => []],
         ],
         '_constraints' => [
-            'primary' => ['type' => 'primary', 'columns' => ['item_id'], 'length' => []],
-            'seller_id' => ['type' => 'foreign', 'columns' => ['seller_id'], 'references' => ['users', 'user_id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
+            'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
+            'seller_id' => ['type' => 'foreign', 'columns' => ['seller_id'], 'references' => ['users', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -46,7 +46,7 @@ class ItemsFixture extends TestFixture
      */
     public $records = [
         [
-            'item_id' => 1,
+            'id' => 1,
             'seller_id' => 1,
             'img1' => 'Lorem ipsum dolor sit amet',
             'img2' => 'Lorem ipsum dolor sit amet',

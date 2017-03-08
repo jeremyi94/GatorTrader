@@ -18,10 +18,6 @@
     <h3><?= h($user->user_id) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('User') ?></th>
-            <td><?= $user->has('user') ? $this->Html->link($user->user->user_id, ['controller' => 'Users', 'action' => 'view', $user->user->user_id]) : '' ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Last Name') ?></th>
             <td><?= h($user->last_name) ?></td>
         </tr>
@@ -38,16 +34,20 @@
             <td><?= h($user->password) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('User Name') ?></th>
-            <td><?= h($user->user_name) ?></td>
+            <th scope="row"><?= __('Screen Name') ?></th>
+            <td><?= h($user->screen_name) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Admin') ?></th>
-            <td><?= $this->Number->format($user->admin) ?></td>
+            <th scope="row"><?= __('Id') ?></th>
+            <td><?= $this->Number->format($user->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Seller') ?></th>
-            <td><?= $this->Number->format($user->seller) ?></td>
+            <th scope="row"><?= __('Is Admin') ?></th>
+            <td><?= $this->Number->format($user->is_admin) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Is Seller') ?></th>
+            <td><?= $this->Number->format($user->is_seller) ?></td>
         </tr>
     </table>
 </div>

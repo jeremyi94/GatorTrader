@@ -18,6 +18,7 @@
     <fieldset>
         <legend><?= __('Add Item') ?></legend>
         <?php
+            echo $this->Form->input('id');
             echo $this->Form->input('seller_id', ['options' => $users]);
             echo $this->Form->input('img1');
             echo $this->Form->input('img2');

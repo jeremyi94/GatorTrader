@@ -14,28 +14,28 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('last_name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('first_name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('password') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('user_name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('admin') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('seller') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('screen_name') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('is_admin') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('is_seller') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($users as $user): ?>
             <tr>
-                <td><?= $user->has('user') ? $this->Html->link($user->user->user_id, ['controller' => 'Users', 'action' => 'view', $user->user->user_id]) : '' ?></td>
+                <td><?= $this->Number->format($user->id) ?></td>
                 <td><?= h($user->last_name) ?></td>
                 <td><?= h($user->first_name) ?></td>
                 <td><?= h($user->email) ?></td>
                 <td><?= h($user->password) ?></td>
-                <td><?= h($user->user_name) ?></td>
-                <td><?= $this->Number->format($user->admin) ?></td>
-                <td><?= $this->Number->format($user->seller) ?></td>
+                <td><?= h($user->screen_name) ?></td>
+                <td><?= $this->Number->format($user->is_admin) ?></td>
+                <td><?= $this->Number->format($user->is_seller) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $user->user_id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->user_id]) ?>

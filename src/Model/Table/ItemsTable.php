@@ -9,7 +9,6 @@ use Cake\Validation\Validator;
 /**
  * Items Model
  *
- * @property \Cake\ORM\Association\BelongsTo $Items
  * @property \Cake\ORM\Association\BelongsTo $Users
  *
  * @method \App\Model\Entity\Item get($primaryKey, $options = [])
@@ -37,10 +36,6 @@ class ItemsTable extends Table
         $this->displayField('title');
         $this->primaryKey('item_id');
 
-        $this->belongsTo('Items', [
-            'foreignKey' => 'item_id',
-            'joinType' => 'INNER'
-        ]);
         $this->belongsTo('Users', [
             'foreignKey' => 'seller_id',
             'joinType' => 'INNER'
@@ -55,6 +50,10 @@ class ItemsTable extends Table
      */
     public function validationDefault(Validator $validator)
     {
+        $validator
+            ->integer('id')
+            ->allowEmpty('id', 'create');
+
         $validator
             ->allowEmpty('img1');
 
@@ -86,7 +85,6 @@ class ItemsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['item_id'], 'Items'));
         $rules->add($rules->existsIn(['seller_id'], 'Users'));
 
         return $rules;

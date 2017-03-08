@@ -6,7 +6,7 @@ use Cake\ORM\Entity;
 /**
  * Item Entity
  *
- * @property int $item_id
+ * @property int $id
  * @property int $seller_id
  * @property string $img1
  * @property string $img2
