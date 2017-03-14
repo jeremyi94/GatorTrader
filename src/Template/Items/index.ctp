@@ -18,13 +18,15 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('title') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('category') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('description') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('price') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('img1') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('img2') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('img3') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('img4') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('description') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('title') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('price') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('date_posted') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -33,13 +35,15 @@
             <tr>
                 <td><?= $this->Number->format($item->id) ?></td>
                 <td><?= $item->has('user') ? $this->Html->link($item->user->id, ['controller' => 'Users', 'action' => 'view', $item->user->id]) : '' ?></td>
+                <td><?= h($item->title) ?></td>
+                <td><?= h($item->category) ?></td>
+                <td><?= h($item->description) ?></td>
+                <td><?= $this->Number->format($item->price) ?></td>
                 <td><?= h($item->img1) ?></td>
                 <td><?= h($item->img2) ?></td>
                 <td><?= h($item->img3) ?></td>
                 <td><?= h($item->img4) ?></td>
-                <td><?= h($item->description) ?></td>
-                <td><?= h($item->title) ?></td>
-                <td><?= $this->Number->format($item->price) ?></td>
+                <td><?= h($item->date_posted) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $item->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $item->id]) ?>

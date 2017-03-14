@@ -17,13 +17,15 @@
         <legend><?= __('Add Item') ?></legend>
         <?php
             echo $this->Form->input('user_id', ['options' => $users]);
+            echo $this->Form->input('title');
+            echo $this->Form->input('category');
+            echo $this->Form->input('description');
+            echo $this->Form->input('price');
             echo $this->Form->input('img1');
             echo $this->Form->input('img2');
             echo $this->Form->input('img3');
             echo $this->Form->input('img4');
-            echo $this->Form->input('description');
-            echo $this->Form->input('title');
-            echo $this->Form->input('price');
+            echo $this->Form->input('date_posted', ['empty' => true]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

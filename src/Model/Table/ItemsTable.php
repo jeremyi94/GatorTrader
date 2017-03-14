@@ -10,6 +10,7 @@ use Cake\Validation\Validator;
  * Items Model
  *
  * @property \Cake\ORM\Association\BelongsTo $Users
+ * @property \Cake\ORM\Association\HasMany $Images
  *
  * @method \App\Model\Entity\Item get($primaryKey, $options = [])
  * @method \App\Model\Entity\Item newEntity($data = null, array $options = [])
@@ -40,6 +41,9 @@ class ItemsTable extends Table
             'foreignKey' => 'user_id',
             'joinType' => 'INNER'
         ]);
+        $this->hasMany('Images', [
+            'foreignKey' => 'item_id'
+        ]);
     }
 
     /**
@@ -55,6 +59,22 @@ class ItemsTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
+            ->requirePresence('title', 'create')
+            ->notEmpty('title');
+
+        $validator
+            ->requirePresence('category', 'create')
+            ->notEmpty('category');
+
+        $validator
+            ->allowEmpty('description');
+
+        $validator
+            ->decimal('price')
+            ->requirePresence('price', 'create')
+            ->notEmpty('price');
+
+        $validator
             ->allowEmpty('img1');
 
         $validator
@@ -67,16 +87,8 @@ class ItemsTable extends Table
             ->allowEmpty('img4');
 
         $validator
-            ->allowEmpty('description');
-
-        $validator
-            ->requirePresence('title', 'create')
-            ->notEmpty('title');
-
-        $validator
-            ->decimal('price')
-            ->requirePresence('price', 'create')
-            ->notEmpty('price');
+            ->date('date_posted')
+            ->allowEmpty('date_posted');
 
         return $validator;
     }

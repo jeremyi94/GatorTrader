@@ -22,6 +22,18 @@
             <td><?= $item->has('user') ? $this->Html->link($item->user->id, ['controller' => 'Users', 'action' => 'view', $item->user->id]) : '' ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Title') ?></th>
+            <td><?= h($item->title) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Category') ?></th>
+            <td><?= h($item->category) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Description') ?></th>
+            <td><?= h($item->description) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Img1') ?></th>
             <td><?= h($item->img1) ?></td>
         </tr>
@@ -38,20 +50,16 @@
             <td><?= h($item->img4) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Description') ?></th>
-            <td><?= h($item->description) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Title') ?></th>
-            <td><?= h($item->title) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($item->id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Price') ?></th>
             <td><?= $this->Number->format($item->price) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Date Posted') ?></th>
+            <td><?= h($item->date_posted) ?></td>
         </tr>
     </table>
 </div>

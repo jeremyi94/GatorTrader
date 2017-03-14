@@ -8,13 +8,15 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property int $user_id
+ * @property string $title
+ * @property string $category
+ * @property string $description
+ * @property float $price
  * @property string $img1
  * @property string $img2
  * @property string $img3
  * @property string $img4
- * @property string $description
- * @property string $title
- * @property float $price
+ * @property \Cake\I18n\Time $date_posted
  *
  * @property \App\Model\Entity\User $user
  */
