@@ -12,10 +12,11 @@ use Cake\ORM\Entity;
  * @property string $category
  * @property string $description
  * @property float $price
- * @property string $img1
- * @property string $img2
- * @property string $img3
- * @property string $img4
+ * @property int $img1
+ * @property int $img2
+ * @property int $img3
+ * @property int $img4
+ * @property int $sold
  * @property \Cake\I18n\Time $date_posted
  *
  * @property \App\Model\Entity\User $user

@@ -34,28 +34,32 @@
             <td><?= h($item->description) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Img1') ?></th>
-            <td><?= h($item->img1) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Img2') ?></th>
-            <td><?= h($item->img2) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Img3') ?></th>
-            <td><?= h($item->img3) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Img4') ?></th>
-            <td><?= h($item->img4) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($item->id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Price') ?></th>
             <td><?= $this->Number->format($item->price) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Img1') ?></th>
+            <td><?= $this->Number->format($item->img1) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Img2') ?></th>
+            <td><?= $this->Number->format($item->img2) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Img3') ?></th>
+            <td><?= $this->Number->format($item->img3) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Img4') ?></th>
+            <td><?= $this->Number->format($item->img4) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Sold') ?></th>
+            <td><?= $this->Number->format($item->sold) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Date Posted') ?></th>

@@ -25,7 +25,8 @@
             echo $this->Form->input('img2');
             echo $this->Form->input('img3');
             echo $this->Form->input('img4');
-            echo $this->Form->input('date_posted', ['empty' => true]);
+            echo $this->Form->input('sold');
+            echo $this->Form->input('date_posted');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

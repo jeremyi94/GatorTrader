@@ -10,7 +10,6 @@ use Cake\Validation\Validator;
  * Items Model
  *
  * @property \Cake\ORM\Association\BelongsTo $Users
- * @property \Cake\ORM\Association\HasMany $Images
  *
  * @method \App\Model\Entity\Item get($primaryKey, $options = [])
  * @method \App\Model\Entity\Item newEntity($data = null, array $options = [])
@@ -40,9 +39,6 @@ class ItemsTable extends Table
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id',
             'joinType' => 'INNER'
-        ]);
-        $this->hasMany('Images', [
-            'foreignKey' => 'item_id'
         ]);
     }
 
@@ -75,20 +71,34 @@ class ItemsTable extends Table
             ->notEmpty('price');
 
         $validator
-            ->allowEmpty('img1');
+            ->integer('img1')
+            ->requirePresence('img1', 'create')
+            ->notEmpty('img1');
 
         $validator
-            ->allowEmpty('img2');
+            ->integer('img2')
+            ->requirePresence('img2', 'create')
+            ->notEmpty('img2');
 
         $validator
-            ->allowEmpty('img3');
+            ->integer('img3')
+            ->requirePresence('img3', 'create')
+            ->notEmpty('img3');
 
         $validator
-            ->allowEmpty('img4');
+            ->integer('img4')
+            ->requirePresence('img4', 'create')
+            ->notEmpty('img4');
 
         $validator
-            ->date('date_posted')
-            ->allowEmpty('date_posted');
+            ->integer('sold')
+            ->requirePresence('sold', 'create')
+            ->notEmpty('sold');
+
+        $validator
+            ->dateTime('date_posted')
+            ->requirePresence('date_posted', 'create')
+            ->notEmpty('date_posted');
 
         return $validator;
     }

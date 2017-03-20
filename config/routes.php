@@ -81,6 +81,14 @@ Router::connect('/kyle', array('controller' => 'pages', 'action' => 'display', '
 Router::connect('/farbod', array('controller' => 'pages', 'action' => 'display', 'farbod'));
 Router::connect('/kai', array('controller' => 'pages', 'action' => 'display', 'kai'));
 Router::connect('/krunal', array('controller' => 'pages', 'action' => 'display', 'krunal'));
+Router::connect('/myhome', array('controller' => 'pages', 'action' => 'display', 'myhome'));
+Router::connect('/myhome2', array('controller' => 'pages', 'action' => 'display', 'myhome2'));
+Router::connect('/myfile2', array('controller' => 'pages', 'action' => 'display', 'myfile'));
+Router::connect('/myfile2', array('controller' => 'pages', 'action' => 'display', 'myfile2'));
+Router::connect('/displaycode', array('controller' => 'pages', 'action' => 'display', 'displaycode'));
+Router::connect('/search', array('controller' => 'pages', 'action' => 'display', 'search'));
+Router::connect('/myhome4', array('controller' => 'pages', 'action' => 'display', 'myhome4'));
+Router::connect('/myhome5', array('controller' => 'pages', 'action' => 'display', 'myhome5'));
 /**
  * Load all plugin routes.  See the Plugin documentation on
  * how to customize the loading of plugin routes.

@@ -26,6 +26,7 @@
                 <th scope="col"><?= $this->Paginator->sort('img2') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('img3') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('img4') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('sold') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('date_posted') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -39,10 +40,11 @@
                 <td><?= h($item->category) ?></td>
                 <td><?= h($item->description) ?></td>
                 <td><?= $this->Number->format($item->price) ?></td>
-                <td><?= h($item->img1) ?></td>
-                <td><?= h($item->img2) ?></td>
-                <td><?= h($item->img3) ?></td>
-                <td><?= h($item->img4) ?></td>
+                <td><?= $this->Number->format($item->img1) ?></td>
+                <td><?= $this->Number->format($item->img2) ?></td>
+                <td><?= $this->Number->format($item->img3) ?></td>
+                <td><?= $this->Number->format($item->img4) ?></td>
+                <td><?= $this->Number->format($item->sold) ?></td>
                 <td><?= h($item->date_posted) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $item->id]) ?>
