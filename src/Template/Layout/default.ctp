@@ -42,6 +42,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </ul>
         <div class="top-bar-section">
             <ul class="right">
+		<h1><a href="myhome">Vertical Prototype</a></h1>
             </ul>
         </div>
     </nav>

@@ -111,4 +111,15 @@ class ItemsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+	public function tags(){
+		//getting all passed parameters
+		$tags = $this->request->params['pass'];
+		
+		//find tagged items
+		$items = $this->Items->find('tagged',['tags'=> $tags]);
+		
+		//pass into view
+		$this->set(['items'=>$items, 'tags'=>$tags]);
+	}
 }

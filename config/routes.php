@@ -43,6 +43,11 @@ use Cake\Routing\Route\DashedRoute;
  */
 Router::defaultRouteClass(DashedRoute::class);
 
+Router::scope('/items',['controller' => 'Items'],function($routes){
+	$routes->connect('/tagged/*',['action' => 'tags']);
+	}
+);
+
 Router::scope('/', function (RouteBuilder $routes) {
     /**
      * Here, we are connecting '/' (base path) to a controller called 'Pages',
@@ -76,6 +81,7 @@ Router::scope('/', function (RouteBuilder $routes) {
 });
 Router::connect('/about', array('controller' => 'pages', 'action' => 'display', 'about'));
 Router::connect('/jeremy', array('controller' => 'pages', 'action' => 'display', 'jeremy'));
+Router::connect('/result', array('controller' => 'pages', 'action' => 'display', 'result'));
 Router::connect('/rebecca', array('controller' => 'pages', 'action' => 'display', 'rebecca'));
 Router::connect('/kyle', array('controller' => 'pages', 'action' => 'display', 'kyle'));
 Router::connect('/farbod', array('controller' => 'pages', 'action' => 'display', 'farbod'));
@@ -87,6 +93,7 @@ Router::connect('/myfile2', array('controller' => 'pages', 'action' => 'display'
 Router::connect('/myfile2', array('controller' => 'pages', 'action' => 'display', 'myfile2'));
 Router::connect('/displaycode', array('controller' => 'pages', 'action' => 'display', 'displaycode'));
 Router::connect('/search', array('controller' => 'pages', 'action' => 'display', 'search'));
+Router::connect('/search2', array('controller' => 'pages', 'action' => 'display', 'search2'));
 Router::connect('/myhome4', array('controller' => 'pages', 'action' => 'display', 'myhome4'));
 Router::connect('/myhome5', array('controller' => 'pages', 'action' => 'display', 'myhome5'));
 /**
