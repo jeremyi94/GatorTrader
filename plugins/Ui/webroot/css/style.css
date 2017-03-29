@@ -1,0 +1,240 @@
+@import url('reset.css');
+/*
+* Colors, backgrounds for the Resume Template 
+*
+*/
+/* Modular scale
+
+	Pixels	Ems	% of 13
+	1,063.974	66.498	8,184.415
+	751.538	46.971	5,781.062
+	657.586	41.099	5,058.354
+	464.486	29.03	3,572.969
+	406.419	25.401	3,126.300
+	287.074	17.942	2,208.262
+	251.186	15.699	1,932.200
+	177.425	11.089	1,364.808
+	155.245	9.703	1,194.192
+	109.657	6.854	843.515
+	95.949	5.997	738.069
+	67.773	4.236	521.331
+	59.301	3.706	456.162
+	41.887	2.618	322.208
+	36.651	2.291	281.931
+	25.888	1.618	199.138
+	22.652	1.416	174.246
+->	16.000	1		123.077
+->	14.000	0.875	107.692
+	9.889	0.618	76.069
+	8.653	0.541	66.562
+	6.112	0.382	47.015
+	5.348	0.334	41.138
+	3.778	0.236	29.062
+	3.305	0.207	25.423
+	2.335	0.146	17.962
+	2.043	0.128	15.715
+	1.443	0.09	11.100
+	1.263	0.079	9.715
+
+*/
+/* Pallete ----------------------------------------------------*//* GENERAL ----------------------------------------------------*/body {
+  background: url(../img/lghtmesh.png) repeat;
+  font-family: Helvetica, Arial, "sans-serif";
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.7);
+}
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+  font-family: "Lato", Helvetica, Arial, "sans-serif";
+}
+body section {
+  padding-top: 160px;
+  padding-bottom: 160px;
+}
+body p {
+  text-shadow: none;
+  font-size: 16px;
+  line-height: 1.5em;
+}
+body .hero-unit {
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection declarations have to be separate
+ * Also: hot pink! (or customize the background color to match your design)
+ */
+::-moz-selection,
+::selection {
+  background: #fe57a1;
+  color: #fff;
+  text-shadow: none;
+}
+hr {
+  border: 0px;
+  border-top: #ccc 1px solid;
+  border-bottom: #f1f1f1 1px solid;
+  margin: 18px 0px;
+}
+.container {
+  /* Social icons ----------------------------------------------------*/
+  /* TABS ----------------------------------------------------*/
+  /* MAIN ----------------------------------------------------*/
+  /* NAV ----------------------------------------------------*/
+  /* INFORMATION ----------------------------------------------------*/
+  /* FORM ----------------------------------------------------*/
+  /* THUMBNAILS ----------------------------------------------------*/
+  /* FOOTER ----------------------------------------------------*/
+}
+.container a {
+  color: #606060;
+}
+.container a:hover {
+  color: #fe57a1;
+}
+.container a.thumbnail:hover {
+  border-color: #fe57a1;
+}
+.container .page-header {
+  border-bottom: #ccc 1px solid;
+}
+.container .social-icon {
+  display: inline-block;
+  vertical-align: text-top;
+  background-repeat: no-repeat;
+  *margin-right: 0;
+  margin-right: 6px;
+  width: 19px;
+  height: 19px;
+  line-height: 19px;
+  background-position: 0 0;
+}
+.container .social-icon.twitter {
+  background-image: url("../img/social-twitter.png");
+}
+.container .social-icon.dribbble {
+  background-image: url("../img/social-dribbble.png");
+}
+.container .social-icon.myspace {
+  background-image: url("../img/social-myspace.png");
+}
+.container .social-icon.facebook {
+  background-image: url("../img/social-facebook.png");
+}
+.container .social-icon.youtube {
+  background-image: url("../img/social-youtube.png");
+}
+.container .social-icon.vimeo {
+  background-image: url("../img/social-vimeo.png");
+}
+.container .social-icon.tumblr {
+  background-image: url("../img/social-tumblr.png");
+}
+.container .social-icon.forrst {
+  background-image: url("../img/social-forrst.png");
+}
+.container .nav-pills {
+  font-size: 14px;
+}
+.container .nav-pills > .active > a,
+.container .nav-pills > .active > a:hover {
+  background: #fe57a1;
+  text-shadow: none;
+}
+.container #main {
+  margin-top: 70px;
+  font-size: 16px;
+  line-height: 1.5em;
+}
+.container .navbar-inner {
+  background: url(../img/tex2res4.png);
+}
+.container .navbar-inner .important {
+  color: #fe57a1;
+}
+.container .navbar-inner .dropdown-menu {
+  background: #fff;
+}
+.container .navbar-inner .dropdown-menu li > a {
+  color: #444;
+  border-left: 3px solid transparent;
+  text-shadow: none;
+}
+.container .navbar-inner .dropdown-menu li > a:hover,
+.container .navbar-inner .dropdown-menu .active > a,
+.container .navbar-inner .dropdown-menu .active > a:hover {
+  background: none;
+  border-left: 3px solid #fe57a1;
+}
+.container .information {
+  /* Summary ----------------------------------------------------*/
+  /* Experience ----------------------------------------------------*/
+  /* Education ----------------------------------------------------*/
+  /* Awards ----------------------------------------------------*/
+}
+.container .information .summary-section {
+  font-size: 161px;
+}
+.container .information .experience-table .position {
+  margin-bottom: 0px;
+  line-height: 1.2em;
+}
+.container .information .experience-table .date {
+  color: #888888;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 6px;
+}
+.container .information .experience-table small {
+  display: block;
+  color: #fe57a1;
+  font-size: 14px;
+}
+.container .information .experience-table td:first-child {
+  width: 33%;
+}
+.container .information .listing .entry {
+  margin-bottom: 40px;
+}
+.container .information .listing .entry .heading {
+  margin-bottom: 0px;
+  line-height: 1.1em;
+}
+.container .information .listing .entry .date {
+  color: #888888;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 6px;
+  border-bottom: 1px solid #ccc;
+}
+.container .information .awards-list li {
+  list-style-type: none;
+  background: url(../img/icon-award.png) no-repeat 0px 0px;
+  padding-left: 45px;
+  min-height: 40px;
+  margin-bottom: 40px;
+}
+.container #contact-section .help-inline {
+  font-size: 13px;
+}
+.container #contact-section .address-block {
+  font-size: 13px;
+}
+.container .thumbnails li span {
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #888888;
+}
+.container footer {
+  padding-top: 100px;
+  color: #888888;
+}
+.container footer p {
+  font-size: 12px;
+}
