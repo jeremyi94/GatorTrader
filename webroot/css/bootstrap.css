@@ -3953,7 +3953,7 @@ a.thumbnail:hover {
   color: #ffffff;
 }
 .hero-unit {
-  padding: 60px;
+  padding: 30px;
   margin-bottom: 30px;
   background-color: #eeeeee;
   -webkit-border-radius: 6px;
@@ -3967,6 +3967,15 @@ a.thumbnail:hover {
   color: inherit;
   letter-spacing: -1px;
 }
+
+
+
+.hero-unit form input{
+   float: right;
+   margin-top: 25px; 
+   margin-right: 25px;
+}
+
 .hero-unit p {
   font-size: 18px;
   font-weight: 200;
@@ -3988,3 +3997,23 @@ a.thumbnail:hover {
 .invisible {
   visibility: hidden;
 }
+
+.categories {
+    list-style-type: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.categories ul{
+    
+}
+
+.categories li {
+    float: left;
+}
+
+.categories a {
+    
+    padding: 8px;
+}
+

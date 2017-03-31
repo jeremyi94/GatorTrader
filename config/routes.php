@@ -88,7 +88,7 @@ Router::connect('/farbod', array('controller' => 'pages', 'action' => 'display',
 Router::connect('/kai', array('controller' => 'pages', 'action' => 'display', 'kai'));
 Router::connect('/krunal', array('controller' => 'pages', 'action' => 'display', 'krunal'));
 Router::connect('/myhome', array('controller' => 'pages', 'action' => 'display', 'myhome'));
-Router::connect('/myhome2', array('controller' => 'pages', 'action' => 'display', 'myhome2'));
+Router::connect('/example', array('controller' => 'pages', 'action' => 'display', 'example'));
 Router::connect('/myfile2', array('controller' => 'pages', 'action' => 'display', 'myfile'));
 Router::connect('/myfile2', array('controller' => 'pages', 'action' => 'display', 'myfile2'));
 Router::connect('/displaycode', array('controller' => 'pages', 'action' => 'display', 'displaycode'));

@@ -31,7 +31,7 @@ if(isset($_POST['search'])){
                    }
                }
                print($output);
-               if($column['img1']){
+              /** if($column['img1']){
                    echo '<p><img src="webroot/img/items/', $id,'a.jpg" alt="', $description, '" />';
                    if($column['img2']){
                        echo '<p><img src="webroot/img/items/', $id,'b.jpg" alt="', $description, '" />';
@@ -42,7 +42,7 @@ if(isset($_POST['search'])){
                        
                             }
                    }
-               }
+               }*/
                echo '<p>_______________________________________________________________________________________________________________<p>';
                }
                echo '</div>';
