@@ -23,8 +23,8 @@
 					<li><a href="#">Kitchen</a></li>
 					<li><a href="#">Cloths</a></li>
 					<li><a href="#">Others</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Log In</a></li>
+					<li><a href="http://sfsuse.com/~sp17g08/648app/about">About</a></li>
+					<li><a href="http://sfsuse.com/~sp17g08/648app/logins">Log In</a></li>
 				</ul>
 			</nav>
 	</body>
