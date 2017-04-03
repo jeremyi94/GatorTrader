@@ -82,6 +82,7 @@ Router::scope('/', function (RouteBuilder $routes) {
 Router::connect('/about', array('controller' => 'pages', 'action' => 'display', 'about'));
 Router::connect('/jeremy', array('controller' => 'pages', 'action' => 'display', 'jeremy'));
 Router::connect('/result', array('controller' => 'pages', 'action' => 'display', 'result'));
+Router::connect('/resultcategory', array('controller' => 'pages', 'action' => 'display', 'resultcategory'));
 Router::connect('/rebecca', array('controller' => 'pages', 'action' => 'display', 'rebecca'));
 Router::connect('/kyle', array('controller' => 'pages', 'action' => 'display', 'kyle'));
 Router::connect('/farbod', array('controller' => 'pages', 'action' => 'display', 'farbod'));
