@@ -8,17 +8,17 @@
   //-select  the database to use
   $mydb=mysql_select_db("sp17g08");
   //-query  the database table
-  $sql="SELECT  id, title, category FROM Contacts WHERE title LIKE '%" . $name .  "%' OR category LIKE '%" . $name ."%'";
+  $sql="SELECT  title, description, category FROM items WHERE title LIKE '%" . $name .  "%' OR category LIKE '%" . $name ."%'";
   //-run  the query against the mysql query function
   $result=mysql_query($sql);
   //-create  while loop and loop through result set
   while($row=mysql_fetch_array($result)){
           $title  =$row['title'];
           $category=$row['category'];
-          $ID=$row['ID'];
+          $description =$row['description'];
   //-display the result of the array
   echo "<ul>\n";
-  echo "<li>" . "<a  href=\"search.php?id=$ID\">"   .$title . " " . $category .  "</a></li>\n";
+  echo "<li>" . "<a  href=\"search.php?id=$description\">"   .$title . " " . $category .  "</a></li>\n";
   echo "</ul>";
   }
   }

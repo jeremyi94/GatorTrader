@@ -116,4 +116,14 @@ class ItemsTable extends Table
 
         return $rules;
     }
+	
+	public function findTagged(Query $query, array $options){
+		return $this->find()
+			->distinct(['Items.id'])
+			->matching('Tags', function ($q) use ($options){
+			return $q->where(['Tags.title IN'=> $options['tags']]);
+		});
+	}
+
+
 }

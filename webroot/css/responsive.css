@@ -1,0 +1,25 @@
+@media (max-width: 480px) {
+  /* Contact form ----------------------------------------------------*/#contactForm #comments {
+    width: 310px;
+  }
+}
+@media (max-width: 768px) {
+  /* Contact form ----------------------------------------------------*/#contactForm #comments {
+    width: 310px;
+  }
+  body .navbar .nav > li > a,
+  .navbar .dropdown-menu a {
+    color: #fff;
+    text-shadow: none;
+    font-weight: light;
+    font-size: 12px;
+  }
+}
+@media (min-width: 768px) and (max-width: 980px) {
+  /* Contact form ----------------------------------------------------*/#contactForm #comments {
+    width: 360px;
+  }
+}
+@media (min-width: 1200px) {
+  
+}
