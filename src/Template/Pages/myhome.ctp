@@ -6,13 +6,13 @@
 		<link rel="stylesheet" type="text/css" href="/css/myhome.css">
 	</head>
 	<body>
-			<div>
-			<form>
-			<center>
-                                <input type="text" placeholder="Search..." required>
-                                <input type="button" value="Search">
-			</center>
-			</form>
+		<div>
+		<form action = "result" method="post">
+		<center>
+		<input type="text" name="search" placeholder="Search..." required>
+		<input type="submit" value=">>"/>
+		</center>
+		</form>
 			</div>
 			<nav>
 				<ul>
