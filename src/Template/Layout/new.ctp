@@ -73,14 +73,48 @@
         </form>
         <div class="categories">
              <ul>
-                 <li><a href="home">Everything</a></li>
-                <li><a href="furniture">Furniture</a></li>
-                <li><a href="electronics">Electronics</a></li>
-                <li><a href="books">Books</a></li>
-                <li><a href="sports">Sports</a></li>
-                <li><a href="kitchen">Kitchen</a></li>
-                <li><a href="clothes">Clothes</a></li>
-                <li><a href="others">Others</a></li>
+                    <li><form style="display:inline!important;" action="resultcategory" method="post">
+                                                <button type="submit" 
+                                                        name="search" 
+                                                        value="furniture" 
+                                                        class="btn-link">Furniture</button>
+                                        </form></li>
+                    <li><form style="display:inline!important;" action="resultcategory" method="post">
+                                                <button type="submit" 
+                                                        name="search" 
+                                                        value="electronics" 
+                                                        class="btn-link">Electronics</button>
+                                        </form></li>
+                    <li><form style="display:inline!important;" action="resultcategory" method="post">
+                                                <button type="submit" 
+                                                        name="search" 
+                                                        value="books" 
+                                                        class="btn-link">Books</button>
+                                        </form></li>
+                    <li><form style="display:inline!important;" action="resultcategory" method="post">
+                                                <button type="submit" 
+                                                        name="search" 
+                                                        value="sports" 
+                                                        class="btn-link">Sports</button>
+                                        </form></li>
+                    <li><form style="display:inline!important;" action="resultcategory" method="post">
+                                                <button type="submit" 
+                                                        name="search" 
+                                                        value="Kitchen" 
+                                                        class="btn-link">Kitchen</button>
+                                        </form></li>
+                    <li><form style="display:inline!important;" action="resultcategory" method="post">
+                                                <button type="submit" 
+                                                        name="search" 
+                                                        value="clothes" 
+                                                        class="btn-link">Clothes</button>
+                                        </form></li>
+                    <li><form style="display:inline!important;" action="resultcategory" method="post">
+                                                <button type="submit" 
+                                                        name="search" 
+                                                        value="other" 
+                                                        class="btn-link">Other</button>
+                                        </form></li>
             </ul>
         </div>
         <!-- ENDS hero -->
