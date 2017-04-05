@@ -43,7 +43,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         </form>
         <div class="categories"
              <ul>
-                <li><a href="#">Furniture</a></li>
+                <li><a href="//sfsuse.com/~sp17g08/648app/furniture">Furniture</a></li>
                 <li><a href="#">Electronics</a></li>
                 <li><a href="#">Books</a></li>
                 <li><a href="#">Sports</a></li>
