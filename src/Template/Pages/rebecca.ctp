@@ -1,4 +1,5 @@
 
+
 <div style="background-image: url(webroot/img/redwood.jpg); margin-top: -100px; height: 100%; background-repeat: no-repeat">
     <br><br><br>
         <img src = "webroot/img/rebecca.jpg" id="aboutPic">
@@ -7,7 +8,7 @@
             <div id="aboutInfo">
                 <br>
                 <h1 style="color: lightgrey" class="text-center">Rebecca Stankus</h1>
-                <p style="color: lightgray">I am an undergraduate Computer Science student at San Francisco State University. Lorem ipsum
+                <p style="color: lightgray">I am an undergraduate Computer Science student at San Francisco State University. I CHANGED THIS
                 dolor sit amet, consectetur adipiscing elit. Quisque nec quam quis tortor mollis ornare. Nam 
                 lobortis ultricies laoreet. Etiam eu iaculis turpis. Vivamus ac velit rhoncus, tempus leo quis,
                 bibendum eros. Vivamus ac elit metus. Praesent sem tellus, molestie porta mauris ut, eleifend 
