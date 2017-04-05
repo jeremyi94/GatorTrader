@@ -360,13 +360,16 @@ h6 small {
 h1 {
   font-size: 30px;
   line-height: 36px;
+  text-align: center;
 }
 h1 small {
   font-size: 18px;
+   
 }
 h2 {
   font-size: 24px;
   line-height: 36px;
+  text-align: center;
 }
 h2 small {
   font-size: 18px;
@@ -3999,13 +4002,12 @@ a.thumbnail:hover {
 }
 
 .categories {
-    list-style-type: none;
-    display: inline-block;
     text-align: center;
 }
 
 .categories ul{
-    
+    display: inline-block;
+    list-style: none;
 }
 
 .categories li {
@@ -4013,7 +4015,17 @@ a.thumbnail:hover {
 }
 
 .categories a {
-    
     padding: 8px;
 }
 
+#work-section {
+    margin-top: -175px;
+}
+
+.search {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+}
