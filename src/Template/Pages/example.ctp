@@ -29,7 +29,6 @@ endif;
 
 $cakeDescription = 'CakePHP: the rapid development PHP framework';
 ?>
-<div class="container">
 
     <!-- MAIN -->
     <div id="main" role="main">
@@ -216,8 +215,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
             </div>
         </section>
         <!-- ENDS Contact -->
-    </div>
-    <!-- ENDS MAIN -->
+   
     <footer>
     </footer>
 </div>

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-<?= $this->Html->charset() ?>
+        <?= $this->Html->charset() ?>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>
             CSC 648 Group 8
@@ -17,7 +17,7 @@
         <script src="js/modernizr-2.5.3.min.js"></script>
     </head>
 
-<?= $this->Flash->render() ?>
+    <?= $this->Flash->render() ?>
     <div>
 
         <header>
@@ -31,41 +31,67 @@
                         <div class="nav-collapse">
                             <!-- Main nav -->
                             <ul  class="nav">
-                                <li class="active"><a href="#top-section">Top</a></li>
-                                <li><a href="#work-section">Work</a></li>
-                                <li><a href="#info-section">Information</a></li>
-                                <li><a href="#contact-section">Contact</a></li>
+                                <li class="active"><a href="home">Home</a></li>
+                                <li><a href="sell">Sell</a></li>
+                                <li><a href="contact">Contact</a></li>
+                                <li><a href="about">About</a></li>
                             </ul>
                             <!-- ENDS main nav -->
                             <!-- social -->
-                            <ul class="nav pull-right ">
-                                <li class="divider-vertical"></li>
-                                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> Social <b class="caret"></b> </a>
-                                    <ul class="dropdown-menu social-menu">
-                                        <li><a href="#"><i class="social-icon twitter"></i> Twitter</a></li>
-                                        <li><a href="#"><i class="social-icon facebook"></i> Facebook</a></li>
-                                        <li><a href="#"><i class="social-icon dribbble"></i> Dribbble</a></li>
-                                        <li><a href="#"><i class="social-icon forrst"></i> forrst</a></li>
-                                        <li><a href="#"><i class="social-icon myspace"></i> My Space</a></li>
-                                        <li><a href="#"><i class="social-icon vimeo"></i> Vimeo</a></li>
-                                        <li><a href="#"><i class="social-icon youtube"></i> Youtube</a></li>
-                                        <li><a href="#"><i class="social-icon tumblr"></i> Tumblr</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <!-- ENDS Social -->
+            <ul class="nav pull-right ">
+              <li class="divider-vertical"></li>
+              <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> Hello Guest <b class="caret"></b> </a>
+                <ul class="dropdown-menu social-menu">
+                  <li><a href="login">Login</a></li>
+                  <li><a href="account"> My Account</a></li>
+                  <li><a href="logout">Log out</a></li>
+                </ul>
+              </li>
+            </ul>
+            <!-- ENDS Social -->
+
                         </div>
                         <!-- ENDS Collapse -->
                     </div>
                 </div>
             </div>
             <!-- ENDS navbar -->
+             
         </header>
-<?= $this->fetch('content') ?>
+        <div class="container">
+
+    <!-- MAIN -->
+    <div id="main" role="main">
+        <!-- Hero -->
+        <div class="hero-unit">
+            <h1>Gator Trader</h1>
+        </div>
+        <br>
+        <form action = "result" method="post" class="search">
+            <input type="text" name="search" placeholder="Search..." required>
+            <input type="submit" value=">>"/>
+        </form>
+        <div class="categories">
+             <ul>
+                 <li><a href="home">Everything</a></li>
+                <li><a href="furniture">Furniture</a></li>
+                <li><a href="electronics">Electronics</a></li>
+                <li><a href="books">Books</a></li>
+                <li><a href="sports">Sports</a></li>
+                <li><a href="kitchen">Kitchen</a></li>
+                <li><a href="clothes">Clothes</a></li>
+                <li><a href="others">Others</a></li>
+            </ul>
+        </div>
+        <!-- ENDS hero -->
+
+        <?= $this->fetch('content') ?>
+         </div>
+    <!-- ENDS MAIN -->
 
         <footer>
             <hr>
-            <p>&copy; Copyright 2012 <a href="#">Company Name</a> All Rights Reserved | Website Template By <a target="_blank" href="http://www.luiszuno.com">luiszuno</a></p>
+            <p>&copy; Copyright 2017 <a href="about">CSC 648 Team 08</a> All Rights Reserved </a></p>
 
         </footer>
     </div>
