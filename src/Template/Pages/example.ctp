@@ -30,28 +30,6 @@ endif;
 $cakeDescription = 'CakePHP: the rapid development PHP framework';
 ?>
 
-    <!-- MAIN -->
-    <div id="main" role="main">
-        <!-- Hero -->
-        <div class="hero-unit">
-            <h1>Gator Trader</h1>
-        </div>
-        <form action = "result" method="post">
-            <input type="text" name="search" placeholder="Search..." required>
-            <input type="submit" value=">>"/>
-        </form>
-        <div class="categories"
-             <ul>
-                <li><a href="//sfsuse.com/~sp17g08/648app/furniture">Furniture</a></li>
-                <li><a href="#">Electronics</a></li>
-                <li><a href="#">Books</a></li>
-                <li><a href="#">Sports</a></li>
-                <li><a href="#">Kitchen</a></li>
-                <li><a href="#">Clothes</a></li>
-                <li><a href="#">Others</a></li>
-            </ul>
-        </div>
-        <!-- ENDS hero -->
         <!-- Work -->
         <section id="work-section">
             <div  class="page-header">
