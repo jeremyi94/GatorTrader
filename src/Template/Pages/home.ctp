@@ -49,17 +49,5 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
             </ul>
         </section>
         <!-- ENDS work -->
-    <footer>
-    </footer>
-</div>
-<!-- JavaScript at the bottom for fast page loading -->
-<script src="js/jquery-1.7.1.min.js"></script>
-<!-- scripts concatenated and minified via build script -->
-<script src="js/plugins.js"></script>
-<script src="js/bootstrap-dropdown.js"></script>
-<script src="js/bootstrap-scrollspy.js"></script>
-<script src="js/bootstrap-tab.js"></script>
-<script src="js/bootstrap-collapse.js"></script>
-<script src="js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-<script src="js/custom.js"></script>
+
 

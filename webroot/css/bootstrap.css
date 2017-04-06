@@ -194,6 +194,9 @@ a:hover {
 .span4 {
   width: 300px;
 }
+.span3h {
+    width: 212px;
+}
 .span3 {
   width: 220px;
 }
@@ -4014,6 +4017,9 @@ a.thumbnail:hover {
     float: left;
 }
 
+.categories form {
+    padding: 8px;
+}
 .categories a {
     padding: 8px;
 }
@@ -4028,4 +4034,12 @@ a.thumbnail:hover {
 
 footer {
     text-align: center;
+}
+
+.btn-link{
+    border: none;
+    background: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: #585a5e;
 }
