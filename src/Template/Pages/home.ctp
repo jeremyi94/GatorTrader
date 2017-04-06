@@ -51,7 +51,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         <!-- ENDS work -->
     <footer>
     </footer>
-</div>
+
 <!-- JavaScript at the bottom for fast page loading -->
 <script src="js/jquery-1.7.1.min.js"></script>
 <!-- scripts concatenated and minified via build script -->

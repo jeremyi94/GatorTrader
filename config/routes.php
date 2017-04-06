@@ -99,6 +99,9 @@ Router::connect('/myhome4', array('controller' => 'pages', 'action' => 'display'
 Router::connect('/myhome5', array('controller' => 'pages', 'action' => 'display', 'myhome5'));
 Router::connect('/home', array('controller' => 'pages', 'action' => 'display', 'home'));
 Router::connect('/furniture', array('controller' => 'pages', 'action' => 'display', 'furniture'));
+Router::connect('/login', array('controller' => 'pages', 'action' => 'display', 'login'));
+Router::connect('/account', array('controller' => 'pages', 'action' => 'display', 'account'));
+Router::connect('/logout', array('controller' => 'pages', 'action' => 'display', 'logout'));
 /**
  * Load all plugin routes.  See the Plugin documentation on
  * how to customize the loading of plugin routes.
