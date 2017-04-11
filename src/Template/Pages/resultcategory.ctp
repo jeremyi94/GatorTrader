@@ -16,7 +16,7 @@ if(isset($_POST['search'])){
        }else{
            
            while($column = mysqli_fetch_array($query)){
-               echo '<div style="border: solid; border-color: gray;padding:30px;">';
+               echo '<div style="padding:30px" class="page-header">';
                $id = $column['id'];
                $title = $column['title'];	
 	       $description = $column['description'];

@@ -188,6 +188,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                         <li class="address"><i class="icon-home"></i> Address line, city, state ZIP</li>
                         <li class="phone"><i class="icon-comment"></i> +123 456 789</li>
                         <li class="email"><i class="icon-envelope"></i><a href="#"> email@server.com</a></li>
+                        
                     </ul>
                 </div>
             </div>

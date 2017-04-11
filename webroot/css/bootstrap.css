@@ -4050,3 +4050,26 @@ footer {
   font-size: 16px;
   color: #585a5e;
 }
+
+#contact-section {
+    margin-top: -100px;
+}
+
+.messagelist {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.messagelist li {
+    display: inline;
+    padding-left: 10px;
+}
+
+.messagedate {
+    color: #004099;
+}
+
+.username {
+    color: #be140b;
+}

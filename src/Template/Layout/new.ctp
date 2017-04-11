@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="css/responsive.css">
         <link href='http://fonts.googleapis.com/css?family=Lato:700' rel='stylesheet' type='text/css'>
         <script src="js/modernizr-2.5.3.min.js"></script>
+        <script src="jquery-3.2.0.min.js"></script>
     </head>
     <body>
 
