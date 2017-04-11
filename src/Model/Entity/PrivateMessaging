@@ -1,0 +1,15 @@
+<?php
+App::uses('AppModel', 'Model');
+class PrivateMessaging extends Entity {
+}
+
+/**
+ * Item Entity
+ * @property int $user_id
+ * @property int $user_id
+ * @property string $chat_id
+ * @property string $subject
+ * @property string $message
+ * @property float $price
+ * @property int $sold
+ */
