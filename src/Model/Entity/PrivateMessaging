@@ -1,0 +1,20 @@
+<?php
+App::uses('AppModel', 'Model');
+
+namespace PrivateMessaging\Model\Entity;
+use Cake\ORM\Entity;
+
+class PrivateMessaging extends Entity {
+}
+
+/**
+ * Item Entity
+ * @property int $recipient_id
+ * @property int $sender_id
+ * @property string $chat_id
+ * @property string $subject
+ * @property string $message
+ * @property float $price
+ * @property int $sold
+ */
+
