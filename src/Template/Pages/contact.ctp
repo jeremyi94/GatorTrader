@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
@@ -18,10 +19,14 @@ use Cake\Core\Plugin;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\Debugger;
 use Cake\Network\Exception\NotFoundException;
+
 $this->layout = "new";
+
 if (!Configure::read('debug')):
     throw new NotFoundException('Please replace src/Template/Pages/home.ctp with your own version.');
 endif;
+
+
 $cakeDescription = 'CakePHP: the rapid development PHP framework';
 ?>
 <script type="text/javascript">
@@ -59,3 +64,5 @@ window.onload=function () {
             </div>
         </section>
         <!-- ENDS Contact -->
+
+
