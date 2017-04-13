@@ -24,16 +24,21 @@ if (!Configure::read('debug')):
 endif;
 $cakeDescription = 'CakePHP: the rapid development PHP framework';
 ?>
+<script type="text/javascript">
+window.onload=function () {
+    $('#contact').addClass('active');
+};
+</script>
         <!-- Contact -->
         <section id="contact-section" >
             <div  class="page-header">
                 <h1>Contact <small> Get in touch</small></h1>
             </div>
-            <div class="row" >
+            <div class="row">
                 <!-- Form col -->
                 <div class="span8">
-                    <form class="well" id="contactForm" action="#" method="post" >
-                        <label>Your Name</label> 
+                    <form class="well" id="contactForm" action="#" method="post">
+                        <label>Your Name</label>
                         <input type="text" class="input-xlarge" placeholder="Whats your name?" name="name" id="name">
                         <label>Your Email</label>
                         <input type="text" class="input-xlarge" placeholder="How can i contact you?" name="email" id="email">
@@ -42,20 +47,15 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                         <p>
                             <input type="button" value="Send" name="submit" id="submit" class="btn"/>
                         </p>
-                        
-                        
                     </form>
-                    
-                    <div class="span4">
+                </div>
+                <!-- ENDS form col -->
+                <div class="span4">
                     <ul class="address-block unstyled">
                         <li class="address"><i class="icon-home"></i> San Francisco State University</li>
                         <li class="email"><i class="icon-envelope"></i><a href="#"> email@server.com</a></li>
                     </ul>
                 </div>
-                    
-                </div>
-                <!-- ENDS form col -->
-                
             </div>
         </section>
         <!-- ENDS Contact -->
