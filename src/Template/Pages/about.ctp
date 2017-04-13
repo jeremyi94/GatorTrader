@@ -29,6 +29,11 @@ endif;
 
 $cakeDescription = 'CakePHP: the rapid development PHP framework';
 ?>
+<script type="text/javascript">
+window.onload=function () {
+    $('#about').addClass('active');
+};
+</script>
 <div class="text-center">
     <br>
     <h1 style="color: #364878">Meet Team 8...</h1>
@@ -40,6 +45,4 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 <a href="http://sfsuse.com/~sp17g08/648app/farbod">Farbod </a><br><br><br>
 <a href="http://sfsuse.com/~sp17g08/648app/kai">Kai </a><br><br><br>
 <a href="http://sfsuse.com/~sp17g08/648app/krunal">Krunal</a><br><br>
-    
-<img src = "webroot/img/Mountain_Tops.png" id="foot">
 </div>

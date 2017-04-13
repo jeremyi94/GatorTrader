@@ -29,7 +29,11 @@ endif;
 
 $cakeDescription = 'CakePHP: the rapid development PHP framework';
 ?>
-
+<script type="text/javascript">
+window.onload=function () {
+    $('#home').addClass('active');
+};
+</script>
         <!-- Work -->
         <br><br>
         <section id="work-section">
@@ -55,7 +59,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                     $id = $item['id'];
                     $description = $item['description'];
                     $price = $item['price'];
-                    echo '<ul class="thumbnails"><li class="span3"><a href="img/dummies/b-02.jpg" class="thumbnail"> <img src="webroot/img/items/', $id, 'a.jpg" alt="', $description, '"/> </a> <h2 class="thumb-caption">$', $price, '</h2> </li>';
+                    echo '<li class="span3"><a href="img/dummies/b-02.jpg" class="thumbnail"> <img src="webroot/img/items/', $id, 'a.jpg" alt="', $description, '"/> </a> <h2 class="thumb-caption">$', $price, '</h2> </li>';
                 }
                 ?>
            </ul>            
