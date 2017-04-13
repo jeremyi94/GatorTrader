@@ -102,7 +102,6 @@ Router::connect('/furniture', array('controller' => 'pages', 'action' => 'displa
 Router::connect('/login', array('controller' => 'pages', 'action' => 'display', 'login'));
 Router::connect('/account', array('controller' => 'pages', 'action' => 'display', 'account'));
 Router::connect('/logout', array('controller' => 'pages', 'action' => 'display', 'logout'));
-Router::connect('/sign_up', array('controller' => 'pages', 'action' => 'display', 'sign_up'));
 Router::connect('/contact', array('controller' => 'pages', 'action' => 'display', 'contact'));
 Router::connect('/sell', array('controller' => 'pages', 'action' => 'display', 'sell'));
 Router::connect('/item', array('controller' => 'pages', 'action' => 'display', 'item'));
