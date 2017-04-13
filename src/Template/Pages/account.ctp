@@ -1,3 +1,5 @@
+
+
 <?php
 use Cake\Cache\Cache;
 use Cake\Core\Configure;
@@ -35,4 +37,5 @@ $this->layout = "new";
             </div>
         </section>
         <!-- ENDS Contact -->
+        <script>document.title = "Gator Trader-My Account";</script>
 

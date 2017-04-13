@@ -29,6 +29,11 @@ endif;
 
 $cakeDescription = 'CakePHP: the rapid development PHP framework';
 ?>
+<script type="text/javascript">
+window.onload=function () {
+    $('#contact').addClass('active');
+};
+</script>
         <!-- Contact -->
         <section id="contact-section" >
             <div  class="page-header">

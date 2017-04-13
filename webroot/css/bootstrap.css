@@ -2488,7 +2488,6 @@ input[type="submit"].btn.btn-mini {
 }
 .nav > li > a:hover {
   text-decoration: none;
-  background-color: #eeeeee;
 }
 .nav .nav-header {
   display: block;
@@ -3967,6 +3966,7 @@ a.thumbnail:hover {
 }
 .hero-unit {
   padding: 30px;
+  margin-top: 100px;
   margin-bottom: 30px;
   background-color: #eeeeee;
   -webkit-border-radius: 6px;
@@ -4035,10 +4035,6 @@ a.thumbnail:hover {
     margin-top: -175px;
 }
 
-.search {
-    text-align: center;
-}
-
 footer {
     text-align: center;
 }
@@ -4073,3 +4069,50 @@ footer {
 .username {
     color: #be140b;
 }
+
+.ch {
+    color: purple;
+}
+
+    #custom-search-form {
+        margin:0;
+        margin-top: 5px;
+        padding: 0;
+        text-align: center;
+    }
+ 
+    #custom-search-form .search-query {
+        padding-right: 3px;
+        padding-right: 4px \9;
+        padding-left: 3px;
+        padding-left: 4px \9;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+ 
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+ 
+    #custom-search-form button {
+        border: 0;
+        background: none;
+        /** belows styles are working good */
+        padding: 2px 5px;
+        margin-top: 2px;
+        position: relative;
+        left: -28px;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+ 
+    .search-query:focus + button {
+        z-index: 3;   
+    }
+    
+    .buy {
+        margin-top: 20px;
+    }
