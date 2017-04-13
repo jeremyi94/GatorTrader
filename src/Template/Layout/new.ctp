@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="css/responsive.css">
         <link href='http://fonts.googleapis.com/css?family=Lato:700' rel='stylesheet' type='text/css'>
         <script src="js/modernizr-2.5.3.min.js"></script>
+        <script src="jquery-3.2.0.min.js"></script>
     </head>
     <body>
 
@@ -32,8 +33,8 @@
                             <div class="nav-collapse">
                                 <!-- Main nav -->
                                 <ul  class="nav">
-                                    <li class="active"><a href="home">Home</a></li>
-                                    <li><a href="sell">Sell</a></li>
+                                    <li><a href="home">Home</a></li>
+                                    <li><a href="http://sfsuse.com/~sp17g08/648app/sell">Sell</a></li>
                                     <li><a href="contact">Contact</a></li>
                                     <li><a href="about">About</a></li>
                                 </ul>
@@ -108,7 +109,7 @@
                             <li><form style="display:inline!important;" action="resultcategory" method="post">
                                     <button type="submit" 
                                             name="search" 
-                                            value="clothes" 
+                                            value="clothing" 
                                             class="btn-link">Clothes</button>
                                 </form></li>
                             <li><form style="display:inline!important;" action="resultcategory" method="post">

@@ -14,9 +14,9 @@ if(isset($_POST['search'])){
        if($count == 0){
            $output = 'No results found!';
        }else{
-            echo '<div style="border: solid; border-color: gray;padding:30px;">';
+           
            while($column = mysqli_fetch_array($query)){
-              
+               echo '<div style="padding:30px" class="page-header">';
                $id = $column['id'];
                $title = $column['title'];	
 	       $description = $column['description'];
@@ -44,7 +44,7 @@ if(isset($_POST['search'])){
                    echo ' </ul>';
                }
                print($output);
-               echo ' </div>';
+               echo '</div><br>';
               /** if($column['img1']){
                    echo '<p><img src="webroot/img/items/', $id,'a.jpg" alt="', $description, '" />';
                    if($column['img2']){

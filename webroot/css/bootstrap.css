@@ -41,6 +41,7 @@ a:focus {
 }
 a:hover,
 a:active {
+    color: purple;
   outline: 0;
 }
 sub,
@@ -3562,12 +3563,18 @@ a.thumbnail:hover {
 .thumbnail > img {
   display: block;
   max-width: 100%;
+  max-height: 100%;
   margin-left: auto;
   margin-right: auto;
 }
 .thumbnail .caption {
   padding: 9px;
 }
+
+.thumb-caption {
+    color:gray;
+}
+
 .label {
   padding: 1px 4px 2px;
   font-size: 10.998px;
@@ -4042,4 +4049,27 @@ footer {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   color: #585a5e;
+}
+
+#contact-section {
+    margin-top: -100px;
+}
+
+.messagelist {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.messagelist li {
+    display: inline;
+    padding-left: 10px;
+}
+
+.messagedate {
+    color: #004099;
+}
+
+.username {
+    color: #be140b;
 }

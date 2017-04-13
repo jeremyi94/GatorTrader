@@ -28,18 +28,16 @@ if (!Configure::read('debug')):
 endif;
 
 $cakeDescription = 'CakePHP: the rapid development PHP framework';
-?>
-<div class="text-center">
-    <br>
-    <h1 style="color: #364878">Meet Team 8...</h1>
-<br>
-
-<a href="http://sfsuse.com/~sp17g08/648app/jeremy">Jeremy Ibay</a><br><br><br>
-<a href="http://sfsuse.com/~sp17g08/648app/rebecca">Rebecca Stankus</a><br><br><br>
-<a href="http://sfsuse.com/~sp17g08/648app/kyle">Kyle Kamibayashi</a><br><br><br>
-<a href="http://sfsuse.com/~sp17g08/648app/farbod">Farbod </a><br><br><br>
-<a href="http://sfsuse.com/~sp17g08/648app/kai">Kai </a><br><br><br>
-<a href="http://sfsuse.com/~sp17g08/648app/krunal">Krunal</a><br><br>
-    
-<img src = "webroot/img/Mountain_Tops.png" id="foot">
+?><br>
+<div class="index large-4 medium-4 large-offset-4 medium-offset-4 columns">
+	<div class="panel">
+		<h2 class="text-center">Login</h2>
+                <center>
+		<?= $this->Form->create(); ?>
+			<?= $this->Form->input('email'); ?>
+			<?= $this->Form->input('password', array('type' => 'password')); ?>
+			<?= $this->Form->submit('Login', array('class' => 'button')); ?>
+		<?= $this->Form->end(); ?>
+                </center>
+	</div>
 </div>
