@@ -17,7 +17,7 @@ if (isset($_POST['search'])) {
         echo 'No results found!';
     } else {
         while ($column = mysqli_fetch_array($query)) {
-            echo '<div style="padding:3%" class="row page-header">';
+            echo '<div class="row page-header">';
             $id = $column['id'];
             $title = $column['title'];
             $description = $column['description'];
