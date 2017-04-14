@@ -21,13 +21,6 @@ use Cake\Error\Debugger;
 use Cake\Network\Exception\NotFoundException;
 
 $this->layout = "new";
-
-
-if (!Configure::read('debug')):
-    throw new NotFoundException('Please replace src/Template/Pages/home.ctp with your own version.');
-endif;
-
-$cakeDescription = 'CakePHP: the rapid development PHP framework';
 ?>
 <script type="text/javascript">
 window.onload=function () {
@@ -35,7 +28,6 @@ window.onload=function () {
 };
 </script>
         <!-- Work -->
-        <br><br>
         <section id="work-section">
             <div  class="page-header">
                 <h1>Featured Items </h1>

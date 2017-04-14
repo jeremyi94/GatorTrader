@@ -4116,3 +4116,7 @@ footer {
     .buy {
         margin-top: 20px;
     }
+    
+    #category-active {
+        color: purple;
+    }

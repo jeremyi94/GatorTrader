@@ -1,27 +1,24 @@
-<?php ?>
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
     <head>
+        <title>Gator Trader-Home</title>
         <?= $this->Html->charset() ?>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Gator Trader-Home</title>
-
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/bootstrap-responsive.css">
         <link rel="stylesheet" href="js/fancybox/jquery.fancybox-1.3.4.css">
         <link rel="stylesheet" href="css/responsive.css">
-        <link rel="stylesheet" href="css/search-results.css">
         <link href='http://fonts.googleapis.com/css?family=Lato:700' rel='stylesheet' type='text/css'>
         <script src="js/modernizr-2.5.3.min.js"></script>
-
-
     </head>
-    <body>
-
+    <body id="top-section" data-spy="scroll" data-target="#topnav"  data-offset="70" >
         <?= $this->Flash->render() ?>
-        <div>
-
+        <div class="container">
             <header>
                 <!-- navbar -->
                 <div id="topnav" class="navbar navbar-fixed-top">
@@ -51,26 +48,20 @@
                                     </li>
                                 </ul>
                                 <!-- ENDS Social -->
-
                             </div>
                             <!-- ENDS Collapse -->
                         </div>
                     </div>
                 </div>
                 <!-- ENDS navbar -->
-
             </header>
-
-            <div class="container">
-
                 <!-- MAIN -->
                 <div id="main" role="main">
                     <!-- Hero -->
                     <div class="hero-unit">
                         <h1>Gator Trader</h1>
                     </div>
-                    <br>
-                   
+                    <!-- ENDS hero -->
 
                     <?= $this->fetch('content') ?>
                 </div>
@@ -93,10 +84,6 @@
             <script src="js/bootstrap-collapse.js"></script>
             <script src="js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
             <script src="js/custom.js"></script>
-
-
-
         </div>
     </body>
 </html>
-
