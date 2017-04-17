@@ -66,6 +66,7 @@
                     <!-- Hero -->
                     <div class="hero-unit">
                         <h1>Gator Trader</h1>
+                        <h2>A Buy and Sell Website for San Francisco State University</h2>
                     </div>
                     <br>
                     <form action = "result" method="post" class="search">
