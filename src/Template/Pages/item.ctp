@@ -7,8 +7,8 @@ $link = mysqli_connect("127.0.0.1", "sp17g08", "csc648sp17g08") or die("couldn't
 mysqli_select_db($link, "sp17g08") or die("dead...");
 $output = "";
 //collect
-if (isset($_POST['search'])) {
-    $searchq = $_POST['search'];
+if (isset($_GET['id'])) {
+    $searchq = $_GET['id'];
     $searchq = preg_replace("#[^0-9a-z]#i", "", $searchq);
 
     $query = mysqli_query($link, "SELECT * FROM items WHERE id LIKE '$searchq'") or die("could not search");
@@ -35,3 +35,4 @@ if (isset($_POST['search'])) {
     echo '</div>';
 }
 ?>
+
