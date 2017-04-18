@@ -96,7 +96,7 @@ if (isset($_POST['search'])) {
             $description = $column['description'];
             $price = $column['price'];
             if ($column['img1']) {
-                echo '<a href="item"><div class="span3">'
+                echo '<a href="item?id='.$id.'"><div class="span3">'
                 . '<div class="thumbnail"><img src="webroot/img/items/', $id, 'a.jpg" alt="', $description, '"/></div>'
                 . '<h2 class="thumb-caption">$', $price, '</h2>'
                 . '</div> ';
@@ -136,5 +136,3 @@ if (isset($_POST['search'])) {
     }
 }
 ?>
-
-
