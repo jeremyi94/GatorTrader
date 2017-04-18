@@ -1,4 +1,22 @@
+<style>
+    .button {
+    align:center;
+    width: 115px;
+    height: 25px;
+    background: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: yellow;
+    font-weight: bold;
+    position: relative;
+    }
+   p{
+    padding-top: 10px;
+    padding-bottom: 10px;
+   }
 
+</style>
 <?php
 
 $this->layout = "new";
@@ -24,9 +42,9 @@ if (isset($_GET['id'])) {
             $description = $column['description'];
             $price = $column['price'];
             if ($column['img1']) {
-                echo '<a href="item"><div class="center">'
+                echo '<a><div class="center">'
                 . '<div class="image" align = "center"><img src="webroot/img/items/', $id, 'a.jpg" alt="', $description, '" style="width:50%"/></div>'
-                . '<h2 class="thumb-caption">$', $price, '</h2>'
+                . '<h2 class="thumb-caption">$', $price, '</h2><p align="center"><a class = "button" href="message">buy now</a></p>'
                 . '</div> ';
             }
             echo '<div class="center"> <h1><small>' . $title . '</small></h1><br class="center"><p align="center">' . $description . '</div></div></a><br>';
@@ -35,4 +53,3 @@ if (isset($_GET['id'])) {
     echo '</div>';
 }
 ?>
-
