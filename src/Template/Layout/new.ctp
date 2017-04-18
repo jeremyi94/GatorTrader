@@ -60,6 +60,7 @@
                     <!-- Hero -->
                     <div class="hero-unit">
                         <h1>Gator Trader</h1>
+                        <h2>A Buy and Sell Website for San Francisco State University</h2>
                     </div>
                     <br>
                     <div class="container">
@@ -133,7 +134,7 @@
                 </div>
                 <!-- ENDS MAIN -->
 
-                <footer>
+                <footer style="clear:left;">
                     <hr>
                     <p>&copy; Copyright 2017 <a href="about">CSC 648 Team 08</a> All Rights Reserved </p>
 
