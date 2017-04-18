@@ -51,7 +51,7 @@ if (isset($_POST['search'])) {
             . '<h2 class="thumb-caption">$', $price, '</h2>'
             . '</div> ';
         }
-        echo '<div class="span6"> <h1><small>' . $title . '</small></h1><br><p>' . $description . '</div><a class = "button" href="item?id='.$id.'">buy now</a></div></a><br>';
+        echo '<div class="span6"> <h1><small>' . $title . '</small></h1><br></a><p>' . $description . '</div><form action="reply"><button type="submit" class="btn buy">Buy Now</button></form></div><br>';
     }
     echo '</div>';
 }
