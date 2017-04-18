@@ -1,19 +1,28 @@
+<style>
+    .button {
+  
+    width: 115px;
+    height: 25px;
+    background: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: yellow;
+    font-weight: bold;
+}
+</style>
 <?php
-
 $this->layout = "new";
-
 $link = mysqli_connect("127.0.0.1", "sp17g08", "csc648sp17g08") or die("couldn't connect");
 mysqli_select_db($link, "sp17g08") or die("dead...");
 //collect
 if (isset($_POST['search'])) {
     $searchq = $_POST['search'];
     $searchq = preg_replace("#[^0-9a-z]#i", "", $searchq);
-
     $query = mysqli_query($link, "SELECT * FROM items WHERE title LIKE '%$searchq%' OR description LIKE'%$searchq%'OR category LIKE'%$searchq%'") or die("could not search");
     $count = mysqli_num_rows($query);
     // the select forms to choose our two options for sorting the price
     echo '<center><div style="padding: 50px">';
-
     echo'<select id="samples">
         <option value="default">choose a type of sorting</option>
         <option value="0">Sort by Price: Low to High</option>
@@ -22,7 +31,6 @@ if (isset($_POST['search'])) {
         <input type="button" id="apply_sample" value="Go"> <noscript></noscript>';
     echo'<br>';
     echo'<br>';
-
     // making our count center and bigger as well
     echo '<font color = "black" size="3">';
     // this shows the number of our items that we searched
@@ -31,7 +39,6 @@ if (isset($_POST['search'])) {
     echo '<br>';
     '</font></div>';
     echo '<div style="padding: 5%">';
-
     while ($column = mysqli_fetch_array($query)) {
         echo '<div class="row page-header">';
         $id = $column['id'];
@@ -39,14 +46,13 @@ if (isset($_POST['search'])) {
         $description = $column['description'];
         $price = $column['price'];
         if ($column['img1']) {
-            echo '<a href="item"><div class="span3">'
+            echo '<a href="item?id='.$id.'"><div class="span3">'
             . '<div class="thumbnail"><img src="webroot/img/items/', $id, 'a.jpg" alt="', $description, '"/></div>'
             . '<h2 class="thumb-caption">$', $price, '</h2>'
             . '</div> ';
         }
         echo '<div class="span6"> <h1><small>' . $title . '</small></h1><br></a><p>' . $description . '</div><form action="reply"><button type="submit" class="btn buy">Buy Now</button></form></div><br>';
     }
-
     echo '</div>';
 }
 ?>
