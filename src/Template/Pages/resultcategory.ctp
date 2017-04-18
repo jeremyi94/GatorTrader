@@ -117,8 +117,9 @@ if (isset($_POST['search'])) {
                   } */
                 //echo ' </ul>';
             }
-            echo '<div class="span6"> <h1><small>' . $title . '</small></h1><br><p>' . $description . '</div>'
-                    . '<a class = "button" href="item?id='.$id.'">buy now</a></div></a><br>';
+
+            echo '<div class="span6"> <h1><small>' . $title . '</small></h1><br><p>' . $description . '</div><form action="reply"><button type="submit" class="btn buy">Buy Now</button></form></div></a><br>';
+
             /** if($column['img1']){
               echo '<p><img src="webroot/img/items/', $id,'a.jpg" alt="', $description, '" />';
               if($column['img2']){
