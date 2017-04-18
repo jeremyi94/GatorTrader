@@ -84,6 +84,17 @@ if (isset($_POST['search'])) {
 
     $query = mysqli_query($link, "SELECT * FROM items WHERE category LIKE '%$searchq%' OR description LIKE'%$searchq%'") or die("could not search");
     $count = mysqli_num_rows($query);
+    
+    echo '<center><div style="padding: 50px">';
+    echo'<select id="samples">
+        <option value="default">choose a type of sorting</option>
+        <option value="0">Sort by Price: Low to High</option>
+        <option value="1">Sort by Price: High to Low</option>
+        </select>
+        <input type="button" id="apply_sample" value="Go"> <noscript></noscript>';
+    echo'<br>';
+    echo'<br>';
+    
     echo '<div style="padding: 5%">';
     if ($count == 0) {
         $output = 'No results found!';
