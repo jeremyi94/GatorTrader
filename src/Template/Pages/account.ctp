@@ -19,7 +19,7 @@ $this->layout = "new";
                 
                 <div class="span8">
                     <h1>Messages</h1>
-                    <div class="page-header"><a href="#"><ul class="messagelist"><li class="messagedate">03/12/17 12:45p.m.</li><li class="username"> JuneBug </li><li> So we're meeting today at the Caeser Chavez building... </li></ul></a></div>
+                    <div class="page-header"><a href="#" data-toggle="modal" data-target="#message"><ul class="messagelist"><li class="messagedate">03/12/17 12:45p.m.</li><li class="username"> JuneBug </li><li> So we're meeting today at the Caeser Chavez building... </li></ul></a></div>
                     <div class="page-header"><a href="#"><ul class="messagelist"><li class="messagedate">03/10/17 10:11a.m.</li><li class="username"> ShowBoats </li><li> I have a question about the goat you listed for sale on...</li></ul></a></div>
                     <div class="page-header"><a href="#"><ul class="messagelist"><li class="messagedate">03/07/17 08:01p.m.</li><li class="username"> MaryJane </li><li> Are you still selling the bow tie? I would like to see... </li></ul></a></div>
                 </div>
@@ -36,6 +36,7 @@ $this->layout = "new";
                 </div>
             </div>
         </section>
+<div id='message'></div>
         <!-- ENDS Contact -->
         <script>document.title = "Gator Trader-My Account";</script>
 
