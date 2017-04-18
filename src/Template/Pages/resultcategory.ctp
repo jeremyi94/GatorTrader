@@ -1,3 +1,16 @@
+<style>
+    .button {
+  
+    width: 115px;
+    height: 25px;
+    background: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: yellow;
+    font-weight: bold;
+}
+</style>
 <?php
 
 use Cake\Cache\Cache;
@@ -71,26 +84,10 @@ if (isset($_POST['search'])) {
 
     $query = mysqli_query($link, "SELECT * FROM items WHERE category LIKE '%$searchq%' OR description LIKE'%$searchq%'") or die("could not search");
     $count = mysqli_num_rows($query);
-     // the select forms to choose our two options for sorting the price
-    echo '<center><div style="padding: 50px">';
-
-    echo'<select id="samples">
-        <option value="default">choose a type of sorting</option>
-        <option value="0">Sort by Price: Low to High</option>
-        <option value="1">Sort by Price: High to Low</option>
-        </select>
-        <input type="button" id="apply_sample" value="Go"> <noscript></noscript>';
-    echo'<br>';
-    echo'<br>';
-
-    // making our count center and bigger as well
-    echo '<font color = "black" size="3">';
-    // this shows the number of our items that we searched
-    echo "Found " . $count . " items";
-    echo '<br>';
-    echo '<br>';
-    '</font></div>';
-    echo '<div style="padding: 5%">'; 
+    echo '<div style="padding: 5%">';
+    if ($count == 0) {
+        $output = 'No results found!';
+    } else {
 
         while ($column = mysqli_fetch_array($query)) {
             echo '<div class="row page-header">';
@@ -121,12 +118,7 @@ if (isset($_POST['search'])) {
                 //echo ' </ul>';
             }
             echo '<div class="span6"> <h1><small>' . $title . '</small></h1><br><p>' . $description . '</div>'
-                    . '<form style="display:inline!important;" action="item" method="post">
-                                    <button type="submit" 
-                                            name="search" 
-                                            value="'.$id.'" 
-                                            class= "btn buy">Buy Now</button>
-                                </form></div></a><br>';
+                    . '<a class = "button" href="item?id='.$id.'">buy now</a></div></a><br>';
             /** if($column['img1']){
               echo '<p><img src="webroot/img/items/', $id,'a.jpg" alt="', $description, '" />';
               if($column['img2']){
@@ -141,7 +133,8 @@ if (isset($_POST['search'])) {
               } */
         }
         echo '</div>';
-    
+    }
 }
 ?>
+
 
