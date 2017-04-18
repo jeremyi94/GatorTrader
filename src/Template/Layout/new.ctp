@@ -81,7 +81,7 @@
                                     <button type="submit" 
                                             name="search" 
                                             value="home" 
-                                            class="btn-link" <?php if ($_SERVER['REQUEST_URI'] == "/~rstankus/648app/home") echo 'id="category-active"';?>>Everything</button>
+                                            class="btn-link" <?php if ($_SERVER['REQUEST_URI'] == "/~sp17g08/648app/home") echo 'id="category-active"';?>>Everything</button>
                                 </form></li>
                             <li id="furniture"><form style="display:inline!important;" action="resultcategory" method="post">
                                     <button type="submit" 
