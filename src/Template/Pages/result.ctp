@@ -46,12 +46,12 @@ if (isset($_POST['search'])) {
         $description = $column['description'];
         $price = $column['price'];
         if ($column['img1']) {
-            echo '<a href="item"><div class="span3">'
+            echo '<a href="item?id='.$id.'"><div class="span3">'
             . '<div class="thumbnail"><img src="webroot/img/items/', $id, 'a.jpg" alt="', $description, '"/></div>'
             . '<h2 class="thumb-caption">$', $price, '</h2>'
             . '</div> ';
         }
-        echo '<div class="span6"> <h1><small>' . $title . '</small></h1><br><p>' . $description . '</div><a class = "button" href="item?id='.$id.'">buy now</a></a><br>';
+        echo '<div class="span6"> <h1><small>' . $title . '</small></h1><br><p>' . $description . '</div><a class = "button" href="item?id='.$id.'">buy now</a></div></a><br>';
     }
     echo '</div>';
 }
