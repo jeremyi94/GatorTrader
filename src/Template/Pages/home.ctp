@@ -51,7 +51,7 @@ window.onload=function () {
                     $id = $item['id'];
                     $description = $item['description'];
                     $price = $item['price'];
-                    echo '<li class="span3"><a href="img/dummies/b-02.jpg" class="thumbnail"> <img src="webroot/img/items/', $id, 'a.jpg" alt="', $description, '"/> </a> <h2 class="thumb-caption">$', $price, '</h2> </li>';
+                    echo '<li class="span3"><a href="item" class="thumbnail"> <img src="webroot/img/items/', $id, 'a.jpg" alt="', $description, '"/> </a> <h2 class="thumb-caption">$', $price, '</h2> </li>';
                 }
                 ?>
            </ul>            
