@@ -8,12 +8,6 @@ use Cake\Network\Exception\NotFoundException;
 
 $this->layout = "new";
 ?>
-<script type="text/javascript">
-window.onload=function () {
-    $('#contact').addClass('active');
-};
-</script>
-           
             <div class="row">
                 <!-- Form col -->
                 <div class='span2'><p></div>
