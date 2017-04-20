@@ -20,7 +20,7 @@ window.onload=function () {
             </div>
             <div class="row">
                 <!-- Form col -->
-                <div class="span8">
+                <div class="span8 offset2">
                     <form class="well" id="contactForm" action="#" method="post">
                         <label>Your Name</label>
                         <input type="text" class="input-xlarge" placeholder="Whats your name?" name="name" id="name">
@@ -34,14 +34,12 @@ window.onload=function () {
                     </form>
                 </div>
                 <!-- ENDS form col -->
-                <div class="span4">
-                    <ul class="address-block unstyled">
-                        <li class="address"><i class="icon-home"></i> San Francisco State University</li>
-                        <li class="email"><i class="icon-envelope"></i><a href="#"> email@server.com</a></li>
-                    </ul>
+                <div class="span6 offset3">
+                    <h3> San Francisco State University<i class="icon-envelope"></i><a href="#"> <small>email@server.com</small></a></h3>
                 </div>
             </div>
         </section>
         <!-- ENDS Contact -->
+        <script>document.title = "Gator Trader-Contact";</script>
 
 

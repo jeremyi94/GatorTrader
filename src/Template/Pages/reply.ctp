@@ -19,13 +19,14 @@ $this->layout = "new";
                         <label>Message</label>
                         <textarea class="input-xxlarge"  rows="4"  name="comments"  id="comments"></textarea>
                         <p>
-                            <input type="button" value="Send" name="submit" id="submit" class="btn"/>
+                            <input type="button" value="Send" name="submit" id="send" class="btn"/>
                         </p>
                     </form>
                 </div>
                 <!-- ENDS form col -->
                 
             </div>
+<script>document.title = "Gator Trader-Messaging";</script>
 
 
 

@@ -42,7 +42,7 @@ window.onload=function () {
         <!-- Work -->
         <br><br>
         <section id="work-section">
-            <div class="span8">
+            <div class="span8 offset2">
                     <form class="well" id="contactForm" action="#" method="post">
                         <label>Title</label>
                         <input type="text" class="input-xlarge" name="title" id="title">
@@ -59,7 +59,7 @@ window.onload=function () {
                             <option value="Clothes">Clothes</option>
                             <option value="Other">Other</option>
                         </select>
-                        <label>Upload an Image</label>
+                        <label>Upload as many as 4 images...</label>
                         <div class="image-upload">
                             <label for="file-input">
                                 <topcorner><img src="http://www.chatterboxwalls.co.uk/images/camera-icon-md.gif" height="60" width="60"/></topcorner>
