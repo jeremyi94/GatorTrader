@@ -24,6 +24,11 @@ if (!Configure::read('debug')):
 endif;
 $cakeDescription = 'CakePHP: the rapid development PHP framework';
 ?>
+<script type="text/javascript">
+window.onload=function () {
+    $('#about').addClass('active');
+};
+</script>
 <br>
 <br>
 <br>
