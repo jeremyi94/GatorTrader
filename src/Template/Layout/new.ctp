@@ -26,8 +26,10 @@
                 <!-- navbar -->
                 <div id="topnav" class="navbar navbar-fixed-top">
                     <div class="navbar-inner">
+                        <a href="http://sfsuse.com/~jeremyi/mything/home">
                         <img src="https://lh3.googleusercontent.com/UnlUyVcjDFOg1ncP2sibv4FDACx17FGnUgRt6lGa1OmZbnXesLW_Qi1m2laSmwCfqngnMu8g7wW1J_ndw583U3d11uid0fHgr6KsrmzZh2rNEa9N5I30ED6dNehdooQQGZCjees" style="float: left;" width="210px" height="210px"/>                    
-                        <div class="container">
+                        </a>
+                            <div class="container">
                             <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
                             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
                             <!-- Collapse - Everything you want hidden at 940px or less, place within here -->
