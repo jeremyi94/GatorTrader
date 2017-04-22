@@ -23,6 +23,7 @@ use Cake\Network\Exception\NotFoundException;
 $this->layout = "simple";
 ?>
 <br>
+<div>
 <div class="container">
     <div class="row">
         <div class="span12">
@@ -135,8 +136,9 @@ if (isset($_POST['search'])) {
                   } */
                 //echo ' </ul>';
             }
-
-            echo '<div class="span6"> <h1><small>' . $title . '</small></h1><br><p>' . $description . '</div><form action="reply"><button type="submit" class="btn buy">Buy Now</button></form></div></a><br>';
+            else
+                echo '<a href="item?id='.$id.'">';
+            echo '<div class="span6"> <h1><small>' . $title . '</small></h1><br><p>' . $description . '</div><form action="reply"><button type="submit" class="btn buy">Buy Now</button></form></a></div><br>';
 
             /** if($column['img1']){
               echo '<p><img src="webroot/img/items/', $id,'a.jpg" alt="', $description, '" />';
@@ -150,8 +152,9 @@ if (isset($_POST['search'])) {
               }
               }
               } */
+            
         }
-        echo '</div>';
     }
 }
 ?>
+<script>document.title = "Gator Trader-Search Results";</script>

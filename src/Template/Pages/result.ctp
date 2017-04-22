@@ -56,3 +56,4 @@ if (isset($_POST['search'])) {
     echo '</div>';
 }
 ?>
+<script>document.title = "Gator Trader-Messaging";</script>

@@ -36,8 +36,9 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 		<?= $this->Form->create(); ?>
 			<?= $this->Form->input('email'); ?>
 			<?= $this->Form->input('password', array('type' => 'password')); ?>
-			<?= $this->Form->submit('Login', array('class' => 'button')); ?>
+			<?= $this->Form->submit('Login', array('class' => 'btn')); ?>
 		<?= $this->Form->end(); ?>
                 </center>
 	</div>
 </div>
+<script>document.title = "Gator Trader-Login";</script>

@@ -46,3 +46,4 @@ window.onload=function () {
 <a href="http://sfsuse.com/~sp17g08/648app/kai">Kai </a><br><br><br>
 <a href="http://sfsuse.com/~sp17g08/648app/krunal">Krunal</a><br><br>
 </div>
+<script>document.title = "Gator Trader-About";</script>
