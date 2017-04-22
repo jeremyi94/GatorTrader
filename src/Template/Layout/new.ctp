@@ -3,28 +3,30 @@
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> 
+
+<html class="no-js" lang="en"> <!--<![endif]-->
     <head>
         <title>Gator Trader-Home</title>
         <?= $this->Html->charset() ?>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/icons.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/bootstrap-responsive.css">
         <link rel="stylesheet" href="js/fancybox/jquery.fancybox-1.3.4.css">
         <link rel="stylesheet" href="css/responsive.css">
-         <link rel="stylesheet" href="css/email.css">
         <link href='http://fonts.googleapis.com/css?family=Lato:700' rel='stylesheet' type='text/css'>
         <script src="js/modernizr-2.5.3.min.js"></script>
     </head>
     <body id="top-section" data-spy="scroll" data-target="#topnav"  data-offset="70" >
         <?= $this->Flash->render() ?>
-        <div class="container">
+        <div class="container">            
             <header>
+                
                 <!-- navbar -->
                 <div id="topnav" class="navbar navbar-fixed-top">
                     <div class="navbar-inner">
+                        <img src="https://lh3.googleusercontent.com/UnlUyVcjDFOg1ncP2sibv4FDACx17FGnUgRt6lGa1OmZbnXesLW_Qi1m2laSmwCfqngnMu8g7wW1J_ndw583U3d11uid0fHgr6KsrmzZh2rNEa9N5I30ED6dNehdooQQGZCjees" style="float: left;" width="220px" height="220px"/>                    
                         <div class="container">
                             <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
                             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a>
@@ -35,8 +37,69 @@
                                     <li id="home"><a href="home">Home</a></li>
                                     <li id="sell"><a href="sell">Sell</a></li>
                                     <li id="contact"><a href="contact">Contact</a></li>
-                                    <li id="about"><a href="about">About</a></li>
+                                    <li id="about"><a href="about">About</a></li> 
+                                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> Category <b class="caret"></b> </a>
+                                        <ul class="dropdown-menu social-menu">
+                                            <li id="home"><form  action="home" method="post">
+                                            <button type="submit" 
+                                                    name="search" 
+                                                    value="home" 
+                                                    class="btn-link" <?php if ($_SERVER['REQUEST_URI'] == "/~sp17g08/648app/home") echo 'id="category-active"';?>>Everything</button>
+                                            </form></li>
+                                            <li id="furniture"><form  action="resultcategory" method="post">
+                                                <button type="submit" 
+                                                        name="search" 
+                                                        value="furniture" 
+                                                        class="btn-link">Furniture</button>
+                                            </form></li>
+                                            <li id="electronics"><form  action="resultcategory" method="post">
+                                                <button type="submit" 
+                                                        name="search" 
+                                                        value="electronics" 
+                                                        class="btn-link">Electronics</button>
+                                            </form></li>
+                                            <li id="books"><form  action="resultcategory" method="post">
+                                                <button type="submit" 
+                                                        name="search" 
+                                                        value="books" 
+                                                        class="btn-link">Books</button>
+                                            </form></li>
+                                            <li id="sports"><form  action="resultcategory" method="post">
+                                                <button type="submit" 
+                                                        name="search" 
+                                                        value="sports" 
+                                                        class="btn-link">Sports</button>
+                                            </form></li>
+                                            <li id="kitchen"><form  action="resultcategory" method="post">
+                                                <button type="submit" 
+                                                        name="search" 
+                                                        value="kitchen" 
+                                                        class="btn-link">Kitchen</button>
+                                            </form></li>
+                                            <li id="clothing"><form  action="resultcategory" method="post">
+                                                <button type="submit" 
+                                                        name="search" 
+                                                        value="clothing" 
+                                                        class="btn-link">Clothing</button>
+                                            </form></li>
+                                            <li id="other"><form  action="resultcategory" method="post">
+                                                <button type="submit" 
+                                                        name="search" 
+                                                        value="other" 
+                                                        class="btn-link">Other</button>
+                                            </form></li>
+                                        </ul>
+                                    </li> 
+                                    <li padding-top="50px">
+                                        <div>
+                                        <form id="custom-search-form" action ="result" method="post" padding-top="200px">
+                                                <input type="text" name="search" class="search-query" placeholder="Search..." id="search" size="200">
+                                                <button type="submit" class="btn"><i class="icon-search"></i></button>
+                                        </form>
+                                        </div>
+                                    </li>
                                 </ul>
+
                                 <!-- ENDS main nav -->
                                 <!-- social -->
                                 <ul class="nav pull-right ">
@@ -64,74 +127,7 @@
                         <h1>Gator Trader</h1>
                         <h2>A Buy and Sell Website for San Francisco State University</h2>
                     </div>
-                    <br>
-                    <div class="container">
-                        <div class="row">
-                            <div class="span12">
-                                <form id="custom-search-form" class="form-search form-horizontal" action = "result" method="post" class="search">
-                                    <div class="input-append span12">
-                                        <input type="text" name="search" class="search-query" placeholder="Search..." id="search">
-                                        <button type="submit" class="btn"><i class="icon-search"></i></button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="categories">
-                        <ul>
-                            <li id="home"><form style="display:inline!important;" action="home" method="post">
-                                    <button type="submit" 
-                                            name="search" 
-                                            value="home" 
-                                            class="btn-link" <?php if ($_SERVER['REQUEST_URI'] == "/~sp17g08/648app/home") echo 'id="category-active"';?>>Everything</button>
-                                </form></li>
-                            <li id="furniture"><form style="display:inline!important;" action="resultcategory" method="post">
-                                    <button type="submit" 
-                                            name="search" 
-                                            value="furniture" 
-                                            class="btn-link">Furniture</button>
-                                </form></li>
-                            <li id="electronics"><form style="display:inline!important;" action="resultcategory" method="post">
-                                    <button type="submit" 
-                                            name="search" 
-                                            value="electronics" 
-                                            class="btn-link">Electronics</button>
-                                </form></li>
-                            <li id="books"><form style="display:inline!important;" action="resultcategory" method="post">
-                                    <button type="submit" 
-                                            name="search" 
-                                            value="books" 
-                                            class="btn-link">Books</button>
-                                </form></li>
-                            <li id="sports"><form style="display:inline!important;" action="resultcategory" method="post">
-                                    <button type="submit" 
-                                            name="search" 
-                                            value="sports" 
-                                            class="btn-link">Sports</button>
-                                </form></li>
-                            <li id="kitchen"><form style="display:inline!important;" action="resultcategory" method="post">
-                                    <button type="submit" 
-                                            name="search" 
-                                            value="kitchen" 
-                                            class="btn-link">Kitchen</button>
-                                </form></li>
-                            <li id="clothing"><form style="display:inline!important;" action="resultcategory" method="post">
-                                    <button type="submit" 
-                                            name="search" 
-                                            value="clothing" 
-                                            class="btn-link">Clothing</button>
-                                </form></li>
-                            <li id="other"><form style="display:inline!important;" action="resultcategory" method="post">
-                                    <button type="submit" 
-                                            name="search" 
-                                            value="other" 
-                                            class="btn-link">Other</button>
-                                </form></li>
-                        </ul>
-                    </div>
                     <!-- ENDS hero -->
-
                     <?= $this->fetch('content') ?>
                 </div>
                 <!-- ENDS MAIN -->
