@@ -22,9 +22,10 @@
     <fieldset>
         <legend><?= __('Edit Item') ?></legend>
         <?php
+            echo $this->Form->input('category_id');
             echo $this->Form->input('user_id', ['options' => $users]);
             echo $this->Form->input('title');
-            echo $this->Form->input('category');
+            echo $this->Form->input('name_categories');
             echo $this->Form->input('description');
             echo $this->Form->input('price');
             echo $this->Form->input('img1');

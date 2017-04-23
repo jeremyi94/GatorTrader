@@ -26,16 +26,16 @@
             <td><?= h($item->title) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Category') ?></th>
-            <td><?= h($item->category) ?></td>
+            <th scope="row"><?= __('Name Categories') ?></th>
+            <td><?= h($item->name_categories) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Description') ?></th>
             <td><?= h($item->description) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($item->id) ?></td>
+            <th scope="row"><?= __('Category Id') ?></th>
+            <td><?= $this->Number->format($item->category_id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Price') ?></th>
