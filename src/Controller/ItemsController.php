@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
 
 /**
  * Items Controller
@@ -18,6 +19,8 @@ class ItemsController extends AppController
      */
     public function index()
     {
+        
+        if(empty($this->request->query)){
         $this->paginate = [
             'contain' => ['Users']
         ];
@@ -25,6 +28,36 @@ class ItemsController extends AppController
 
         $this->set(compact('items'));
         $this->set('_serialize', ['items']);
+        }else{
+           
+            $search = $this->request->query['category'];
+            echo $search;
+            $this->loadModel('Categories');
+            // gets all rows with category_name as search.
+            $categoryId = $this->Categories->find()->where(['category_name' => $search]);
+            $key = '';
+            foreach($categoryId as $row){
+                $key = $row->category_id;
+                if($key !== '') break;
+            }
+            echo $key;
+            $searchQuery = $this->Items->find()->where(['category_id' => $key]);
+            $searchText = $this->request->query['searchkey'];
+            echo $searchText;
+            if($searchText) {
+                // fix
+               $searchQuery = $this->Items->find()->where(['title LIKE ' => "%{$searchText}%"])
+                        ->orWhere(['description LIKE ' => "%{$searchText}%"])
+                        ->andWhere(['category_id' => $key]);
+            }
+            $this->set('items', $searchQuery);
+//            $items = $this->paginate($searchQuery);
+//
+//            $this->set(compact('items'));
+//            $this->set('_serialize', ['items']);
+            //$this->set(compact('items'));
+           // $this->set('_serialize', ['items']);
+        }
     }
 
     /**
@@ -37,7 +70,7 @@ class ItemsController extends AppController
     public function view($id = null)
     {
         $item = $this->Items->get($id, [
-            'contain' => ['Users']
+            'contain' => ['category_id']
         ]);
 
         $this->set('item', $item);
@@ -76,7 +109,7 @@ class ItemsController extends AppController
     public function edit($id = null)
     {
         $item = $this->Items->get($id, [
-            'contain' => []
+            'contain' => ['category_id']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $item = $this->Items->patchEntity($item, $this->request->data);
@@ -111,15 +144,4 @@ class ItemsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-
-	public function tags(){
-		//getting all passed parameters
-		$tags = $this->request->params['pass'];
-		
-		//find tagged items
-		$items = $this->Items->find('tagged',['tags'=> $tags]);
-		
-		//pass into view
-		$this->set(['items'=>$items, 'tags'=>$tags]);
-	}
 }
