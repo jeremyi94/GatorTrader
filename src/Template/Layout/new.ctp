@@ -69,10 +69,20 @@
                         <h1>Gator Trader</h1>
                     </div>
                     <br>
-                    <form action = "result" method="post" class="search">
+                    <!--<form action = "result" method="post" class="search">
                         <input type="text" name="search" placeholder="Search..." required>
                         <input type="submit" value=">>"/>
-                    </form>
+                    </form>-->
+                    <?= $this->Form->create(NULL, ['url' => ['controller' => 'Items',
+                                                             'action' => 'index',
+                                                            'type' => 'get']]) ?>
+                    <select name = "category">
+                        <option value ="book"> Book </option>
+                        <option value = "furniture"> Furniture </option>
+                    </select>
+                        <input type="text" name="searchkey" placeholder="Search..." value ="" />
+                        <input type="submit" value=">>">
+                    <?= $this->Form->end() ?>
                     <div class="categories">
                         <ul>
                             <li><a href="home">Everything</a></li>
