@@ -29,7 +29,7 @@
                 <!-- navbar -->
                 <div id="topnav" class="navbar navbar-fixed-top">
                     <div class="navbar-inner">
-                        <a href="http://sfsuse.com/~jeremyi/mything/home">
+                        <a href="http://sfsuse.com/~sp17g08/648app/home">
                         <img src="https://lh3.googleusercontent.com/UnlUyVcjDFOg1ncP2sibv4FDACx17FGnUgRt6lGa1OmZbnXesLW_Qi1m2laSmwCfqngnMu8g7wW1J_ndw583U3d11uid0fHgr6KsrmzZh2rNEa9N5I30ED6dNehdooQQGZCjees" style="float: left;" width="210px" height="210px"/>                    
                         </a>
                             <div class="container">
