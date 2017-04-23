@@ -42,6 +42,9 @@ window.onload=function () {
         <!-- Work -->
         <br><br>
         <section id="work-section">
+            <div  class="page-header">
+                <h1>Sell<small> Submit Your Listing</small></h1>
+            </div>
             <div class="span8 offset2">
                     <form class="well" id="contactForm" action="#" method="post">
                         <label>Title</label>
