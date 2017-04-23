@@ -127,12 +127,6 @@
             </header>
                 <!-- MAIN -->
                 <div id="main" role="main">
-                    <!-- Hero -->
-                    <div class="hero-unit">
-                        <h1>Gator Trader</h1>
-                        <h2>A Buy and Sell Website for San Francisco State University</h2>
-                    </div>
-                    <!-- ENDS hero -->
                     <?= $this->fetch('content') ?>
                 </div>
                 <!-- ENDS MAIN -->
