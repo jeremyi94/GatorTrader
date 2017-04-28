@@ -34,7 +34,7 @@ class ItemsTable extends Table
 
         $this->table('items');
         $this->displayField('title');
-        $this->primaryKey('id');
+        $this->primaryKey('user_id');
 
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id',
@@ -55,15 +55,16 @@ class ItemsTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
+            ->requirePresence('category_name', 'create')
+            ->notEmpty('category_name');
+
+        $validator
             ->requirePresence('title', 'create')
             ->notEmpty('title');
 
         $validator
-            ->requirePresence('category', 'create')
-            ->notEmpty('category');
-
-        $validator
-            ->allowEmpty('description');
+            ->requirePresence('description', 'create')
+            ->notEmpty('description');
 
         $validator
             ->decimal('price')
@@ -116,14 +117,4 @@ class ItemsTable extends Table
 
         return $rules;
     }
-	
-	public function findTagged(Query $query, array $options){
-		return $this->find()
-			->distinct(['Items.id'])
-			->matching('Tags', function ($q) use ($options){
-			return $q->where(['Tags.title IN'=> $options['tags']]);
-		});
-	}
-
-
 }
