@@ -19,8 +19,6 @@ class ItemsController extends AppController
      */
     public function index()
     {
-        
-        if(empty($this->request->query)){
         $this->paginate = [
             'contain' => ['Users']
         ];
@@ -28,36 +26,6 @@ class ItemsController extends AppController
 
         $this->set(compact('items'));
         $this->set('_serialize', ['items']);
-        }else{
-           
-            $search = $this->request->query['category'];
-            echo $search;
-            $this->loadModel('Categories');
-            // gets all rows with category_name as search.
-            $categoryId = $this->Categories->find()->where(['category_name' => $search]);
-            $key = '';
-            foreach($categoryId as $row){
-                $key = $row->category_id;
-                if($key !== '') break;
-            }
-            echo $key;
-            $searchQuery = $this->Items->find()->where(['category_id' => $key]);
-            $searchText = $this->request->query['searchkey'];
-            echo $searchText;
-            if($searchText) {
-                // fix
-               $searchQuery = $this->Items->find()->where(['title LIKE ' => "%{$searchText}%"])
-                        ->orWhere(['description LIKE ' => "%{$searchText}%"])
-                        ->andWhere(['category_id' => $key]);
-            }
-            $this->set('items', $searchQuery);
-//            $items = $this->paginate($searchQuery);
-//
-//            $this->set(compact('items'));
-//            $this->set('_serialize', ['items']);
-            //$this->set(compact('items'));
-           // $this->set('_serialize', ['items']);
-        }
     }
 
     /**
@@ -67,15 +35,72 @@ class ItemsController extends AppController
      * @return \Cake\Network\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
+    /*public function view($id = null)
     {
         $item = $this->Items->get($id, [
-            'contain' => ['category_id']
+            'contain' => ['Users']
         ]);
 
         $this->set('item', $item);
         $this->set('_serialize', ['item']);
+    }*/
+    public function view($id)
+    {
+        $query = $this->Items->find();
+        $query->where(['id' => $id]);
+        foreach ($query as $row){
+          $this->set('title', $row->title);
+          $this->set('price', $row->price);
+          $this->set('description',$row->description);
+          $this->set('img1',$row->img1);
+          $this->set('img2',$row->img2);
+          $this->set('img3',$row->img3);
+          $this->set('img4',$row->img4);
+          break;
+        }
+        $this->render();
     }
+    
+    public function search()
+    {
+        if (array_key_exists('query',$_GET))
+        {
+            $query = htmlspecialchars(stripslashes($_GET['query']));
+        }
+        else    // This allows a category to be searched without a specific search term. (i.e. lists everything in the category.)
+        {
+            $query = '';
+        }
+        if (array_key_exists('category', $_GET))
+        {
+            $category = htmlspecialchars(stripslashes($_GET['category']));
+        }
+        else
+        {
+            $category = 'Everything';
+        }
+        if ($category == 'Everything')
+        {
+            $queryResults = $this->Items->find()->where(['title LIKE' => "%$query%"])
+                                                ->orWhere(['title LIKE' => "%$query%"]);  // Query methods can also be chained!
+        }
+        else
+        {
+            $queryResults = $this->Items->find()->where(['title LIKE' => "%$query%", 'category_name' => $category])
+                                                ->orWhere(['description LIKE' => "%$query%", 'category_name' => $category]);
+        }
+    
+        $results = array();
+        foreach ($queryResults as $result){
+          $results[] = ['title' => $result->title, 'description' => $result->description, 
+                        'img1' => $result->img1, 'img2' => $result->img2, 
+                        'img3' => $result->img3, 'img4' => $result->img4, 
+                        'price' => $result->price, 'id' => $result->id];
+        }
+        $this->set('results',$results);
+        $this->render();
+    }
+
 
     /**
      * Add method
@@ -109,7 +134,7 @@ class ItemsController extends AppController
     public function edit($id = null)
     {
         $item = $this->Items->get($id, [
-            'contain' => ['category_id']
+            'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $item = $this->Items->patchEntity($item, $this->request->data);
