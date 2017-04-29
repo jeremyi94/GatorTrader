@@ -1,5 +1,7 @@
+
 <?php
 ?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
@@ -44,6 +46,7 @@
                                     <li id="home"><a href="home">Home</a></li>
                                     <li id="sell"><a href="sell">Sell</a></li>
                                     <li id="contact"><a href="contact">Contact</a></li>
+
                                     <li id="about"><a href="about">About</a></li>                    
                                 </ul> 
                                 
@@ -79,43 +82,55 @@
                 </div>
             </div>
                                     <!--<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> Category <b class="caret"></b> </a>
+
                                         <ul class="dropdown-menu social-menu">
                                             <li id="home"><form  action="home" method="post">
                                             <button type="submit" 
                                                     name="search" 
                                                     value="home" 
+
                                                     class="btn-link" <?//php if ($_SERVER['REQUEST_URI'] == "/~sp17g08/648app/home") echo 'id="category-active"';?>>Everything</button>
                                             </form></li>
                                             
                                             <li id="furniture"><form  action="<?//= $this->Url->build(['controller' => 'items', 'action' => 'search']) ?> ">
+
+
                                                 <button type="submit" 
                                                         name="search" 
                                                         value="furniture" 
                                                         class="btn-link">Furniture</button>
                                             </form></li>
+
                                             
                                             <li id="electronics"><form  action="<?//= $this->Url->build(['controller' => 'items', 'action' => 'search']) ?> ">
+
                                                 <button type="submit" 
                                                         name="search" 
                                                         value="electronics" 
                                                         class="btn-link">Electronics</button>
                                             </form></li>
+
                                             
                                             <li id="books"><form  action="<?//= $this->Url->build(['controller' => 'items', 'action' => 'search']) ?> ">
+
                                                 <button type="submit" 
                                                         name="search" 
                                                         value="books" 
                                                         class="btn-link">Books</button>
                                             </form></li>
+
                                             
                                             <li id="sports"><form  action="<?//= $this->Url->build(['controller' => 'items', 'action' => 'search']) ?> ">
+
                                                 <button type="submit" 
                                                         name="search" 
                                                         value="sports" 
                                                         class="btn-link">Sports</button>
                                             </form></li>
+
                                             
                                             <li id="kitchen"><form  action="<?//= $this->Url->build(['controller' => 'items', 'action' => 'search']) ?> ">
+
                                                 <button type="submit" 
                                                         name="search" 
                                                         value="kitchen" 
@@ -123,19 +138,23 @@
                                             </form></li>
                                             
                                             <li id="clothing"><form  action="<?//= $this->Url->build(['controller' => 'items', 'action' => 'search']) ?> ">
+
                                                 <button type="submit" 
                                                         name="search" 
                                                         value="clothing" 
                                                         class="btn-link">Clothing</button>
                                             </form></li>
+
                                             
                                             <li id="other"><form  action="<?//= $this->Url->build(['controller' => 'items', 'action' => 'search']) ?> ">
+
                                                 <button type="submit" 
                                                         name="search" 
                                                         value="other" 
                                                         class="btn-link">Other</button>
                                             </form></li>
                                         </ul>
+
                                     </li> -->
                                     
                                  <!--   <li padding-top="50px">
@@ -156,11 +175,7 @@
                                         </form>
                                         </div> 
                                    </li>-->
-                                    
-                               
-
-                                
-                                
+                    
                                 <!-- ENDS main nav -->
                                 <!-- social -->
                                 <ul class="nav pull-right ">

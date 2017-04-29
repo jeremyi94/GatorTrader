@@ -1,10 +1,22 @@
+<style>
+    .button {
+  
+    width: 115px;
+    height: 25px;
+    background: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: yellow;
+    font-weight: bold;
+}
+</style>
 <?php
 $this->layout = "new";
-
 $link = mysqli_connect("127.0.0.1", "sp17g08", "csc648sp17g08") or die("couldn't connect");
 mysqli_select_db($link, "sp17g08") or die("dead...");
-$output="";
 //collect
+
 if(isset($_POST['search']))
     {
        $searchq = $_POST['search'];
@@ -126,3 +138,4 @@ if(isset($_POST['search']))
                echo '</div>';
        }
 }
+

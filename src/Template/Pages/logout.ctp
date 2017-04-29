@@ -33,3 +33,4 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 <h1>Thank you for using GATOR TRADER!</h1>
 <br>
 <h2>You are logged out.</h2>
+<script>document.title = "Gator Trader-Goodbye";</script>
