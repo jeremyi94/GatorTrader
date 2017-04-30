@@ -67,6 +67,7 @@ class PagesController extends AppController
             throw new NotFoundException();
         }
     }
+/*
     public function beforeFilter(Event $event) 
     {
     parent::beforeFilter($event);
@@ -74,4 +75,5 @@ class PagesController extends AppController
     ['controller' => 'pages', 'action' => 'display', 'about']
   );
     }
+*/
 }
