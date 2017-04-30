@@ -1,3 +1,7 @@
+
+<?php
+?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
@@ -42,69 +46,136 @@
                                     <li id="home"><a href="home">Home</a></li>
                                     <li id="sell"><a href="sell">Sell</a></li>
                                     <li id="contact"><a href="contact">Contact</a></li>
-                                    <li id="about"><a href="about">About</a></li> 
-                                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> Category <b class="caret"></b> </a>
+
+                                    <li id="about"><a href="about">About</a></li>                    
+                                </ul> 
+                                
+                                <div class="col-md-7" id="navbar">
+                                <div style="padding-top: 1.25%;"> 
+                    
+                                <form action=<?= $this->Url->build(['controller' => 'items', 'action' => 'search']) ?> class="form-inline">
+                        
+                                <div class="form-group" style="float: left;">
+                                    <select name="category" style="height: 33px;">
+                                    <option>Everything</option>
+                                    <option>Books</option>
+                                    <option>Clothes</option>
+                                    <option>Electronics</option>
+                                    <option>Furniture</option>
+                                    <option>Sports</option>
+                                    <option>Kitchen</option>
+                                    <option>Other</option>
+                                    </select>
+                                </div>
+                                <div class="input-group" style="float: left; width: 75%;">
+                                <input type="text" class="form-control" name="query" value="<?php 
+                                if(array_key_exists('query',$_GET))
+                                {
+                                    echo htmlspecialchars(stripslashes($_GET['query']));
+                                } ?>" required>
+                                <div class="input-group-btn">
+                                    <input class="btn btn-default" type="submit" value="Search">
+                                </div>
+                                </div>
+                        
+                    </form>
+                </div>
+            </div>
+                                    <!--<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> Category <b class="caret"></b> </a>
+
                                         <ul class="dropdown-menu social-menu">
                                             <li id="home"><form  action="home" method="post">
                                             <button type="submit" 
                                                     name="search" 
                                                     value="home" 
-                                                    class="btn-link" <?php if ($_SERVER['REQUEST_URI'] == "/~sp17g08/648app/home") echo 'id="category-active"';?>>Everything</button>
+
+                                                    class="btn-link" <?//php if ($_SERVER['REQUEST_URI'] == "/~sp17g08/648app/home") echo 'id="category-active"';?>>Everything</button>
                                             </form></li>
-                                            <li id="furniture"><form  action="resultcategory" method="post">
+                                            
+                                            <li id="furniture"><form  action="<?//= $this->Url->build(['controller' => 'items', 'action' => 'search']) ?> ">
+
+
                                                 <button type="submit" 
                                                         name="search" 
                                                         value="furniture" 
                                                         class="btn-link">Furniture</button>
                                             </form></li>
-                                            <li id="electronics"><form  action="resultcategory" method="post">
+
+                                            
+                                            <li id="electronics"><form  action="<?//= $this->Url->build(['controller' => 'items', 'action' => 'search']) ?> ">
+
                                                 <button type="submit" 
                                                         name="search" 
                                                         value="electronics" 
                                                         class="btn-link">Electronics</button>
                                             </form></li>
-                                            <li id="books"><form  action="resultcategory" method="post">
+
+                                            
+                                            <li id="books"><form  action="<?//= $this->Url->build(['controller' => 'items', 'action' => 'search']) ?> ">
+
                                                 <button type="submit" 
                                                         name="search" 
                                                         value="books" 
                                                         class="btn-link">Books</button>
                                             </form></li>
-                                            <li id="sports"><form  action="resultcategory" method="post">
+
+                                            
+                                            <li id="sports"><form  action="<?//= $this->Url->build(['controller' => 'items', 'action' => 'search']) ?> ">
+
                                                 <button type="submit" 
                                                         name="search" 
                                                         value="sports" 
                                                         class="btn-link">Sports</button>
                                             </form></li>
-                                            <li id="kitchen"><form  action="resultcategory" method="post">
+
+                                            
+                                            <li id="kitchen"><form  action="<?//= $this->Url->build(['controller' => 'items', 'action' => 'search']) ?> ">
+
                                                 <button type="submit" 
                                                         name="search" 
                                                         value="kitchen" 
                                                         class="btn-link">Kitchen</button>
                                             </form></li>
-                                            <li id="clothing"><form  action="resultcategory" method="post">
+                                            
+                                            <li id="clothing"><form  action="<?//= $this->Url->build(['controller' => 'items', 'action' => 'search']) ?> ">
+
                                                 <button type="submit" 
                                                         name="search" 
                                                         value="clothing" 
                                                         class="btn-link">Clothing</button>
                                             </form></li>
-                                            <li id="other"><form  action="resultcategory" method="post">
+
+                                            
+                                            <li id="other"><form  action="<?//= $this->Url->build(['controller' => 'items', 'action' => 'search']) ?> ">
+
                                                 <button type="submit" 
                                                         name="search" 
                                                         value="other" 
                                                         class="btn-link">Other</button>
                                             </form></li>
                                         </ul>
-                                    </li> 
-                                    <li padding-top="50px">
-                                        <div>
-                                        <form id="custom-search-form" action ="result" method="post" padding-top="200px">
+
+                                    </li> -->
+                                    
+                                 <!--   <li padding-top="50px">
+                                        <div class="input-group" style="float: left; width: 75%;">
+                                        <input type="text" class="form-control" name="query" value="<?//php 
+                                        if(array_key_exists('query',$_GET))
+                                        {
+                                            echo htmlspecialchars(stripslashes($_GET['query']));
+                                        } ?>" required>
+                                        <div class="input-group-btn">
+                                        <input class="btn btn-default" type="submit" value="Search">
+                                        </div>
+                                        </div>
+                                        <!--<div>
+                                        <form id="custom-search-form" action ="<?//= $this->Url->build(['controller' => 'items', 'action' => 'search']) ?>" padding-top="200px">
                                                 <input type="text" name="search" class="search-query" placeholder="Search..." id="search" size="200">
                                                 <button type="submit" class="btn"><i class="icon-search"></i></button>
                                         </form>
-                                        </div>
-                                    </li>
-                                </ul>
-
+                                        </div> 
+                                   </li>-->
+                    
                                 <!-- ENDS main nav -->
                                 <!-- social -->
                                 <ul class="nav pull-right ">
@@ -151,3 +222,10 @@
         </div>
     </body>
 </html>
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+

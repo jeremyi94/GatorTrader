@@ -1,22 +1,10 @@
-<style>
-    .button {
-  
-    width: 115px;
-    height: 25px;
-    background: white;
-    padding: 10px;
-    text-align: center;
-    border-radius: 5px;
-    color: yellow;
-    font-weight: bold;
-}
-</style>
 <?php
 $this->layout = "new";
+
 $link = mysqli_connect("127.0.0.1", "sp17g08", "csc648sp17g08") or die("couldn't connect");
 mysqli_select_db($link, "sp17g08") or die("dead...");
+$output="";
 //collect
-
 if(isset($_POST['search']))
     {
        $searchq = $_POST['search'];
@@ -51,7 +39,7 @@ if(isset($_POST['search']))
        if($count == 0)
        {
             $output = 'No results found!';
-            echo "<div style='text-align:center'>";
+            //echo "<div style='text-align:center'>";
             echo '<font color="black" size="7">' .$output. '</font><br>';    
        }
        else
@@ -60,7 +48,7 @@ if(isset($_POST['search']))
            {
                
                echo '<div style="padding:30px" class="page-header">';
-               echo "<div style='text-align:center'>";
+               //echo "<div style='text-align:center'>";
                // we have two different queries, increased and decreased price
                $id = $column['id'];
                $title = $column['title'];	
@@ -132,10 +120,9 @@ if(isset($_POST['search']))
                
                echo'<br>';    
                echo '</div><br>';
-               echo '</div><br>';
+               //echo '</div><br>';
             }
         
                echo '</div>';
        }
 }
-

@@ -2,8 +2,6 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-use Cake\Routing\Router;
-use Cake\Mailer\Email;
 
 /**
  * Users Controller
@@ -108,7 +106,6 @@ class UsersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-    
     public function login(){
         if($this->request->is('post')){
             $user = $this->Auth->identify();
@@ -129,76 +126,4 @@ class UsersController extends AppController
          $this->Flash->success('You are logged out');
          return $this->redirect($this->Auth->logout());
     }
-    
-    public function password()
-    {
-        if ($this->request->is('post')) {
-            $query = $this->Users->findByEmail($this->request->data['email']);
-            $user = $query->first();
-            if (is_null($user)) 
-            {
-                $this->Flash->error('Email address does not exist. Please try again');
-            } 
-            else 
-            {
-                $password = uniqid();
-                $url = Router::Url(['controller' => 'users', 'action' => 'reset'], true) . '/' . $password;
-                //$timeout = time() + DAY;
-                 if ($this->Users->updateAll(['password' => $password], ['id' => $user->id]))
-                 {
-                    $this->sendResetEmail($url, $user);
-                    $this->redirect(['action' => 'login']);
-                 } 
-                 else 
-                 {
-                    $this->Flash->error('Error saving reset passkey/timeout');
-                 }
-            }
-        }
-    }
-    
-    private function sendResetEmail($url, $user) {
-        $email = new Email();
-        $email->template('resetpw');
-        $email->emailFormat('both');
-        $email->from('no-reply@naidim.org');
-        $email->to($user->email, $user->full_name);
-        $email->subject('Reset your password');
-        $email->viewVars(['url' => $url, 'username' => $user->username]);
-        if ($email->send()) {
-            $this->Flash->success(__('Check your email for your reset password link'));
-        } else {
-            $this->Flash->error(__('Error sending email: ') . $email->smtpError);
-        }
-    }
-
-    public function reset($password = null) {
-        if ($password) {
-            $query = $this->Users->find('all', ['conditions' => ['password' => $password]]);
-            $user = $query->first();
-            if ($user) {
-                if (!empty($this->request->data)) {
-                    // Clear passkey and timeout
-                    $this->request->data['password'] = null;
-                    //$this->request->data['timeout'] = null;
-                    $user = $this->Users->patchEntity($user, $this->request->data);
-                    if ($this->Users->save($user)) {
-                        $this->Flash->set(__('Your password has been updated.'));
-                        return $this->redirect(array('action' => 'login'));
-                    } else {
-                        $this->Flash->error(__('The password could not be updated. Please, try again.'));
-                    }
-                }
-            } else {
-                $this->Flash->error('Invalid or expired passkey. Please check your email or try again');
-                $this->redirect(['action' => 'password']);
-            }
-            unset($user->password);
-            $this->set(compact('user'));
-        } else {
-            $this->redirect('/');
-        }
-    }
-    
-    
 }

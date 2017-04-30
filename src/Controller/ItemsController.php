@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
 
 /**
  * Items Controller
@@ -34,7 +35,7 @@ class ItemsController extends AppController
      * @return \Cake\Network\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
+    /*public function view($id = null)
     {
         $item = $this->Items->get($id, [
             'contain' => ['Users']
@@ -42,7 +43,64 @@ class ItemsController extends AppController
 
         $this->set('item', $item);
         $this->set('_serialize', ['item']);
+    }*/
+    public function view($id)
+    {
+        $query = $this->Items->find();
+        $query->where(['id' => $id]);
+        foreach ($query as $row){
+          $this->set('title', $row->title);
+          $this->set('price', $row->price);
+          $this->set('description',$row->description);
+          $this->set('img1',$row->img1);
+          $this->set('img2',$row->img2);
+          $this->set('img3',$row->img3);
+          $this->set('img4',$row->img4);
+          break;
+        }
+        $this->render();
     }
+    
+    public function search()
+    {
+        if (array_key_exists('query',$_GET))
+        {
+            $query = htmlspecialchars(stripslashes($_GET['query']));
+        }
+        else    // This allows a category to be searched without a specific search term. (i.e. lists everything in the category.)
+        {
+            $query = '';
+        }
+        if (array_key_exists('category', $_GET))
+        {
+            $category = htmlspecialchars(stripslashes($_GET['category']));
+        }
+        else
+        {
+            $category = 'Everything';
+        }
+        if ($category == 'Everything')
+        {
+            $queryResults = $this->Items->find()->where(['title LIKE' => "%$query%"])
+                                                ->orWhere(['title LIKE' => "%$query%"]);  // Query methods can also be chained!
+        }
+        else
+        {
+            $queryResults = $this->Items->find()->where(['title LIKE' => "%$query%", 'category_name' => $category])
+                                                ->orWhere(['description LIKE' => "%$query%", 'category_name' => $category]);
+        }
+    
+        $results = array();
+        foreach ($queryResults as $result){
+          $results[] = ['title' => $result->title, 'description' => $result->description, 
+                        'img1' => $result->img1, 'img2' => $result->img2, 
+                        'img3' => $result->img3, 'img4' => $result->img4, 
+                        'price' => $result->price, 'id' => $result->id];
+        }
+        $this->set('results',$results);
+        $this->render();
+    }
+
 
     /**
      * Add method
@@ -111,15 +169,4 @@ class ItemsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-
-	public function tags(){
-		//getting all passed parameters
-		$tags = $this->request->params['pass'];
-		
-		//find tagged items
-		$items = $this->Items->find('tagged',['tags'=> $tags]);
-		
-		//pass into view
-		$this->set(['items'=>$items, 'tags'=>$tags]);
-	}
 }

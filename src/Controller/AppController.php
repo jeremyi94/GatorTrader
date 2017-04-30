@@ -51,7 +51,7 @@ class AppController extends Controller
     ]);*/
         //$this->Auth->allow(['display', 'password', 'reset', 'logout']);
         
-        $this->loadComponent('Auth', [
+        /*$this->loadComponent('Auth', [
                 'authenticate' => [
                     'Form' => [
                         'fields' => [
@@ -68,7 +68,7 @@ class AppController extends Controller
             
                 //'unauthorizedRedirect' => $this->referer(),
                 //'authorize' => 'Controller'
-            ]); 
+            ]); */
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see http://book.cakephp.org/3.0/en/controllers/components/security.html
@@ -90,7 +90,7 @@ class AppController extends Controller
             $this->set('_serialize', true);
         }
         // Login Check
-        if($this->request->session()->read('Auth.User')){
+        /*if($this->request->session()->read('Auth.User')){
              $this->set('loggedIn', true);   
         } 
         else 
@@ -107,9 +107,9 @@ class AppController extends Controller
         }*/
     }
     
-    public function beforeFilter(Event $event){
+    /*public function beforeFilter(Event $event){
         $this->Auth->allow(['add']);
         //$this->set('username',$this->Auth->user('username'));
-    }
+    }*/
 
 }

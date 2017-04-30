@@ -1,48 +1,9 @@
-<style>
-    .button {
-  
-    width: 115px;
-    height: 25px;
-    background: white;
-    padding: 10px;
-    text-align: center;
-    border-radius: 5px;
-    color: yellow;
-    font-weight: bold;
-}
-</style>
 <?php
-
-use Cake\Cache\Cache;
-use Cake\Core\Configure;
-use Cake\Core\Plugin;
-use Cake\Datasource\ConnectionManager;
-use Cake\Error\Debugger;
-use Cake\Network\Exception\NotFoundException;
-
-$this->layout = "simple";
-?>
-<br>
-<div>
-<div class="container">
-    <div class="row">
-        <div class="span12">
-                <form id="custom-search-form" class="form-search form-horizontal" action = "result" method="post" class="search">
-                    <div class="input-append span12">
-                        <input type="text" name="search" class="search-query" placeholder="Search...">
-                        <button type="submit" class="btn"><i class="icon-search"></i></button>
-                    </div>
-                </form>
-        </div>
-    </div>
-</div>
-<br>
-<?php
+$this->layout = "new";
 $link = mysqli_connect("127.0.0.1", "sp17g08", "csc648sp17g08") or die("couldn't connect");
 mysqli_select_db($link, "sp17g08") or die("dead...");
-$output = "";
+$output="";
 //collect
-
 if(isset($_POST['search'])){
        $searchq = $_POST['search'];
        $searchq = preg_replace("#[^0-9a-z]#i", "",$searchq);
@@ -73,7 +34,7 @@ if(isset($_POST['search'])){
            while($column = mysqli_fetch_array($query))
            {
                echo '<div style="padding:30px" class="page-header">';
-               echo "<div style='text-align:center'>";
+               //echo "<div style='text-align:center'>";
                $id = $column['id'];
                $title = $column['title'];	
 	       $description = $column['description'];
@@ -130,7 +91,7 @@ if(isset($_POST['search'])){
                
                echo'<br>';    
                echo '</div><br>';
-               echo '</div><br>';
+               //echo '</div><br>';
             }
         
                echo '</div>';
