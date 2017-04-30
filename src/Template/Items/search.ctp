@@ -25,9 +25,6 @@ article {
 <div style="border: 1px solid gray;">
 <div style="float:left;padding: 5px;">
 <a href=<?= $this->Url->build(['controller' => 'items', 'action' => 'view', $result['id']]);?>>
-
-   <div class="thumbnail"><img style="height: 180px" src=<?='webroot/img/items/','a.jpg', $result['img1'] ?> ></div>
-
 </a>
 
 
