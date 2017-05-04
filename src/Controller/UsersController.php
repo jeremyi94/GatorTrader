@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 
+
 /**
  * Users Controller
  *
@@ -19,7 +20,7 @@ class UsersController extends AppController
     public function index()
     {
         $users = $this->paginate($this->Users);
-
+$this->layout='new';
         $this->set(compact('users'));
         $this->set('_serialize', ['users']);
     }
