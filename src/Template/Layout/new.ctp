@@ -50,8 +50,7 @@
                                             </div>
                                             <!--<div class="input-group" style="float: left; width: 75%;"> -->
                                             <div style="float: left; margin-left: 6px">
-                                                <input type="text" style="height: 30px" class="form-control" name="query"  value="
-                                                <?php
+                                                <input type="text" style="height: 30px" class="form-control" name="query"  value="<?php
                                                 if (array_key_exists('query', $_GET)) {
                                                     echo htmlspecialchars(stripslashes($_GET['query']));
                                                 }
