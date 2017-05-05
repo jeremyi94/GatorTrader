@@ -1,4 +1,4 @@
-<?phprror\Debugger;
+<?php error\Debugger;
 use Cake\Network\Exception\NotFoundException;
 $this->layout = "new";
 ?>
