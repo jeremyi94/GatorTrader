@@ -1,4 +1,7 @@
-<?php error\Debugger;
+
+<?php
+error\Debugger;
+
 use Cake\Network\Exception\NotFoundException;
 ?>
 <style>
@@ -9,7 +12,11 @@ div.container {
 
 
 </style>
-<?php foreach( $results as $result): ?>
+<?php 
+$count=count($results);
+echo  "<h1><small>Found ".$count." items...</small></h1>";
+foreach( $results as $result): 
+    ?>
 <div style="padding: 5%">
 <div style="border: 1px solid gray;">
 <div style="float:left;padding: 5px;">
