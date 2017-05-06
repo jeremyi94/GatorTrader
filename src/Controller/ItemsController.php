@@ -83,8 +83,8 @@ class ItemsController extends AppController {
             
             
             $results[] = ['title' => $result->title, 'description' => $result->description,
-                'img1' => $result->id . 'a.jpg', 'img2' => $result->id . 'b.jpg',
-                'img3' => $result->id . 'c.jpg', 'img4' => $result->id . 'd.jpg',
+                'img1' => $result->img1, 'img2' => $result->img2,
+                'img3' => $result->img3, 'img4' => $result->img4,
                 'price' => $result->price, 'id' => $result->id];
         }
 
