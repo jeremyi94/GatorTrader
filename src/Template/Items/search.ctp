@@ -1,5 +1,7 @@
+
 <?php
 error\Debugger;
+
 use Cake\Network\Exception\NotFoundException;
 ?>
 <style>
