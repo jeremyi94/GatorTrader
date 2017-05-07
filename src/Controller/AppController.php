@@ -17,7 +17,6 @@ namespace App\Controller;
 use Cake\Controller\Controller;
 use Cake\Event\Event;
 use Cake\Datasource\ConnectionManager;
-
 /**
  * Application Controller
  *
@@ -51,24 +50,25 @@ class AppController extends Controller
     ]);*/
         //$this->Auth->allow(['display', 'password', 'reset', 'logout']);
         
-        /*$this->loadComponent('Auth', [
+        $this->loadComponent('Auth', [
                 'authenticate' => [
                     'Form' => [
                         'fields' => [
-                            'username' => 'email',
-                            'password' => 'password'
+                            'username' => 'screen_name',
+                            'password' => 'password',
+                            //'screen_name' =>'screen_name'
                         ]
                     ]
                 ],
                 'loginAction' => [
                     'controller' => 'Users',
                     'action' => 'login'
-                ]
+                ],
                 
             
                 //'unauthorizedRedirect' => $this->referer(),
                 //'authorize' => 'Controller'
-            ]); */
+            ]);
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see http://book.cakephp.org/3.0/en/controllers/components/security.html
@@ -89,8 +89,16 @@ class AppController extends Controller
         ) {
             $this->set('_serialize', true);
         }
+        
+        /*$this->loadComponent('Auth');
+        if($this->Auth->user('username') !== null)
+        {
+            $this->set(['loggedInUser' => $this->Auth->user('username')]);
+        }else{
+            $this->set(['loggedInUser' => '']);
+        }*/
         // Login Check
-        /*if($this->request->session()->read('Auth.User')){
+        if($this->request->session()->read('Auth.User')){
              $this->set('loggedIn', true);   
         } 
         else 
@@ -107,8 +115,14 @@ class AppController extends Controller
         }*/
     }
     
+   /*public function isAuthorized($user = null){
+      return TRUE;
+   }*/
+    
+    
+    
     /*public function beforeFilter(Event $event){
-        $this->Auth->allow(['add']);
+        $this->Auth->allow(['index','']);
         //$this->set('username',$this->Auth->user('username'));
     }*/
 

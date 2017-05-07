@@ -9,22 +9,32 @@ use Cake\ORM\TableRegistry;
  * Items Controller
  *
  * @property \App\Model\Table\ItemsTable $Items
- */
-class ItemsController extends AppController {
+
+class ItemsController extends AppController
+{
+      
+
 
     /**
      * Index method
      *
      * @return \Cake\Network\Response|null
      */
-    public function index() {
-        $this->paginate = [
+
+    public function index()
+    {
+       $this->paginate =['limit' => 20,'order' => ['Items' => 'asc' ]];
+       $items = $this->paginate('Items');
+       $this->set(compact('items'));
+    }
+        /*$this->paginate = [
+
             'contain' => ['Users']
         ];
         $items = $this->paginate($this->Items);
         $this->set(compact('items'));
         $this->set('_serialize', ['items']);
-    }
+    }*/
 
     /**
      * View method
@@ -45,22 +55,38 @@ class ItemsController extends AppController {
     public function view($id) {
         $query = $this->Items->find();
         $query->where(['id' => $id]);
-        foreach ($query as $row) {
-            $this->set('id', $row->id);
-            $this->set('title', $row->title);
-            $this->set('price', $row->price);
-            $this->set('description', $row->description);
-            $this->set('img1', $row->img1);
-            $this->set('img2', $row->img2);
-            $this->set('img3', $row->img3);
-            $this->set('img4', $row->img4);
-            break;
+
+        foreach ($query as $row){
+          $this->set('title', $row->title);
+          $this->set('price', $row->price);
+          $this->set('description',$row->description);
+          $this->set('img1',$row->img1);
+          $this->set('img2',$row->img2);
+          $this->set('img3',$row->img3);
+          $this->set('img4',$row->img4);
+          $this->set('date_posted',$row->date_posted);
+          break;
+
         }
         $this->render('search', 'new');
     }
 
-    public function search() {
-        if (array_key_exists('query', $_GET)) {
+    
+    public function search()
+    {
+        $this->paginate = [
+            'contain' => ['Users']
+        ];
+        $items = $this->paginate($this->Items);
+
+        $this->set(compact('items'));
+        $this->set('_serialize', ['items']);
+        
+        
+        if (array_key_exists('query',$_GET))
+        {
+
+
             $query = htmlspecialchars(stripslashes($_GET['query']));
         } else {    // This allows a category to be searched without a specific search term. (i.e. lists everything in the category.)
             $query = '';
@@ -72,20 +98,32 @@ class ItemsController extends AppController {
         }
         if ($category == 'Everything') {
             $queryResults = $this->Items->find()->where(['title LIKE' => "%$query%"])
-                    ->orWhere(['title LIKE' => "%$query%"]);  // Query methods can also be chained!
-        } else {
+
+                                                ->orWhere(['title LIKE' => "%$query%"]);  // Query methods can also be chained!
+        
+            $this->set('articles', $this->paginate($queryResults));
+        }
+        else
+        {
             $queryResults = $this->Items->find()->where(['title LIKE' => "%$query%", 'category_name' => $category])
-                    ->orWhere(['description LIKE' => "%$query%", 'category_name' => $category]);
+                                                ->orWhere(['description LIKE' => "%$query%", 'category_name' => $category]);
+            $this->set('articles', $this->paginate($queryResults));
+
         }
 
         $results = array();
-        foreach ($queryResults as $result) {
-            
-            
-            $results[] = ['title' => $result->title, 'description' => $result->description,
-                'img1' => $result->img1, 'img2' => $result->img2,
-                'img3' => $result->img3, 'img4' => $result->img4,
-                'price' => $result->price, 'id' => $result->id];
+
+        foreach ($queryResults as $result){
+          $results[] = ['title' => $result->title, 
+                        'description' => $result->description, 
+                        'img1' => $result->img1, 
+                        'img2' => $result->img2, 
+                        'img3' => $result->img3, 
+                        'img4' => $result->img4, 
+                        'price' => $result->price,
+                        'date_posted' => $result->date_posted,
+                        'id' => $result->id];
+
         }
 
         $this->set('results', $results);
@@ -156,6 +194,8 @@ class ItemsController extends AppController {
 
         return $this->redirect(['action' => 'index']);
     }
+
+    
 
 }
 

@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Event\Event;
 
 
 /**
@@ -154,4 +155,14 @@ $this->layout='new';
          $this->Flash->success('You are logged out');
          return $this->redirect($this->Auth->logout());
     }
+    public function beforeFilter(Event $event){
+        $this->Auth->allow(['register']);
+    }
+    
+    /*public function isAuthorized($user)
+    {
+        $myName = $user['screen_name'];
+        return $myName;
+    }*/
+    
 }
