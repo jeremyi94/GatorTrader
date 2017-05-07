@@ -1,3 +1,4 @@
+
 <?php
 use Cake\Cache\Cache;
 use Cake\Core\Configure;
@@ -12,10 +13,12 @@ $this->viewBuilder('new')->layout('new');
 div.container {
   width: 100%;
   border: 1px solid gray;
+
 }
 
 
 </style>
+
 
 <style>
     .button {
@@ -42,10 +45,12 @@ echo  "<h1><small>Found ".$count." items...</small></h1>";?>
 
     
 <?php foreach( $results as $result): ?>
+
 <div style="padding: 5%">
 <div style="border: 1px solid gray;">
 <div style="float:left;padding: 5px;">
 <a href=<?= $this->Url->build(['controller' => 'items', 'action' => 'view', $result['id']]);?>>
+
    <!-- <script type="text/javascript">
         
      if(<?//php echo $result['img1']?> == '1'){
@@ -101,3 +106,4 @@ echo  "<h1><small>Found ".$count." items...</small></h1>";?>
     
 <?php endforeach; ?>
 </div>
+

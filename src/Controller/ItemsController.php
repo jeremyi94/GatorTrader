@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use App\Controller\AppController;
@@ -8,16 +9,18 @@ use Cake\ORM\TableRegistry;
  * Items Controller
  *
  * @property \App\Model\Table\ItemsTable $Items
- */
+
 class ItemsController extends AppController
 {
       
+
 
     /**
      * Index method
      *
      * @return \Cake\Network\Response|null
      */
+
     public function index()
     {
        $this->paginate =['limit' => 20,'order' => ['Items' => 'asc' ]];
@@ -25,10 +28,10 @@ class ItemsController extends AppController
        $this->set(compact('items'));
     }
         /*$this->paginate = [
+
             'contain' => ['Users']
         ];
         $items = $this->paginate($this->Items);
-
         $this->set(compact('items'));
         $this->set('_serialize', ['items']);
     }*/
@@ -40,19 +43,19 @@ class ItemsController extends AppController
      * @return \Cake\Network\Response|null
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    /*public function view($id = null)
-    {
-        $item = $this->Items->get($id, [
-            'contain' => ['Users']
-        ]);
+    /* public function view($id = null)
+      {
+      $item = $this->Items->get($id, [
+      'contain' => ['Users']
+      ]);
 
-        $this->set('item', $item);
-        $this->set('_serialize', ['item']);
-    }*/
-    public function view($id)
-    {
+      $this->set('item', $item);
+      $this->set('_serialize', ['item']);
+      } */
+    public function view($id) {
         $query = $this->Items->find();
         $query->where(['id' => $id]);
+
         foreach ($query as $row){
           $this->set('title', $row->title);
           $this->set('price', $row->price);
@@ -63,9 +66,11 @@ class ItemsController extends AppController
           $this->set('img4',$row->img4);
           $this->set('date_posted',$row->date_posted);
           break;
+
         }
-        $this->render();
+        $this->render('search', 'new');
     }
+
     
     public function search()
     {
@@ -80,23 +85,20 @@ class ItemsController extends AppController
         
         if (array_key_exists('query',$_GET))
         {
+
+
             $query = htmlspecialchars(stripslashes($_GET['query']));
-        }
-        else    // This allows a category to be searched without a specific search term. (i.e. lists everything in the category.)
-        {
+        } else {    // This allows a category to be searched without a specific search term. (i.e. lists everything in the category.)
             $query = '';
         }
-        if (array_key_exists('category', $_GET))
-        {
+        if (array_key_exists('category', $_GET)) {
             $category = htmlspecialchars(stripslashes($_GET['category']));
-        }
-        else
-        {
+        } else {
             $category = 'Everything';
         }
-        if ($category == 'Everything')
-        {
+        if ($category == 'Everything') {
             $queryResults = $this->Items->find()->where(['title LIKE' => "%$query%"])
+
                                                 ->orWhere(['title LIKE' => "%$query%"]);  // Query methods can also be chained!
         
             $this->set('articles', $this->paginate($queryResults));
@@ -106,9 +108,11 @@ class ItemsController extends AppController
             $queryResults = $this->Items->find()->where(['title LIKE' => "%$query%", 'category_name' => $category])
                                                 ->orWhere(['description LIKE' => "%$query%", 'category_name' => $category]);
             $this->set('articles', $this->paginate($queryResults));
+
         }
-    
+
         $results = array();
+
         foreach ($queryResults as $result){
           $results[] = ['title' => $result->title, 
                         'description' => $result->description, 
@@ -119,19 +123,19 @@ class ItemsController extends AppController
                         'price' => $result->price,
                         'date_posted' => $result->date_posted,
                         'id' => $result->id];
-        }
-        $this->set('results',$results);
-        $this->render();
-    }
 
+        }
+
+        $this->set('results', $results);
+        $this->render('search', 'new');
+    }
 
     /**
      * Add method
      *
      * @return \Cake\Network\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
-    {
+    public function add() {
         $item = $this->Items->newEntity();
         if ($this->request->is('post')) {
             $item = $this->Items->patchEntity($item, $this->request->data);
@@ -154,8 +158,7 @@ class ItemsController extends AppController
      * @return \Cake\Network\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
-    public function edit($id = null)
-    {
+    public function edit($id = null) {
         $item = $this->Items->get($id, [
             'contain' => []
         ]);
@@ -180,8 +183,7 @@ class ItemsController extends AppController
      * @return \Cake\Network\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function delete($id = null)
-    {
+    public function delete($id = null) {
         $this->request->allowMethod(['post', 'delete']);
         $item = $this->Items->get($id);
         if ($this->Items->delete($item)) {
@@ -192,5 +194,9 @@ class ItemsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
     
+
 }
+
+?>

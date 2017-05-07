@@ -59,7 +59,7 @@ class PagesController extends AppController
         $this->set(compact('page', 'subpage'));
 
         try {
-            $this->render(implode('/', $path));
+            $this->render(implode('/', $path),'new');
         } catch (MissingTemplateException $e) {
             if (Configure::read('debug')) {
                 throw $e;
@@ -67,13 +67,17 @@ class PagesController extends AppController
             throw new NotFoundException();
         }
     }
+
     /*public function beforeFilter(Event $event) 
+
     {
     parent::beforeFilter($event);
     $this->Auth->allow(
     ['controller' => 'pages', 'action' => 'display', 'about']
   );
+
     }*/
+
 
 }
 
