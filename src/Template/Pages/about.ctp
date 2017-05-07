@@ -29,49 +29,40 @@ window.onload=function () {
     $('#about').addClass('active');
 };
 </script>
-<br>
-<br>
-<br>
-<div class="text-center">
-<h1> About This Website</h1>
-<br>
-<p style="color:brown; text-align:center;">
-"Gator Trador" is a website designed exclusively for the students of San Francisco State University to be able to buy and sell items easily.
-</p>
-</div>
-<br>
-<br>
-<br>
 
 <div class="text-center">
-<h1> About The Team</h1>
-<br>
-<p style="text-align:center; color:brown;"> 
-We are a team of 6 people who are developing the website "Gator Trador" for the students of San Francisco State University. This website is for
-helping students of SFSU to buy and sell Items. The team lead is Rebecca Stankus, tech lead is 
-Farbod, and other team members are Krunal, Kai and Kyle
-</p>
+    <h1> About This Website</h1>
+    <p style="color:brown; text-align:center;">
+    "Gator Trador" is a website designed exclusively for the students of San Francisco State University to be able to buy and sell items easily.
+    </p>
+    <hr>
 </div>
-<br>
-<br>
-<br>
+
 <div class="text-center">
-    <br>
+    <h1> About The Team</h1>
+    <p style="text-align:center; color:brown;"> 
+    We are a team of 6 people who are developing the website "Gator Trador" for the students of San Francisco State University. This website is for
+    helping students of SFSU to buy and sell Items. The team lead is Rebecca Stankus, tech lead is 
+    Farbod, and other team members are Krunal, Kai and Kyle
+    </p>
+    <hr>
+</div>
+
+<div class="text-center">
     <h1 style="color: #364878">Meet Team 8...</h1>
-<br>
-
-<center><a href="http://sfsuse.com/~sp17g08/648app/rebecca">Rebecca Stankus</a><br></center>
-<center style="color:brown">Team lead and Database admin<br><br><br></center>
-<center><a href="http://sfsuse.com/~sp17g08/648app/farbod">Farbod</a><br></center>
-<center style="color:brown">CTO and backend developer<br><br><br></center>
-<center><a href="http://sfsuse.com/~sp17g08/648app/jeremy">Jeremy Ibay</a><br></center>
-<center style="color:brown">Git/Github admin and UI developer<br><br><br></center>
-<center><a href="http://sfsuse.com/~sp17g08/648app/krunal">Krunal Shah</a><br></center>
-<center style="color:brown">Documentationa and UI developer<br><br><br></center> 
-<center><a href="http://sfsuse.com/~sp17g08/648app/kai">Kai</a><br></center>
-<center style="color:brown">Documentationa and backend developer<br><br><br></center>
-<center><a href="http://sfsuse.com/~sp17g08/648app/kyle">Kyle Kamibayashi</a><br></center>
-<center style="color:brown">Chief Spokesperson and Backend Developer<br><br><br></center>
-   
+    
+    <center><a href="http://sfsuse.com/~sp17g08/648app/rebecca">Rebecca Stankus</a><br></center>
+    <center style="color:brown">Team lead and Database admin<br><br><br></center>
+    <center><a href="http://sfsuse.com/~sp17g08/648app/farbod">Farbod</a><br></center>
+    <center style="color:brown">CTO and backend developer<br><br><br></center>
+    <center><a href="http://sfsuse.com/~sp17g08/648app/jeremy">Jeremy Ibay</a><br></center>
+    <center style="color:brown">Git/Github admin and UI developer<br><br><br></center>
+    <center><a href="http://sfsuse.com/~sp17g08/648app/krunal">Krunal Shah</a><br></center>
+    <center style="color:brown">Documentationa and UI developer<br><br><br></center> 
+    <center><a href="http://sfsuse.com/~sp17g08/648app/kai">Kai</a><br></center>
+    <center style="color:brown">Documentationa and backend developer<br><br><br></center>
+    <center><a href="http://sfsuse.com/~sp17g08/648app/kyle">Kyle Kamibayashi</a><br></center>
+    <center style="color:brown">Chief Spokesperson and Backend Developer<br><br><br></center>
+   <hr>
 </div>
 <script>document.title = "Gator Trader-About";</script>
