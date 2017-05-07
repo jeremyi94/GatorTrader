@@ -5,11 +5,11 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
 
-/**
+/*
  * Items Controller
  *
  * @property \App\Model\Table\ItemsTable $Items
-
+*/
 class ItemsController extends AppController
 {
       
@@ -193,10 +193,6 @@ class ItemsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
-    }
-
-    
-
+    }   
 }
-
 ?>
