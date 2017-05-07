@@ -11,6 +11,7 @@ use Cake\ORM\TableRegistry;
  */
 class ItemsController extends AppController
 {
+      
 
     /**
      * Index method
@@ -19,14 +20,18 @@ class ItemsController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
+       $this->paginate =['limit' => 20,'order' => ['Items' => 'asc' ]];
+       $items = $this->paginate('Items');
+       $this->set(compact('items'));
+    }
+        /*$this->paginate = [
             'contain' => ['Users']
         ];
         $items = $this->paginate($this->Items);
 
         $this->set(compact('items'));
         $this->set('_serialize', ['items']);
-    }
+    }*/
 
     /**
      * View method
@@ -56,6 +61,7 @@ class ItemsController extends AppController
           $this->set('img2',$row->img2);
           $this->set('img3',$row->img3);
           $this->set('img4',$row->img4);
+          $this->set('date_posted',$row->date_posted);
           break;
         }
         $this->render();
@@ -63,6 +69,15 @@ class ItemsController extends AppController
     
     public function search()
     {
+        $this->paginate = [
+            'contain' => ['Users']
+        ];
+        $items = $this->paginate($this->Items);
+
+        $this->set(compact('items'));
+        $this->set('_serialize', ['items']);
+        
+        
         if (array_key_exists('query',$_GET))
         {
             $query = htmlspecialchars(stripslashes($_GET['query']));
@@ -83,19 +98,27 @@ class ItemsController extends AppController
         {
             $queryResults = $this->Items->find()->where(['title LIKE' => "%$query%"])
                                                 ->orWhere(['title LIKE' => "%$query%"]);  // Query methods can also be chained!
+        
+            $this->set('articles', $this->paginate($queryResults));
         }
         else
         {
             $queryResults = $this->Items->find()->where(['title LIKE' => "%$query%", 'category_name' => $category])
                                                 ->orWhere(['description LIKE' => "%$query%", 'category_name' => $category]);
+            $this->set('articles', $this->paginate($queryResults));
         }
     
         $results = array();
         foreach ($queryResults as $result){
-          $results[] = ['title' => $result->title, 'description' => $result->description, 
-                        'img1' => $result->img1, 'img2' => $result->img2, 
-                        'img3' => $result->img3, 'img4' => $result->img4, 
-                        'price' => $result->price, 'id' => $result->id];
+          $results[] = ['title' => $result->title, 
+                        'description' => $result->description, 
+                        'img1' => $result->img1, 
+                        'img2' => $result->img2, 
+                        'img3' => $result->img3, 
+                        'img4' => $result->img4, 
+                        'price' => $result->price,
+                        'date_posted' => $result->date_posted,
+                        'id' => $result->id];
         }
         $this->set('results',$results);
         $this->render();
@@ -169,4 +192,5 @@ class ItemsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+    
 }
