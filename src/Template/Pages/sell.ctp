@@ -22,6 +22,10 @@ use Cake\Network\Exception\NotFoundException;
 
 $this->layout = "new";
 ?>
+
+<!------------------------Checks if user is logged in------------------------------->
+
+<?php if(isset( $_SESSION['SESS_MEMBER_ID']) && !empty($_SESSION['SESS_MEMBER_ID'])):?>
 <script type="text/javascript">
 window.onload=function () {
     $('#sell').addClass('active');
@@ -79,3 +83,8 @@ window.onload=function () {
         </section>
         <!-- ENDS work -->
 <script>document.title = "Gator Trader-Sell";</script>
+<?php else:
+        header("location:page.php"); // take them to page
+        echo "<div>Please login <a href=\"users\login\">here</a> to access page</div>";
+    endif;
+    ?> 
