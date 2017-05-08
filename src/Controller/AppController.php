@@ -43,13 +43,13 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-        //$this->loadComponent('Csrf');
-        /*$this->loadComponent('Auth', [
+        $this->loadComponent('Csrf');
+        $this->loadComponent('Auth', [
         'authorize' => 'Controller',
         'unauthorizedRedirect' => $this->referer(),
-    ]);*/
-        //$this->Auth->allow(['display', 'password', 'reset', 'logout']);
-        
+        ]);
+        $this->Auth->allow(['display', 'password', 'reset', 'logout','search']);  
+        /*
         $this->loadComponent('Auth', [
                 'authenticate' => [
                     'Form' => [
@@ -64,11 +64,13 @@ class AppController extends Controller
                     'controller' => 'Users',
                     'action' => 'login'
                 ],
-                
+           
             
-                //'unauthorizedRedirect' => $this->referer(),
-                //'authorize' => 'Controller'
+                'unauthorizedRedirect' => $this->referer(),
+                'authorize' => 'Controller'
             ]);
+         
+         */
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see http://book.cakephp.org/3.0/en/controllers/components/security.html
@@ -90,13 +92,13 @@ class AppController extends Controller
             $this->set('_serialize', true);
         }
         
-        /*$this->loadComponent('Auth');
+        $this->loadComponent('Auth');
         if($this->Auth->user('username') !== null)
         {
             $this->set(['loggedInUser' => $this->Auth->user('username')]);
         }else{
             $this->set(['loggedInUser' => '']);
-        }*/
+        }
         // Login Check
         if($this->request->session()->read('Auth.User')){
              $this->set('loggedIn', true);   
@@ -105,25 +107,26 @@ class AppController extends Controller
         {
             $this->set('loggedIn', false); 
         }
-        /*if($this->Auth->user('username') != null)
+        if($this->Auth->user('username') != null)
         {
             $this->set(['screenUsername' => $this->Auth->user('username')]);
             
             $theEmail = $this->Auth->user('username');
             $query = TableRegistry::get('Users')->find('screen_name')->where('email = "'. $theEmail . '"'  );
             $this->set(['screenName' => $query]);
-        }*/
+        }
     }
     
-   /*public function isAuthorized($user = null){
+   public function isAuthorized($user = null){
       return TRUE;
-   }*/
+   }
     
     
     
-    /*public function beforeFilter(Event $event){
+    public function beforeFilter(Event $event){
         $this->Auth->allow(['index','']);
-        //$this->set('username',$this->Auth->user('username'));
-    }*/
+        $this->set('username',$this->Auth->user('username'));
+    }
 
 }
+
