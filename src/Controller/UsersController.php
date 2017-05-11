@@ -3,7 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
-
+use Cake\ORM\TableRegistry;
 
 /**
  * Users Controller
@@ -11,34 +11,7 @@ use Cake\Event\Event;
  * @property \App\Model\Table\UsersTable $Users
  */
 class UsersController extends AppController
-{ public function display(...$path)
-    {
-        $count = count($path);
-        if (!$count) {
-            return $this->redirect('/');
-        }
-        if (in_array('..', $path, true) || in_array('.', $path, true)) {
-            throw new ForbiddenException();
-        }
-        $page = $subpage = null;
-
-        if (!empty($path[0])) {
-            $page = $path[0];
-        }
-        if (!empty($path[1])) {
-            $subpage = $path[1];
-        }
-        $this->set(compact('page', 'subpage'));
-
-        try {
-            $this->render(implode('/', $path),'new');
-        } catch (MissingTemplateException $e) {
-            if (Configure::read('debug')) {
-                throw $e;
-            }
-            throw new NotFoundException();
-        }
-    }
+{
 
     /**
      * Index method
@@ -48,7 +21,7 @@ class UsersController extends AppController
     public function index()
     {
         $users = $this->paginate($this->Users);
-$this->layout='new';
+
         $this->set(compact('users'));
         $this->set('_serialize', ['users']);
     }
@@ -153,10 +126,63 @@ $this->layout='new';
     public function logout()
     {
          $this->Flash->success('You are logged out');
-         return $this->redirect($this->Auth->logout());
+         //return $this->redirect(['controller' => 'items']);
+         $this->redirect($this->Auth->logout());
+         //return $this->redirect(['controller' => 'items']);
+         //return $this->redirect(["/http://sfsuse/~fzolghad/CSC648/"]);
     }
-    public function beforeFilter(Event $event){
-        $this->Auth->allow(['register']);
+    
+      
+   /*public function isAuthorized($user){
+      return true;
+   }*/
+    
+    /*public function beforeFilter(Event $event){
+        parent::beforeFilter();
+        $this->Auth->allow('login','add'); 
+    }*/
+    
+    public function account()
+    {
+        $this->loadComponent('Auth');
+        $user = $this->Auth->user('username');
+        $this->Auth->setUser($user);
+        echo $user;
+        $getUser = $this->Users->find()->where(['screen_name' => $user])->first();
+        echo $getUser['user_id'];
+       // if(!empty($getUser))
+       // {
+            //$this->Auth->setUser($user);
+            //$item = $this->Items->newEntity();
+            $myQuery = TableRegistry::get('Items')->find()->where(['user_id' => $getUser['user_id']]); 
+            $this->set('userItems', $myQuery);
+        //}
+        
+              
+            /*$my_results = array();
+            foreach ($myQuery as $row)
+            {
+                        $my_results[] = ['title' => $row->title, 
+                        'description' => $row->description, 
+                        'img1' => $row->img1, 
+                        'img2' => $row->img2, 
+                        'img3' => $row->img3, 
+                        'img4' => $row->img4, 
+                        'price' => $row->price,
+                        'date_posted' => $row->date_posted,
+                        'id' => $row->id];
+            }
+                        $this->set('$my_results',$my_results);
+                        $this->render();
+            
+        }*/    
+    }
+    
+    public function beforeFilter(Event $event)
+    {
+        $this->Auth->allow('add');
+        //$this->set('username',$this->Auth->user('screen_name'));
+    
     }
     
     /*public function isAuthorized($user)
