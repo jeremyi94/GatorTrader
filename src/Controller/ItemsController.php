@@ -5,7 +5,7 @@ use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
 use Cake\Event\Event;
 
-/**
+/*
  * Items Controller
  *
  * @property \App\Model\Table\ItemsTable $Items
@@ -206,3 +206,4 @@ class ItemsController extends AppController
     
     }
 }
+?>
