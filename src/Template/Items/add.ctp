@@ -16,9 +16,9 @@
     <fieldset>
         <legend><?= __('Add Item') ?></legend>
         <?php
-            echo $this->Form->input('user_id', ['options' => $users]);
+            echo $this->Form->input('id');
+            echo $this->Form->input('category_name');
             echo $this->Form->input('title');
-            echo $this->Form->input('category');
             echo $this->Form->input('description');
             echo $this->Form->input('price');
             echo $this->Form->input('img1');

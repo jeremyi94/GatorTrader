@@ -16,7 +16,7 @@ namespace App\Controller;
 
 use Cake\Controller\Controller;
 use Cake\Event\Event;
-
+use Cake\Datasource\ConnectionManager;
 /**
  * Application Controller
  *
@@ -43,7 +43,36 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-
+        $this->loadComponent('Csrf');
+        $this->loadComponent('Auth', [
+        'authorize' => 'Controller',
+        'unauthorizedRedirect' => $this->referer(),
+        ]);
+        $this->Auth->allow(['display', 'password', 'reset', 'logout','search']);  
+        /*
+        $this->loadComponent('Auth', [
+                'authenticate' => [
+                    'Form' => [
+                        'fields' => [
+                            'username' => 'screen_name',
+                            'password' => 'password',
+                            //'screen_name' =>'screen_name'
+                        ]
+                    ]
+                ],
+                'loginAction' => [
+                    'controller' => 'Users',
+                    'action' => 'login'
+                ],
+           
+            
+                'unauthorizedRedirect' => $this->referer(),
+                //'unauthorizedRedirect' => "/http://sfsuse.com/~fzolghad/CSC648/",
+               // 'authorize' => ['Controller']
+                'authorize' => 'Controller'
+            ]);
+         
+         */
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see http://book.cakephp.org/3.0/en/controllers/components/security.html
@@ -51,10 +80,9 @@ class AppController extends Controller
         //$this->loadComponent('Security');
         //$this->loadComponent('Csrf');
     }
-
+    
     /**
      * Before render callback.
-     *
      * @param \Cake\Event\Event $event The beforeRender event.
      * @return \Cake\Network\Response|null|void
      */
@@ -65,5 +93,48 @@ class AppController extends Controller
         ) {
             $this->set('_serialize', true);
         }
+        
+        $this->loadComponent('Auth');
+        if($this->Auth->user('username') !== null)
+        {
+            $this->set(['loggedInUser' => $this->Auth->user('username')]);
+        }else{
+            $this->set(['loggedInUser' => '']);
+        }
+        // Login Check
+        $this->loadComponent('Auth');
+        if($this->request->session()->read('Auth.User')){
+             $this->set('loggedIn', true);   
+        } 
+        else 
+        {
+            $this->set('loggedIn', false); 
+        }
+        if($this->Auth->user('username') != null)
+        {
+            $this->set(['screenUsername' => $this->Auth->user('username')]);
+            
+            $theEmail = $this->Auth->user('username');
+            $query = TableRegistry::get('Users')->find('screen_name')->where('email = "'. $theEmail . '"'  );
+            $this->set(['screenName' => $query]);
+        }
     }
+    
+   public function isAuthorized($user){
+      return true;
+
+   //public function isAuthorized($user = null){
+     // return TRUE;
+   }
+    
+    
+    
+    public function beforeFilter(Event $event){
+        $this->Auth->allow('search');
+        //$this->set('username',$this->Auth->user('screen_name'));
+       // $this->Auth->allow(['index','']);
+        //$this->set('username',$this->Auth->user('username'));
+    }
+
 }
+

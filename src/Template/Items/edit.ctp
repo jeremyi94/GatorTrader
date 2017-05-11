@@ -8,8 +8,8 @@
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Form->postLink(
                 __('Delete'),
-                ['action' => 'delete', $item->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $item->id)]
+                ['action' => 'delete', $item->user_id],
+                ['confirm' => __('Are you sure you want to delete # {0}?', $item->user_id)]
             )
         ?></li>
         <li><?= $this->Html->link(__('List Items'), ['action' => 'index']) ?></li>
@@ -22,9 +22,9 @@
     <fieldset>
         <legend><?= __('Edit Item') ?></legend>
         <?php
-            echo $this->Form->input('user_id', ['options' => $users]);
+            echo $this->Form->input('id');
+            echo $this->Form->input('category_name');
             echo $this->Form->input('title');
-            echo $this->Form->input('category');
             echo $this->Form->input('description');
             echo $this->Form->input('price');
             echo $this->Form->input('img1');

@@ -1,65 +1,47 @@
 <?php
-
-/**
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @since         0.10.0
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
 use Cake\Cache\Cache;
 use Cake\Core\Configure;
 use Cake\Core\Plugin;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\Debugger;
 use Cake\Network\Exception\NotFoundException;
-
 $this->layout = "new";
-
-
-if (!Configure::read('debug')):
-    throw new NotFoundException('Please replace src/Template/Pages/home.ctp with your own version.');
-endif;
-
-$cakeDescription = 'CakePHP: the rapid development PHP framework';
+echo $this->Html->css('home');
 ?>
 
-        <!-- Work -->
-        <br><br>
-        <section id="work-section">
-            <div  class="page-header">
-                <h1>Featured Items </h1>
-            </div>
-            <ul class="thumbnails">
-                <li class="span4"> <a href="img/dummies/b-01.jpg" class="thumbnail"> <img src="img/dummies/01.jpg" alt=""> </a> <span class="thumb-caption">Price</span> </li>
-                <li class="span4"> <a href="img/dummies/b-02.jpg" class="thumbnail"> <img src="img/dummies/02.jpg" alt=""> </a> <span class="thumb-caption">Price</span> </li>
-                <li class="span4"> <a href="img/dummies/b-03.jpg" class="thumbnail"> <img src="img/dummies/03.jpg" alt=""> </a> <span class="thumb-caption">Price</span> </li>
-            </ul>
-            <ul class="thumbnails">
-                <li class="span3"> <a href="img/dummies/b-04.jpg" class="thumbnail"> <img src="img/dummies/04.jpg" alt=""> </a> <span class="thumb-caption">Price</span> </li>
-                <li class="span3"> <a href="img/dummies/b-05.jpg" class="thumbnail"> <img src="img/dummies/05.jpg" alt=""> </a> <span class="thumb-caption">Price</span> </li>
-                <li class="span3"> <a href="img/dummies/b-06.jpg" class="thumbnail"> <img src="img/dummies/06.jpg" alt=""> </a> <span class="thumb-caption">Price</span> </li>
-                <li class="span3"> <a href="img/dummies/b-07.jpg" class="thumbnail"> <img src="img/dummies/07.jpg" alt=""> </a> <span class="thumb-caption">Price</span> </li>
-            </ul>
-        </section>
-        <!-- ENDS work -->
-    <footer>
-    </footer>
-</div>
-<!-- JavaScript at the bottom for fast page loading -->
-<script src="js/jquery-1.7.1.min.js"></script>
-<!-- scripts concatenated and minified via build script -->
-<script src="js/plugins.js"></script>
-<script src="js/bootstrap-dropdown.js"></script>
-<script src="js/bootstrap-scrollspy.js"></script>
-<script src="js/bootstrap-tab.js"></script>
-<script src="js/bootstrap-collapse.js"></script>
-<script src="js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-<script src="js/custom.js"></script>
+<script type="text/javascript">
+window.onload=function () {
+    $('#home').addClass('active');
+};
+</script>
+
+<!-- Work -->
+<section id="work-section" class="center">
+    <div  class="page-header">
+        <h1>Featured Items</h1>
+    </div>
+
+    <ul class="rig columns-3">
+        <?php
+        $link = mysqli_connect("127.0.0.1", "sp17g08", "csc648sp17g08") or die("couldn't connect");
+        mysqli_select_db($link, "sp17g08") or die("dead...");
+        $list = mysqli_query($link, "SELECT img1, price, id, description FROM items WHERE img1 = 1 ORDER BY RAND() LIMIT 7") or die("could not search");
+        for($i =0; $i <3; $i++){
+            $item = $list->fetch_assoc();
+            $id = $item['id'];
+            $description = $item['description'];
+            $price = $item['price'];
+            echo '<li><a href="item?id='.$id.'" class="thumbnail"> <div id="parent"><img src="webroot/img/items/', $id, 'a.jpg" alt="', $description, '"/> </div></a> <h2 class="thumb-caption">$', $price, '</h2> </li>';
+        }
+        for($i =0; $i <3; $i++){
+                                $item = $list->fetch_assoc();
+            $id = $item['id'];
+            $description = $item['description'];
+            $price = $item['price'];
+            echo '<li><a href="item?id='.$id.'" class="thumbnail"> <div id="parent"><img src="webroot/img/items/', $id, 'a.jpg" alt="', $description, '"/> </div></a> <h2 class="thumb-caption">$', $price, '</h2> </li>';
+        }
+        ?>
+    </ul> 
+
+</section>
 

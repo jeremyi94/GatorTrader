@@ -21,14 +21,16 @@ use Cake\Error\Debugger;
 use Cake\Network\Exception\NotFoundException;
 
 $this->layout = "new";
-
-
-if (!Configure::read('debug')):
-    throw new NotFoundException('Please replace src/Template/Pages/home.ctp with your own version.');
-endif;
-
-$cakeDescription = 'CakePHP: the rapid development PHP framework';
 ?>
+
+<!------------------------Checks if user is logged in------------------------------->
+
+<?php if(isset( $_SESSION['SESS_MEMBER_ID']) && !empty($_SESSION['SESS_MEMBER_ID'])):?>
+<script type="text/javascript">
+window.onload=function () {
+    $('#sell').addClass('active');
+};
+</script>
 <style type="text/css">
  .topcorner{
 
@@ -44,7 +46,10 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         <!-- Work -->
         <br><br>
         <section id="work-section">
-            <div class="span8">
+            <div  class="page-header">
+                <h1>Sell <small> Submit Your Listing</small></h1>
+            </div>
+            <div class="span8 offset2">
                     <form class="well" id="contactForm" action="#" method="post">
                         <label>Title</label>
                         <input type="text" class="input-xlarge" name="title" id="title">
@@ -61,7 +66,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                             <option value="Clothes">Clothes</option>
                             <option value="Other">Other</option>
                         </select>
-                        <label>Upload an Image</label>
+                        <label>Upload as many as 4 images...</label>
                         <div class="image-upload">
                             <label for="file-input">
                                 <topcorner><img src="http://www.chatterboxwalls.co.uk/images/camera-icon-md.gif" height="60" width="60"/></topcorner>
@@ -77,5 +82,9 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                 </div>
         </section>
         <!-- ENDS work -->
-
-
+<script>document.title = "Gator Trader-Sell";</script>
+<?php else:
+        header("location:page.php"); // take them to page
+        echo "<div>Please login <a href=\"users\login\">here</a> to access page</div>";
+    endif;
+    ?> 

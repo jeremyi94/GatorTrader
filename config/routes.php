@@ -105,6 +105,10 @@ Router::connect('/logout', array('controller' => 'pages', 'action' => 'display',
 Router::connect('/contact', array('controller' => 'pages', 'action' => 'display', 'contact'));
 Router::connect('/sell', array('controller' => 'pages', 'action' => 'display', 'sell'));
 Router::connect('/item', array('controller' => 'pages', 'action' => 'display', 'item'));
+Router::connect('/forgot', array('controller' => 'pages', 'action' => 'display', 'forgot'));
+Router::connect('/message', array('controller' => 'pages', 'action' => 'display', 'message'));
+Router::connect('/reply', array('controller' => 'pages', 'action' => 'display', 'reply'));
+Router::connect('/registration', array('controller' => 'pages', 'action' => 'display', 'registration'));
 /**
  * Load all plugin routes.  See the Plugin documentation on
  * how to customize the loading of plugin routes.

@@ -6,8 +6,8 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Item'), ['action' => 'edit', $item->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Item'), ['action' => 'delete', $item->id], ['confirm' => __('Are you sure you want to delete # {0}?', $item->id)]) ?> </li>
+        <li><?= $this->Html->link(__('Edit Item'), ['action' => 'edit', $item->user_id]) ?> </li>
+        <li><?= $this->Form->postLink(__('Delete Item'), ['action' => 'delete', $item->user_id], ['confirm' => __('Are you sure you want to delete # {0}?', $item->user_id)]) ?> </li>
         <li><?= $this->Html->link(__('List Items'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Item'), ['action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
@@ -22,12 +22,12 @@
             <td><?= $item->has('user') ? $this->Html->link($item->user->id, ['controller' => 'Users', 'action' => 'view', $item->user->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Title') ?></th>
-            <td><?= h($item->title) ?></td>
+            <th scope="row"><?= __('Category Name') ?></th>
+            <td><?= h($item->category_name) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Category') ?></th>
-            <td><?= h($item->category) ?></td>
+            <th scope="row"><?= __('Title') ?></th>
+            <td><?= h($item->title) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Description') ?></th>

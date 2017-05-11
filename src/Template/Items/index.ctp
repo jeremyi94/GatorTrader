@@ -18,8 +18,8 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('category_name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('title') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('category') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('description') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('price') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('img1') ?></th>
@@ -36,8 +36,8 @@
             <tr>
                 <td><?= $this->Number->format($item->id) ?></td>
                 <td><?= $item->has('user') ? $this->Html->link($item->user->id, ['controller' => 'Users', 'action' => 'view', $item->user->id]) : '' ?></td>
+                <td><?= h($item->category_name) ?></td>
                 <td><?= h($item->title) ?></td>
-                <td><?= h($item->category) ?></td>
                 <td><?= h($item->description) ?></td>
                 <td><?= $this->Number->format($item->price) ?></td>
                 <td><?= $this->Number->format($item->img1) ?></td>
@@ -47,9 +47,9 @@
                 <td><?= $this->Number->format($item->sold) ?></td>
                 <td><?= h($item->date_posted) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $item->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $item->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $item->id], ['confirm' => __('Are you sure you want to delete # {0}?', $item->id)]) ?>
+                    <?= $this->Html->link(__('View'), ['action' => 'view', $item->user_id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $item->user_id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $item->user_id], ['confirm' => __('Are you sure you want to delete # {0}?', $item->user_id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
