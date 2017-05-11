@@ -111,7 +111,6 @@ class MessagesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-
     
     public function inbox()
     {

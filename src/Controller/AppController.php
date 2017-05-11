@@ -66,8 +66,9 @@ class AppController extends Controller
                 ],
                 
             
-                //'unauthorizedRedirect' => $this->referer(),
-                //'authorize' => 'Controller'
+                'unauthorizedRedirect' => $this->referer(),
+                //'unauthorizedRedirect' => "/http://sfsuse.com/~fzolghad/CSC648/",
+                'authorize' => ['Controller']
             ]);
         /*
          * Enable the following components for recommended CakePHP security settings.
@@ -98,6 +99,7 @@ class AppController extends Controller
             $this->set(['loggedInUser' => '']);
         }*/
         // Login Check
+        $this->loadComponent('Auth');
         if($this->request->session()->read('Auth.User')){
              $this->set('loggedIn', true);   
         } 
@@ -115,15 +117,15 @@ class AppController extends Controller
         }*/
     }
     
-   /*public function isAuthorized($user = null){
-      return TRUE;
-   }*/
+   public function isAuthorized($user){
+      return true;
+   }
     
     
     
-    /*public function beforeFilter(Event $event){
-        $this->Auth->allow(['index','']);
-        //$this->set('username',$this->Auth->user('username'));
-    }*/
+    public function beforeFilter(Event $event){
+        $this->Auth->allow('search');
+        //$this->set('username',$this->Auth->user('screen_name'));
+    }
 
 }
