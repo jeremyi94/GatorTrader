@@ -6,6 +6,7 @@ use Cake\Datasource\ConnectionManager;
 use Cake\Error\Debugger;
 use Cake\Network\Exception\NotFoundException;
 $this->layout = "new";
+echo $this->Html->css('search');
 ?>
 <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="js/PictureSlides-jquery-2.0.js"></script>
