@@ -69,7 +69,7 @@ class ItemsController extends AppController
           $this->set('date_posted',$row->date_posted);
           break;
         }
-        $this->render();
+        $this->render('search','new');
     }
    
     
@@ -127,7 +127,7 @@ class ItemsController extends AppController
                         'id' => $result->id];
         }
         $this->set('results',$results);
-        $this->render();
+        $this->render('search','new');
     }
 
 

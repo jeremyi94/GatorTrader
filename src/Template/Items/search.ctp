@@ -205,7 +205,7 @@ echo  "<h1><small>Found ".$count." items...</small></h1>";?>
             <div class="picture-slides-container">
                 <div class="picture-slides-fade-container">
                     <?php if($result['img1'] === 1): ?>
-                    <div><?= '<a class="picture-slides-image-link"> <img src="../webroot/img/items/thumbnails/' . $result['id'] . 'a.jpg" alt="' .$result['description']. '"/></a>' ?></div>
+                    <div><?= '<a class="picture-slides-image-link"> <img src="../webroot/img/items/thumbnails/' . $result['id'] . 'a.jpg" alt="image"/></a>' ?></div>
                     <?php endif; ?>
                 </div> 
                 <?php    
@@ -214,13 +214,13 @@ echo  "<h1><small>Found ".$count." items...</small></h1>";?>
                 
                 <ul class="picture-slides-thumbnails">
                 <?php if($result['img2'] === 1): ?>
-                <?= '<li><img src="../webroot/img/items/thumbnails/' . $result['id'] . 'b.jpg" alt="' .$result['description']. '"/></li>' ?>
+                <?= '<li><img src="../webroot/img/items/thumbnails/' . $result['id'] . 'b.jpg" alt="image"/></li>' ?>
                 <?php endif; ?>
                 <?php if($result['img3'] === 1): ?>
-                <?= '<li><img src="../webroot/img/items/thumbnails/' . $result['id'] . 'c.jpg" alt="' .$result['description']. '"/></li>' ?>
+                <?= '<li><img src="../webroot/img/items/thumbnails/' . $result['id'] . 'c.jpg" alt="image"/></li>' ?>
                 <?php endif; ?>
                 <?php if($result['img4'] === 1): ?>
-                <?= '<li><img src="../webroot/img/items/thumbnails/' . $result['id'] . 'd.jpg" alt="' .$result['description'].  '"/></li>' ?>
+                <?= '<li><img src="../webroot/img/items/thumbnails/' . $result['id'] . 'd.jpg" alt="image"/></li>' ?>
                 <?php endif; ?>
                 <?php print($output); ?>
                 <?php echo '<p align="center"><a class = "btn right" href="reply">buy now</a></p></div>';?>
