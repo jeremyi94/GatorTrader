@@ -26,7 +26,7 @@ $this->layout = "new";
             <br>
             <h4>Don't have an account?</h4>
             <br>
-            <a href="<?= $this->Url->build('/registration', true); ?>" class="reply">Register</a>
+            <a href="<?= $this->Url->build(['controller' => 'Users', 'action' => 'add']); ?>" class="reply">Register</a>
 
         </div>
         <!-- ENDS form col -->

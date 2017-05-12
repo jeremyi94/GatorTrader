@@ -56,7 +56,7 @@
                         <li class="divider-vertical"></li>
                         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> Hello Guest <b class="caret"></b> </a>
                             <ul class="dropdown-menu social-menu">
-                                <li id="login"><a href="<?= $this->Url->build(['controller' => 'Users', 'action' => 'display', 'login']) ?>">Login</a></li>
+                                <li id="login"><a href="<?= $this->Url->build(['controller' => 'Users', 'action' => 'login']) ?>">Login</a></li>
                                 <li id="account"><a href="<?= $this->Url->build('/account', true); ?>"> My Account</a></li>
                                 <li id="logout"><a href="<?= $this->Url->build('/logout', true); ?>">Log out</a></li>
                             </ul>
