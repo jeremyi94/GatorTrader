@@ -1,30 +1,44 @@
 <?php
-/**
-  * @var \App\View\AppView $this
-  */
+
+use Cake\Cache\Cache;
+use Cake\Core\Configure;
+use Cake\Core\Plugin;
+use Cake\Datasource\ConnectionManager;
+use Cake\Error\Debugger;
+use Cake\Network\Exception\NotFoundException;
+
+$this->layout = "new";
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Items'), ['controller' => 'Items', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Item'), ['controller' => 'Items', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="users form large-9 medium-8 columns content">
-    <?= $this->Form->create($user) ?>
-    <fieldset>
-        <legend><?= __('Add User') ?></legend>
-        <?php
-            echo $this->Form->input('last_name');
-            echo $this->Form->input('first_name');
-            echo $this->Form->input('email');
+<section id="contact-section" >
+    <div  class="page-header">
+        <h1>Welcome to Gator Trader<small>...Let's sign you up!</small></h1>
+    </div>
+    <div class="row">
+        <!-- Form col -->
+<?= $this->Form->create($user) ?>
+        <div class="span3 offset3">
+            <?php
+            echo $this->Form->input('first name');
+            echo $this->Form->input('screen name');
             echo $this->Form->input('password');
-            echo $this->Form->input('screen_name');
-            echo $this->Form->input('is_admin');
-            echo $this->Form->input('is_seller');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
-</div>
+            ?>
+        </div>
+        <div class = "span3">
+            <?php
+            echo $this->Form->input('last name');
+            echo $this->Form->input('SFSU email');
+            echo $this->Form->input('please reenter password');
+            ?>
+        </div>
+        <div class="span2 offset5">
+            <center>
+                 <?= $this->Form->button(__('Submit')) ?>
+            </center>
+        </div>
+        <?= $this->Form->end() ?>
+    </div>
+    <!-- ENDS form col -->
+    <div class="span6 offset3"><br>
+        <h3> San Francisco State University<i class="icon-envelope"></i><a href="#"> <small>email@server.com</small></a></h3>
+    </div>
+</section>
