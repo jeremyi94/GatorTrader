@@ -43,13 +43,13 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-        $this->loadComponent('Csrf');
-        $this->loadComponent('Auth', [
+        //$this->loadComponent('Csrf');
+        /*$this->loadComponent('Auth', [
         'authorize' => 'Controller',
         'unauthorizedRedirect' => $this->referer(),
-        ]);
-        $this->Auth->allow(['display', 'password', 'reset', 'logout','search']);  
-        /*
+    ]);*/
+        //$this->Auth->allow(['display', 'password', 'reset', 'logout']);
+        
         $this->loadComponent('Auth', [
                 'authenticate' => [
                     'Form' => [
@@ -64,21 +64,24 @@ class AppController extends Controller
                     'controller' => 'Users',
                     'action' => 'login'
                 ],
-           
+                'logoutRedirect' => [
+                    'controller' => 'Pages',
+                    'action' => 'home'
+                ],
+                
+                
             
-                'unauthorizedRedirect' => $this->referer(),
+                //'unauthorizedRedirect' => $this->referer(),
                 //'unauthorizedRedirect' => "/http://sfsuse.com/~fzolghad/CSC648/",
-               // 'authorize' => ['Controller']
                 'authorize' => 'Controller'
             ]);
-         
-         */
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see http://book.cakephp.org/3.0/en/controllers/components/security.html
          */
         //$this->loadComponent('Security');
         //$this->loadComponent('Csrf');
+        
     }
     
     /**
@@ -94,47 +97,57 @@ class AppController extends Controller
             $this->set('_serialize', true);
         }
         
-        $this->loadComponent('Auth');
+        
+        
+        /*$this->loadComponent('Auth');
         if($this->Auth->user('username') !== null)
         {
             $this->set(['loggedInUser' => $this->Auth->user('username')]);
         }else{
             $this->set(['loggedInUser' => '']);
-        }
+        }*/
         // Login Check
         $this->loadComponent('Auth');
-        if($this->request->session()->read('Auth.User')){
-             $this->set('loggedIn', true);   
+        if($this->request->session()->read('Auth.User'))
+        {
+            //$myUser = $this->Auth->user('username');
+            $username;
+            $i = 0;
+            foreach( $this->request->session()->read('Auth.User') as $row){
+                
+                $username = $row;
+                if($i++ === 4) break; // if i want to get the user or email, i have to change the value for i
+            }
+            //echo $this->request->session()->read('Auth.User')->user;
+            $this->set('loggedIn', true);
+            $this->set('username', $username);
         } 
         else 
         {
             $this->set('loggedIn', false); 
         }
-        if($this->Auth->user('username') != null)
+        /*if($this->Auth->user('username') != null)
         {
             $this->set(['screenUsername' => $this->Auth->user('username')]);
             
             $theEmail = $this->Auth->user('username');
             $query = TableRegistry::get('Users')->find('screen_name')->where('email = "'. $theEmail . '"'  );
             $this->set(['screenName' => $query]);
-        }
+        }*/
     }
     
    public function isAuthorized($user){
       return true;
-
-   //public function isAuthorized($user = null){
-     // return TRUE;
    }
     
     
     
-    public function beforeFilter(Event $event){
+    public function beforeFilter(Event $event)
+    {
         $this->Auth->allow('search');
         //$this->set('username',$this->Auth->user('screen_name'));
-       // $this->Auth->allow(['index','']);
-        //$this->set('username',$this->Auth->user('username'));
     }
+    
+    
 
 }
-

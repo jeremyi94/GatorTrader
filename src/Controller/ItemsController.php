@@ -4,8 +4,10 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
 use Cake\Event\Event;
+use cake\Datasource\ConnectionManager;
 
-/*
+
+/**
  * Items Controller
  *
  * @property \App\Model\Table\ItemsTable $Items
@@ -13,15 +15,20 @@ use Cake\Event\Event;
 class ItemsController extends AppController
 {
       
-
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadComponent('Upload');
+        $this->Auth->allow(['myaccount']);
+    }
     /**
      * Index method
      *
      * @return \Cake\Network\Response|null
      */
-    //public function index()
-    /*{
-       /*$this->paginate =['limit' => 20,'order' => ['Items' => 'asc' ]];
+    public function index()
+    {
+       $this->paginate =['limit' => 20,'order' => ['Items' => 'asc' ]];
        $items = $this->paginate('Items');
        $this->set(compact('items'));
     
@@ -32,7 +39,7 @@ class ItemsController extends AppController
 
         $this->set(compact('items'));
         $this->set('_serialize', ['items']);
-    }*/
+    }
 
     /**
      * View method
@@ -69,7 +76,7 @@ class ItemsController extends AppController
           $this->set('date_posted',$row->date_posted);
           break;
         }
-        $this->render('search','new');
+        $this->render();
     }
    
     
@@ -127,7 +134,7 @@ class ItemsController extends AppController
                         'id' => $result->id];
         }
         $this->set('results',$results);
-        $this->render('search','new');
+        $this->render();
     }
 
 
@@ -199,11 +206,53 @@ class ItemsController extends AppController
         return $this->redirect(['action' => 'index']);
     }
     
-    public function beforeFilter(Event $event)
+    /*public function beforeFilter(Event $event)
     {
-        $this->Auth->allow('search','login');
+        $this->Auth->allow('search','login','myaccount');
         //$this->set('username',$this->Auth->user('screen_name'));
+    }*/
     
+    public function myaccount()
+    {
+        $this->loadComponent('Auth');
+        //$user = $this->request->session()->read('Auth.User');
+        {
+        $user = $this->Auth->user('username');
+        echo $user;
+        $username;
+            $i = 0;
+            foreach( $this->request->session()->read('Auth.User') as $row){
+                
+                $username = $row;
+                if($i++ === 4) break;
+            }
+        //$userId = TableRegistry::get('users')->find()->where(['screen_name' => $user])->first()->get('id');
+        //$userId = TableRegistry::get('users')->find()->where(['screen_name' => 'f'])->first()->id;
+        $userId = TableRegistry::get('users')->find()->where(['screen_name' => $username])->first()->id;
+        //$userId = TableRegistry::get('users')->find()->where(['screen_name' => $user]);
+        //echo $user;
+        $items = $this->Items->find()->where(['user_id' => $userId]);
+        //$messages = TableRegistry::get('messages')->find('all')->Where(['messages.sender_name' => $user])
+                     //->OrWhere(['messages.receiver_name' => $user]);
+             //$this->set('items', $items);
+             //$this->set('messages', $messages);
+             //$this->set(['usern' => $user]);
+        }
+        //$this->set(compact('items'));
+        //$this->set('_serialize', ['items']);
+            $this->set('items', $items);
     }
+    public function upload()
+    {
+        if ( !empty( $this->request->data ) ) {
+            $this->Upload->send($this->request->data['uploadfile']);
+        }
+    }
+    
+    
+    
+    
+     public function isAuthorized($user){
+      return true;
+   }
 }
-?>
