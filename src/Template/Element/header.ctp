@@ -76,14 +76,20 @@
                         </div>
                     </form>
                     <div>
-                    <ul class="nav pull-right">
+                    <ul class="nav pull-right " style="margin-right: -10%; margin-top: -5px;">
                         <li class="divider-vertical"></li>
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> Hello Guest <b class="caret"></b> </a>
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> Hello <?php if($loggedIn) echo $username; else echo 'Guest'; ?> <b class="caret"></b> </a>
                             <ul class="dropdown-menu social-menu">
-                                <li id="login"><a href="<?= $this->Url->build(['controller' => 'Users', 'action' => 'login']) ?>">Login</a></li>
-                                <li id="account"><a href="<?= $this->Url->build('/account', true); ?>"> My Account</a></li>
-                                <li id="logout"><a href="<?= $this->Url->build('/logout', true); ?>">Log out</a></li>
-                            </ul>
+
+                                <?php if($loggedIn) : ?>
+                                <li><?= $this->Html->link('logout', ['controller' => 'users', 'action' => 'logout']);?></li>
+                                <li><?= $this->Html->link('My Account', ['controller' => 'items', 'action' => 'view']);?></li>
+                                <?php else : ?>                                
+                                <li><?= $this->HTML->link('Register', ['controller' => 'Users', 'action' => 'add']); ?></li>
+                                <li><?= $this->Html->link('Login', ['controller' => 'users', 'action' => 'login']); ?></li>
+                                <?php endif; ?>
+
+                            </ul>                                               
                         </li>
                     </ul>
                     </div>
