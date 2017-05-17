@@ -242,12 +242,6 @@ class ItemsController extends AppController
         //$this->set('_serialize', ['items']);
             $this->set('items', $items);
     }
-    public function upload()
-    {
-        if ( !empty( $this->request->data ) ) {
-            $this->Upload->send($this->request->data['uploadfile']);
-        }
-    }
     
     
     
