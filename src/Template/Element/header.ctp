@@ -25,10 +25,27 @@
                             $link = mysqli_connect("127.0.0.1", "sp17g08", "csc648sp17g08") or die("couldn't connect");
                             mysqli_select_db($link, "sp17g08") or die("dead...");
                             $sql = mysqli_query($link, "SELECT name FROM categories");
+                            //$select = '<select name="select" style="width: 100px;  margin-top: 10px">';
+                            ?>
+                            
+                            <?php
                             if (mysqli_num_rows($sql)) {
-                                $select = '<select name="select" style="width: 100px;  margin-top: 10px"><option>Everything</option>';
-                                while ($rs = mysqli_fetch_array($sql)) {
-                                    $select .= '<option>' . $rs['name'] . '</option>';
+                                $selected = null;
+                                if(empty($_GET)){
+                                    $select = '<select name="select" style="width: 100px;  margin-top: 10px"><option>Everything</option>';
+                                    while ($rs = mysqli_fetch_array($sql)) {
+                                        $select .= "<option value=\"". $rs['name'] ."\" ".($selected == $rs['name'] ? 'selected=\"selected\"': '').">". $rs['name'] ."</option>";
+                                    }
+                                }
+                                else{
+                                    $select = '<select name="select" style="width: 100px;  margin-top: 10px"><option>'.$_GET['select'] .'</option>';
+                                    while ($rs = mysqli_fetch_array($sql)) {
+                                        if ($rs['name'] == $_GET['select']){
+                                            $selected = "selected=\"selected\"";
+                                        }else{
+                                        $selected = "";}
+                                        $select .= "<option value=\"". $rs['name'] ."\" ".($selected == $rs['name'] ? 'selected=\"selected\"': '').">". $rs['name'] ."</option>";
+                                    }
                                 }
                             }
                             $select .= '</select>';
