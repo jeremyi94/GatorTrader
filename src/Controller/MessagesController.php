@@ -3,6 +3,10 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 
+use Cake\ORM\TableRegistry;
+use Cake\Event\Event;
+use cake\Datasource\ConnectionManager;
+
 /**
  * Messages Controller
  *
@@ -112,10 +116,34 @@ class MessagesController extends AppController
         return $this->redirect(['action' => 'index']);
     }
     
-    public function inbox()
+    /*public function inbox()
     {
         $messages = $this->Messages->find('all', ['conditions' => ['sender_id' => $this->Auth->user('id')]]);   
-    }
+    }*/
+    
+    public function privatemessages()
+    {
+        $this->loadComponent('Auth');
+        //$user = $this->request->session()->read('Auth.User');
+        {
+        $user = $this->Auth->user('username');
+        echo $user;
+        $username;
+            $i = 0;
+            foreach( $this->request->session()->read('Auth.User') as $row)
+             {
+                
+                $username = $row;
+                if($i++ === 4) break;
+            }
+        $myItemId = TableRegistry::get('items')->find()->first()->id;
+        $myMessages = TableRegistry::get('messages')->find()->where(['receiver_name' => $username])
+                                                            ->andWhere(['item_id' => $myItemId]);
+        }
+        $this->set('myMessages', $myMessages);
+    
+        
+     }
     
     
 }
