@@ -1,10 +1,8 @@
 <?php
 namespace App\Controller;
-
 use App\Controller\AppController;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
-
 /**
  * Users Controller
  *
@@ -12,7 +10,6 @@ use Cake\ORM\TableRegistry;
  */
 class UsersController extends AppController
 {
-
     /**
      * Index method
      *
@@ -21,11 +18,9 @@ class UsersController extends AppController
     public function index()
     {
         $users = $this->paginate($this->Users);
-
         $this->set(compact('users'));
         $this->set('_serialize', ['users']);
     }
-
     /**
      * View method
      *
@@ -38,11 +33,9 @@ class UsersController extends AppController
         $user = $this->Users->get($id, [
             'contain' => ['Items']
         ]);
-
         $this->set('user', $user);
         $this->set('_serialize', ['user']);
     }
-
     /**
      * Add method
      *
@@ -55,7 +48,6 @@ class UsersController extends AppController
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
@@ -63,7 +55,6 @@ class UsersController extends AppController
         $this->set(compact('user'));
         $this->set('_serialize', ['user']);
     }
-
     /**
      * Edit method
      *
@@ -80,7 +71,6 @@ class UsersController extends AppController
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
@@ -88,7 +78,6 @@ class UsersController extends AppController
         $this->set(compact('user'));
         $this->set('_serialize', ['user']);
     }
-
     /**
      * Delete method
      *
@@ -105,7 +94,6 @@ class UsersController extends AppController
         } else {
             $this->Flash->error(__('The user could not be deleted. Please, try again.'));
         }
-
         return $this->redirect(['action' => 'index']);
     }
     public function login(){
