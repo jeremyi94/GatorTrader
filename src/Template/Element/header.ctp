@@ -19,7 +19,7 @@
                             <div class="col-md-7" id="navbar">
                                 <form action=<?= $this->Url->build(['controller' => 'items', 'action' => 'search']) ?> class="form-inline" style="margin-top:-5px;">
                                     <?php
-                                    if(empty($_GET['category'])){
+                                    if(empty($_GET)){
                                         $select = '<div class="form-group" style="float: left;">
                                                         <select name="category" style="height: 33px; width: 100%;">
                                                             <option>Everything</option>
