@@ -17,7 +17,7 @@ $this->layout = "new";
         <!-- Form col -->
         <div class="span5 offset2">
             <?= $this->Form->create(); ?>
-            <?= $this->Form->input('email'); ?>
+            <?= $this->Form->input('screen_name'); ?>
             <?= $this->Form->input('password', array('type' => 'password')); ?>
             <?= $this->Form->submit('Login', array('class' => 'btn')); ?>
             <?= $this->Form->end(); ?>
@@ -28,7 +28,7 @@ $this->layout = "new";
             <br>
             <a href="<?= $this->Url->build(['controller' => 'Users', 'action' => 'add']); ?>" class="reply">Register</a>
 
-        </div>
+       </div>
         <!-- ENDS form col -->
         <div class="span6 offset3">
             <h3> San Francisco State University<i class="icon-envelope"></i><a href="#"> <small>email@server.com</small></a></h3>
