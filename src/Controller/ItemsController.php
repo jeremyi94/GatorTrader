@@ -15,7 +15,7 @@ class ItemsController extends AppController
     public function initialize()
     {
         parent::initialize();
-        $this->loadComponent('Upload');
+        //$this->loadComponent('Upload');
         $this->Auth->allow(['myaccount']);
     }
     /**
