@@ -47,10 +47,12 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
-                return $this->redirect(['action' => 'index']);
+
+                $this->Flash->success('Registration successful! Please log in.');
+                return $this->redirect(['action' => 'login']);
+
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            $this->Flash->error('Something went wrong. Please, try again.');
         }
         $this->set(compact('user'));
         $this->set('_serialize', ['user']);
@@ -110,14 +112,16 @@ class UsersController extends AppController
         }
         //return $this->redirect($this->referer());
     }
-    // Logout
-    public function logout()
-    {
-         $this->Flash->success('You are logged out');
-         //return $this->redirect(['controller' => 'items']);
-         $this->redirect($this->Auth->logout());
-         //return $this->redirect(['controller' => 'items']);
-         //return $this->redirect(["/http://sfsuse/~fzolghad/CSC648/"]);
+
+
+
+    // Logout 
+    public function logout() {
+        $this->Flash->success('You are logged out');
+        //return $this->redirect(['controller' => 'items']);
+        $this->redirect($this->Auth->logout());
+        //return $this->redirect(['controller' => 'items']);
+        //return $this->redirect(["/http://sfsuse/~fzolghad/CSC648/"]);
     }
     
       

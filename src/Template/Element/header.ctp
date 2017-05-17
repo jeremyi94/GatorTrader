@@ -49,13 +49,13 @@
                                     echo $select;
                                     ?>
                                     
-
                                     <div style="float: left; margin-left: 6px">
                                         <input type="text" style="height: 23px;"class="form-control" name="query"  value="<?php 
                                         if(array_key_exists('query',$_GET))
                                         {
                                             echo htmlspecialchars(stripslashes($_GET['query']));
                                         } ?>" required>
+
 
                                         <div class="input-group-btn" style="float: right; margin-right: 10px; padding: 6px; margin-top: -10px;">
 
@@ -78,4 +78,5 @@
                                     </ul>
                                     </div>
                             </div>
+
 </header>
