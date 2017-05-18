@@ -5,10 +5,12 @@ use Cake\Core\Plugin;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\Debugger;
 use Cake\Network\Exception\NotFoundException;
+
 $this->layout = "new";
 ?>
 
 <!------------------------Checks if user is logged in------------------------------->
+
 <?php if ($loggedIn): ?>
     <script type="text/javascript">
         window.onload = function () {
