@@ -81,8 +81,8 @@
                             <ul class="dropdown-menu social-menu">
 
                                 <?php if($loggedIn) : ?>
-                                <li><?= $this->Html->link('logout', ['controller' => 'users', 'action' => 'logout']);?></li>
-                                <li><?= $this->Html->link('My Account', ['controller' => 'items', 'action' => 'view']);?></li>
+                                <li><?= $this->Html->link('Logout', ['controller' => 'users', 'action' => 'logout']);?></li>
+                                <li><?= $this->Html->link('My Account', ['controller' => 'messages', 'action' => 'privatemessages']);?></li>
                                 <?php else : ?>                                
                                 <li><?= $this->HTML->link('Register', ['controller' => 'Users', 'action' => 'add']); ?></li>
                                 <li><?= $this->Html->link('Login', ['controller' => 'users', 'action' => 'login']); ?></li>
