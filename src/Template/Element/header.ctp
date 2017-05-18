@@ -13,7 +13,7 @@
                     <!-- Main nav -->
                     <ul  class="nav">
                         <li id="home"><a href="<?= $this->Url->build('/home', true); ?>">Home</a></li>
-                        <li id="sell"><a href="<?= $this->Url->build('/sell', true); ?>">Sell</a></li>
+                        <li id="sell"><a href="<?= $this->Url->build('/items/add', true); ?>">Sell</a></li>
                         <li id="contact"><a href="<?= $this->Url->build('/contact', true); ?>">Contact</a></li>
                         <li id="about"><a href="<?= $this->Url->build('/about', true); ?>">About</a></li>                    
                     </ul> 

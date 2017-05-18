@@ -33,76 +33,54 @@ $this->layout = "new";
     <!-- Work -->
     <br><br>
     <section id="work-section">
-        <div  class="page-header">
+        <div  class="page-header"><br><p>
             <h1>Sell <small> Submit Your Listing</small></h1>
         </div>
-        <div class="span8 offset2">
-            <?php
-            echo $this->Form->create($item); 
-            echo$this->Form->hidden('id');
-            echo $this->Form->input('title'); 
-            echo $this->Form->input('price');
-            ?>
-            <label>Category</label>
-            <select>
-                <option value="Furniture">Furniture/option>
-                <option value="Electronics">Electronics</option>
-                <option value="Books">Books</option>
-                <option value="Sports">Sports</option>
-                <option value="Kitchen">Kitchen</option>
-                <option value="Clothes">Clothes</option>
-                <option value="Other">Other</option>
-            </select>
-            <label>Upload as many as 4 images...</label>
-            <div class="image-upload">
-                <label for="file-input">
-                    <topcorner><img src="http://www.chatterboxwalls.co.uk/images/camera-icon-md.gif" height="60" width="60"/></topcorner>
-                </label>
-                <input id="file-input" type="file"/>
-            </div>
-            <label>Description</label>
-            <textarea class="input-xxlarge"  rows="4"  name="comments"  id="comments"></textarea>
-            <p>
-                <input type="button" value="Send" name="submit" id="submit" class="btn"/>
-            </p>
-    <?= $this->Form->end() ?>
+        <div class="row">
+            <?php echo $this->Form->create($item, ['enctype' => 'multipart/form-data']); ?>
+            <fieldset>
+                <div class="span5 offset1">
+                    <?php
+                    echo$this->Form->hidden('id');
+                    echo $this->Form->hidden('date_posted');
+                    echo $this->Form->hidden('sold');
+                    echo $this->Form->input('title');
+                    echo $this->Form->input('price');
+                    echo '<label>Category</label>';
+                    echo $this->Form->select('category', ['Furniture', 'Electronics', 'Books', 'Sports', 'Kitchen', 'Clothing', 'other'], ['empty' => '(choose one)']);
+                    echo '<label>Description</label>';
+                    echo $this->Form->textarea('description', ['style' => 'width: 400px; height: 300px:']);
+                    ?>
+                </div>
+                <div class="span5 offset1">
+                    <label>Upload as many as 4 images in order...</label>
+                    <div class="image-upload">
+                        <label for="file-input">
+                            <topcorner><img src="http://www.chatterboxwalls.co.uk/images/camera-icon-md.gif" height="60" width="60"/></topcorner>
+                        </label>
+                        <input id="file-input" type="file"/>
+                    </div>
+                    <?php
+                    echo '<label>Image 1</label>';
+                    echo $this->Form->file('img1');
+                    echo '<label>Image 2</label>';
+                    echo $this->Form->file('img2', ['required' => 'no']);
+                    echo '<label>Image 3</label>';
+                    echo $this->Form->file('img3', ['required' => 'no']);
+                    echo '<label>Image 4</label>';
+                    echo $this->Form->file('img4', ['required' => 'no']);
+                    ?>
+                </div>
+                <div class="span12"><center><br><?= $this->Form->submit('Submit', ['class' => 'btn']) ?> </center></div>
+            </fieldset>
+            <?= $this->Form->end() ?>
         </div>
     </section>
     <!-- ENDS work -->
     <script>document.title = "Gator Trader-Sell";</script>
-<?php
+    <?php
 else:
     header("location:page.php"); // take them to page
     echo "<div>Please login <a href=\"users\login\">here</a> to access page</div>";
 endif;
-?> 
-
-
-
-
-
-
-
-
-
-<div class="items form large-9 medium-8 columns content">
-
-    <fieldset>
-        <legend><?= __('Add Item') ?></legend>
-        <?php
-        echo $this->Form->input('id');
-        echo $this->Form->input('category_name');
-        
-        echo $this->Form->input('description');
-        echo $this->Form->input('price');
-        echo $this->Form->input('img1');
-        echo $this->Form->input('img2');
-        echo $this->Form->input('img3');
-        echo $this->Form->input('img4');
-        echo $this->Form->input('sold');
-        echo $this->Form->input('date_posted');
-        ?>
-    </fieldset>
-<?= $this->Form->button(__('Submit')) ?>
-
-</div>
+?>
