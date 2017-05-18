@@ -10,6 +10,7 @@ use Cake\Validation\Validator;
  * Items Model
  *
  * @property \Cake\ORM\Association\BelongsTo $Users
+ * @property \Cake\ORM\Association\HasMany $Messages
  *
  * @method \App\Model\Entity\Item get($primaryKey, $options = [])
  * @method \App\Model\Entity\Item newEntity($data = null, array $options = [])
@@ -39,6 +40,9 @@ class ItemsTable extends Table
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id',
             'joinType' => 'INNER'
+        ]);
+        $this->hasMany('Messages', [
+            'foreignKey' => 'item_id'
         ]);
     }
 
