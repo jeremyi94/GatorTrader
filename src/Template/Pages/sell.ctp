@@ -25,7 +25,7 @@ $this->layout = "new";
 
 <!------------------------Checks if user is logged in------------------------------->
 
-<?php if(isset( $_SESSION['SESS_MEMBER_ID']) && !empty($_SESSION['SESS_MEMBER_ID'])):?>
+<?php if($loggedIn):?>
 <script type="text/javascript">
 window.onload=function () {
     $('#sell').addClass('active');

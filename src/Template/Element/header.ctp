@@ -20,20 +20,44 @@
 
                     <form action=<?= $this->Url->build(['controller' => 'items', 'action' => 'search']) ?> class="form-inline">
 
-                        <div class="form-group" style="float: left;">
+                         <div class="form-group" style="float: left;">
                             <?php
                             $link = mysqli_connect("127.0.0.1", "sp17g08", "csc648sp17g08") or die("couldn't connect");
                             mysqli_select_db($link, "sp17g08") or die("dead...");
                             $sql = mysqli_query($link, "SELECT name FROM categories");
-                            if (mysqli_num_rows($sql)) {
-                                $select = '<select name="select" style="width: 100px;  margin-top: 10px"><option>Everything</option>';
-                                while ($rs = mysqli_fetch_array($sql)) {
-                                    $select .= '<option>' . $rs['name'] . '</option>';
-                                }
-                            }
-                            $select .= '</select>';
-                            echo $select;
+
                             ?>
+                            
+                            <?php
+                                    if(empty($_GET['category'])){
+                                        $select = '<div class="form-group" style="float: left;">
+                                                        <select name="category" style="height: 33px; width: 100%;">
+                                                            <option>Everything</option>
+                                                            <option>Books</option>
+                                                            <option>Clothing</option>
+                                                            <option>Electronics</option>
+                                                            <option>Furniture</option>
+                                                            <option>Sports</option>
+                                                            <option>Kitchen</option>
+                                                            <option>other</option>
+                                                        </select>
+                                                    </div>';
+                                    }else{
+                                        $select = '<div class="form-group" style="float: left;">
+                                                        <select name="category" style="height: 33px; width: 100%;"><option>'.$_GET['category'].'<option>
+                                                            <option>Everything</option>
+                                                            <option>Books</option>
+                                                            <option>Clothing</option>
+                                                            <option>Electronics</option>
+                                                            <option>Furniture</option>
+                                                            <option>Sports</option>
+                                                            <option>Kitchen</option>
+                                                            <option>other</option>
+                                                        </select>
+                                                    </div>';
+                                    }
+                                    echo $select;
+                                    ?>
                         </div>
                         <!--<div class="input-group" style="float: left; width: 75%;"> -->
                         <div style="float: left; margin-left: 6px">
@@ -41,7 +65,7 @@
                             if (array_key_exists('query', $_GET)) {
                                 echo htmlspecialchars(stripslashes($_GET['query']));
                             }
-                            ?>" required>
+                            ?>">
 
                             <div class="input-group-btn" style="float: right; margin-right: 10px; padding: 6px;">
 
@@ -52,14 +76,20 @@
                         </div>
                     </form>
                     <div>
-                    <ul class="nav pull-right">
+                    <ul class="nav pull-right " style="margin-right: -10%; margin-top: -5px;">
                         <li class="divider-vertical"></li>
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> Hello Guest <b class="caret"></b> </a>
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> Hello <?php if($loggedIn) echo $username; else echo 'Guest'; ?> <b class="caret"></b> </a>
                             <ul class="dropdown-menu social-menu">
-                                <li id="login"><a href="<?= $this->Url->build(['controller' => 'Users', 'action' => 'login']) ?>">Login</a></li>
-                                <li id="account"><a href="<?= $this->Url->build('/account', true); ?>"> My Account</a></li>
-                                <li id="logout"><a href="<?= $this->Url->build('/logout', true); ?>">Log out</a></li>
-                            </ul>
+
+                                <?php if($loggedIn) : ?>
+                                <li><?= $this->Html->link('logout', ['controller' => 'users', 'action' => 'logout']);?></li>
+                                <li><?= $this->Html->link('My Account', ['controller' => 'items', 'action' => 'view']);?></li>
+                                <?php else : ?>                                
+                                <li><?= $this->HTML->link('Register', ['controller' => 'Users', 'action' => 'add']); ?></li>
+                                <li><?= $this->Html->link('Login', ['controller' => 'users', 'action' => 'login']); ?></li>
+                                <?php endif; ?>
+
+                            </ul>                                               
                         </li>
                     </ul>
                     </div>

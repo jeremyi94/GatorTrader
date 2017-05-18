@@ -13,7 +13,6 @@
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
 namespace App\Controller;
-
 use Cake\Controller\Controller;
 use Cake\Event\Event;
 use Cake\Datasource\ConnectionManager;
@@ -27,7 +26,6 @@ use Cake\Datasource\ConnectionManager;
  */
 class AppController extends Controller
 {
-
     /**
      * Initialization hook method.
      *
@@ -40,7 +38,6 @@ class AppController extends Controller
     public function initialize()
     {
         parent::initialize();
-
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
         //$this->loadComponent('Csrf');
@@ -149,5 +146,4 @@ class AppController extends Controller
     }
     
     
-
 }

@@ -1,12 +1,9 @@
 <?php
 namespace App\Controller;
-
 use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
 use Cake\Event\Event;
 use cake\Datasource\ConnectionManager;
-
-
 /**
  * Items Controller
  *
@@ -18,7 +15,7 @@ class ItemsController extends AppController
     public function initialize()
     {
         parent::initialize();
-        $this->loadComponent('Upload');
+        //$this->loadComponent('Upload');
         $this->Auth->allow(['myaccount']);
     }
     /**
@@ -36,11 +33,9 @@ class ItemsController extends AppController
             'contain' => ['Users']
         ];
         $items = $this->paginate($this->Items);
-
         $this->set(compact('items'));
         $this->set('_serialize', ['items']);
     }
-
     /**
      * View method
      *
@@ -53,7 +48,6 @@ class ItemsController extends AppController
         $item = $this->Items->get($id, [
             'contain' => ['Users']
         ]);
-
         $this->set('item', $item);
         $this->set('_serialize', ['item']);
     }*/
@@ -86,7 +80,6 @@ class ItemsController extends AppController
             'contain' => ['Users']
         ];
         $items = $this->paginate($this->Items);
-
         $this->set(compact('items'));
         $this->set('_serialize', ['items']);
         
@@ -136,8 +129,6 @@ class ItemsController extends AppController
         $this->set('results',$results);
         $this->render();
     }
-
-
     /**
      * Add method
      *
@@ -150,7 +141,6 @@ class ItemsController extends AppController
             $item = $this->Items->patchEntity($item, $this->request->data);
             if ($this->Items->save($item)) {
                 $this->Flash->success(__('The item has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The item could not be saved. Please, try again.'));
@@ -159,7 +149,6 @@ class ItemsController extends AppController
         $this->set(compact('item', 'users'));
         $this->set('_serialize', ['item']);
     }
-
     /**
      * Edit method
      *
@@ -176,7 +165,6 @@ class ItemsController extends AppController
             $item = $this->Items->patchEntity($item, $this->request->data);
             if ($this->Items->save($item)) {
                 $this->Flash->success(__('The item has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The item could not be saved. Please, try again.'));
@@ -185,7 +173,6 @@ class ItemsController extends AppController
         $this->set(compact('item', 'users'));
         $this->set('_serialize', ['item']);
     }
-
     /**
      * Delete method
      *
@@ -202,7 +189,6 @@ class ItemsController extends AppController
         } else {
             $this->Flash->error(__('The item could not be deleted. Please, try again.'));
         }
-
         return $this->redirect(['action' => 'index']);
     }
     
@@ -241,12 +227,6 @@ class ItemsController extends AppController
         //$this->set(compact('items'));
         //$this->set('_serialize', ['items']);
             $this->set('items', $items);
-    }
-    public function upload()
-    {
-        if ( !empty( $this->request->data ) ) {
-            $this->Upload->send($this->request->data['uploadfile']);
-        }
     }
     
     

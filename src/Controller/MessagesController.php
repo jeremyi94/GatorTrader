@@ -1,12 +1,9 @@
 <?php
 namespace App\Controller;
-
 use App\Controller\AppController;
-
 use Cake\ORM\TableRegistry;
 use Cake\Event\Event;
 use cake\Datasource\ConnectionManager;
-
 /**
  * Messages Controller
  *
@@ -14,7 +11,6 @@ use cake\Datasource\ConnectionManager;
  */
 class MessagesController extends AppController
 {
-
     /**
      * Index method
      *
@@ -26,11 +22,9 @@ class MessagesController extends AppController
             'contain' => ['Items']
         ];
         $messages = $this->paginate($this->Messages);
-
         $this->set(compact('messages'));
         $this->set('_serialize', ['messages']);
     }
-
     /**
      * View method
      *
@@ -43,11 +37,9 @@ class MessagesController extends AppController
         $message = $this->Messages->get($id, [
             'contain' => ['Items']
         ]);
-
         $this->set('message', $message);
         $this->set('_serialize', ['message']);
     }
-
     /**
      * Add method
      *
@@ -60,7 +52,6 @@ class MessagesController extends AppController
             $message = $this->Messages->patchEntity($message, $this->request->data);
             if ($this->Messages->save($message)) {
                 $this->Flash->success(__('The message has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The message could not be saved. Please, try again.'));
@@ -69,7 +60,6 @@ class MessagesController extends AppController
         $this->set(compact('message', 'items'));
         $this->set('_serialize', ['message']);
     }
-
     /**
      * Edit method
      *
@@ -86,7 +76,6 @@ class MessagesController extends AppController
             $message = $this->Messages->patchEntity($message, $this->request->data);
             if ($this->Messages->save($message)) {
                 $this->Flash->success(__('The message has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The message could not be saved. Please, try again.'));
@@ -95,7 +84,6 @@ class MessagesController extends AppController
         $this->set(compact('message', 'items'));
         $this->set('_serialize', ['message']);
     }
-
     /**
      * Delete method
      *
@@ -112,7 +100,6 @@ class MessagesController extends AppController
         } else {
             $this->Flash->error(__('The message could not be deleted. Please, try again.'));
         }
-
         return $this->redirect(['action' => 'index']);
     }
     
@@ -147,4 +134,3 @@ class MessagesController extends AppController
     
     
 }
-
