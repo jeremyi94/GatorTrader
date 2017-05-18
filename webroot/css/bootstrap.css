@@ -1442,7 +1442,7 @@ table .span24 {
   clear: both;
   font-weight: normal;
   line-height: 18px;
-  color: #333333;
+  color: #9262ad;
   white-space: nowrap;
 }
 .dropdown-menu li > a:hover,
@@ -2569,6 +2569,7 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
+  height: 40px;
 }
 .navbar-fixed-top .container,
 .navbar-fixed-bottom .container {
@@ -2596,22 +2597,24 @@ input[type="submit"].btn.btn-mini {
 }
 .navbar .nav > li > a {
   float: none;
-  padding: 10px 10px 11px;
+  padding-left: 20px;
+  margin-top: -8px;
   line-height: 19px;
   color: #E4D3ED;
   text-decoration: none;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 .navbar .nav > li > a:hover {
   background-color: transparent;
-  color: #ffffff;
+  color:#9262ad ;
   text-decoration: none;
 }
-.navbar .nav .active > a,
+.navbar .nav .active > a{
+    color: #ffffff;
+}
+
 .navbar .nav .active > a:hover {
-  color: #ffffff;
+  color:#9262ad ;
   text-decoration: none;
-  background-color: #504357;
 }
 .navbar .divider-vertical {
   height: 40px;
