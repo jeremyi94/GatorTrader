@@ -1,5 +1,4 @@
 <?php
-
 use Cake\Cache\Cache;
 use Cake\Core\Configure;
 use Cake\Core\Plugin;
@@ -20,7 +19,6 @@ $this->layout = "new";
     </script>
     <style type="text/css">
         .topcorner{
-
         }
         .image-upload > input
         {
