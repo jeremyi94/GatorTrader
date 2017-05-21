@@ -2,7 +2,7 @@
 
 <div style="background-image: url(webroot/img/redwood.jpg); margin-top: -100px; height: 100%; background-repeat: no-repeat">
     <br><br><br>
-        <img src = "webroot/img/rebecca.jpg" id="aboutPic">
+        <img src = "webroot/img/rebecca.jpg" id="aboutPic" style="height:300px; width:200px">
         <div style="background-color: black; filter: alpha(opacity=50); opacity: 0.5; width: 60%; margin: auto;
              border-radius: 10%">
             <div id="aboutInfo">
