@@ -44,7 +44,7 @@
                                                     </div>';
                                     }else{
                                         $select = '<div class="form-group" style="float: left;">
-                                                        <select name="category" style="height: 33px; width: 100%;"><option>'.$_GET['category'].'<option>
+                                                        <select name="category" style="height: 25px; width: 100%;"><option>'.$_GET['category'].'<option>
                                                             <option>Everything</option>
                                                             <option>Books</option>
                                                             <option>Clothing</option>
