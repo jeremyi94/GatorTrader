@@ -100,3 +100,4 @@
     </div>
     <!-- ENDS navbar -->
 </header>
+<h1>SFSU Software Engineering project, Spring 2017. For demonstration only.</h1>
