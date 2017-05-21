@@ -100,4 +100,5 @@
     </div>
     <!-- ENDS navbar -->
 </header>
-<h1>SFSU Software Engineering project, Spring 2017. For demonstration only.</h1>
+<br>
+<h2>SFSU Software Engineering project, Spring 2017. For demonstration only.</h2>
