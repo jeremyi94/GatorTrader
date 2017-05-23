@@ -82,7 +82,7 @@
 
                                 <?php if($loggedIn) : ?>
                                 <li><?= $this->Html->link('Logout', ['controller' => 'users', 'action' => 'logout']);?></li>
-                                <li><?= $this->Html->link('My Account', ['controller' => 'messages', 'action' => 'privatemessages']);?></li>
+                                <li><?= $this->Html->link('My Account', ['controller' => 'items', 'action' => 'myaccount']);?></li>
                                 <?php else : ?>                                
                                 <li><?= $this->HTML->link('Register', ['controller' => 'Users', 'action' => 'add']); ?></li>
                                 <li><?= $this->Html->link('Login', ['controller' => 'users', 'action' => 'login']); ?></li>
