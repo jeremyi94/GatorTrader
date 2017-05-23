@@ -2,26 +2,27 @@
 /**
   * @var \App\View\AppView $this
   */
+use Cake\Cache\Cache;
+use Cake\Core\Configure;
+use Cake\Core\Plugin;
+use Cake\Datasource\ConnectionManager;
+use Cake\Error\Debugger;
+use Cake\Network\Exception\NotFoundException;
+
+$this->layout = "new";
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Messages'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Items'), ['controller' => 'Items', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Item'), ['controller' => 'Items', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
+
 <div class="messages form large-9 medium-8 columns content">
-    <?= $this->Form->create($message) ?>
+    <?= $this->Form->create($message,['class' => 'well']); ?>
     <fieldset>
-        <legend><?= __('Add Message') ?></legend>
+        <legend><?= __('Message') ?></legend>
         <?php
+            echo $this->Form->input('sender_name',['placeholder' => $username, 'class' => 'input-xlarge']);
+            echo $this->Form->input('receiver_name',['placeholder' => '...', 'class' => 'input-xlarge']);
             echo $this->Form->input('item_id', ['options' => $items]);
-            echo $this->Form->input('subject');
-            echo $this->Form->input('date');
-            echo $this->Form->input('text');
-            echo $this->Form->input('receiver_name');
-            echo $this->Form->input('sender_name');
+            echo $this->Form->input('subject',['placeholder' => '...', 'class' => 'input-xlarge']);
+            echo $this->Form->input('date',['class' => 'input-xlarge']);
+            echo $this->Form->input('text',['class' => 'input-xxlarge','rows' => 4]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
