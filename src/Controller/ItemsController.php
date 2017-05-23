@@ -4,6 +4,7 @@ use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
 use Cake\Event\Event;
 use cake\Datasource\ConnectionManager;
+
 /**
  * Items Controller
  *
@@ -141,7 +142,7 @@ class ItemsController extends AppController
             $item = $this->Items->patchEntity($item, $this->request->data);
             if ($this->Items->save($item)) {
                 $this->Flash->success(__('The item has been saved.'));
-                return $this->redirect(['action' => 'index']);
+                //return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The item could not be saved. Please, try again.'));
         }
@@ -218,6 +219,9 @@ class ItemsController extends AppController
         //$userId = TableRegistry::get('users')->find()->where(['screen_name' => $user]);
         //echo $user;
         $items = $this->Items->find()->where(['user_id' => $userId]);
+        $myItemId = TableRegistry::get('items')->find()->first()->id;
+        $myMessages = TableRegistry::get('messages')->find()->where(['receiver_name' => $username])
+                                                            ->andWhere(['item_id' => $myItemId]);
         //$messages = TableRegistry::get('messages')->find('all')->Where(['messages.sender_name' => $user])
                      //->OrWhere(['messages.receiver_name' => $user]);
              //$this->set('items', $items);
@@ -227,10 +231,60 @@ class ItemsController extends AppController
         //$this->set(compact('items'));
         //$this->set('_serialize', ['items']);
             $this->set('items', $items);
+            $this->set('myMessages', $myMessages);
     }
     
+    public function mymessage()
+    {
+        $this->loadComponent('Auth');
+        //$user = $this->request->session()->read('Auth.User');
+        {
+        $user = $this->Auth->user('username');
+        echo $user;
+        $username;
+            $i = 0;
+            foreach( $this->request->session()->read('Auth.User') as $row){
+                
+                $username = $row;
+                if($i++ === 4) break;
+            }
+        //$userId = TableRegistry::get('users')->find()->where(['screen_name' => $user])->first()->get('id');
+        //$userId = TableRegistry::get('users')->find()->where(['screen_name' => 'f'])->first()->id;
+        $userId = TableRegistry::get('users')->find()->where(['screen_name' => $username])->first()->id;
+        //$userId = TableRegistry::get('users')->find()->where(['screen_name' => $user]);
+        //echo $user;
+        $items = $this->Items->find()->where(['user_id' => $userId]);
+        
+        $myItemId = TableRegistry::get('items')->find()->first()->id;
+        $myMessages = TableRegistry::get('messages')->find()->where(['receiver_name' => $username])
+                                                            ->andWhere(['item_id' => $myItemId]);
+        //$messages = TableRegistry::get('messages')->find('all')->Where(['messages.sender_name' => $user])
+                     //->OrWhere(['messages.receiver_name' => $user]);
+             //$this->set('items', $items);
+             //$this->set('messages', $messages);
+             //$this->set(['usern' => $user]);
+        }
+        //$this->set(compact('items'));
+        //$this->set('_serialize', ['items']);
+            $this->set('items', $items);
+            $this->set('myMessages', $myMessages);
+    }
     
-    
+    public function reply()
+    {
+        $item = $this->Items->newEntity();
+        if ($this->request->is('post')) {
+            $item = $this->Items->patchEntity($item, $this->request->data);
+            if ($this->Items->save($item)) {
+                $this->Flash->success(__('The item has been saved.'));
+                //return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('The item could not be saved. Please, try again.'));
+        }
+        $users = $this->Items->Users->find('list', ['limit' => 200]);
+        $this->set(compact('item', 'users'));
+        $this->set('_serialize', ['item']);
+    }   
     
      public function isAuthorized($user){
       return true;
