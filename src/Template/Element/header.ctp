@@ -44,7 +44,7 @@
                                                     </div>';
                                     }else{
                                         $select = '<div class="form-group" style="float: left;">
-                                                        <select name="category" style="height: 33px; width: 100%;"><option>'.$_GET['category'].'<option>
+                                                        <select name="category" style="height: 25px; width: 100%;"><option>'.$_GET['category'].'<option>
                                                             <option>Everything</option>
                                                             <option>Books</option>
                                                             <option>Clothing</option>
@@ -82,7 +82,7 @@
 
                                 <?php if($loggedIn) : ?>
                                 <li><?= $this->Html->link('Logout', ['controller' => 'users', 'action' => 'logout']);?></li>
-                                <li><?= $this->Html->link('My Account', ['controller' => 'messages', 'action' => 'privatemessages']);?></li>
+                                <li><?= $this->Html->link('My Account', ['controller' => 'items', 'action' => 'myaccount']);?></li>
                                 <?php else : ?>                                
                                 <li><?= $this->HTML->link('Register', ['controller' => 'Users', 'action' => 'add']); ?></li>
                                 <li><?= $this->Html->link('Login', ['controller' => 'users', 'action' => 'login']); ?></li>
@@ -100,3 +100,5 @@
     </div>
     <!-- ENDS navbar -->
 </header>
+<br><p><br>
+<h2>SFSU Software Engineering project, Spring 2017. For demonstration only.</h2>
