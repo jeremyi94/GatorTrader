@@ -16,6 +16,7 @@ echo $this->Html->css('search');
 $count=count($results);
 echo  "<h1><small>Found ".$count." items...</small></h1>";?>
 <div class="select-wrapper">
+  <?php echo 'Sort by: ';?>
   <?php echo $this->Paginator->sort('price', 'By Price', ['class' => 'button']); ?>
   <?php echo $this->Paginator->sort('date_posted', 'By date', ['class' => 'button']); ?>
 </div>
@@ -34,28 +35,50 @@ echo  "<h1><small>Found ".$count." items...</small></h1>";?>
             
             
             <div class="picture-slides-container">
-                <div class="picture-slides-fade-container">
-                    <?php if($result['img1'] === 1): ?>
-                    <div><?= '<a class="picture-slides-image-link"> <img src="../webroot/img/items/thumbnails/' . $result['id'] . 'a.jpg" alt="image"/></a>' ?></div>
-                    <?php endif; ?>
-                </div> 
-                <?php    
-            $output = '<h1> Title:'.$result['title'] .'</h1><p> Description: ' .$result['description'] .'</p><p>Price: $' .$result['price'].'</p>'
-            ?>
                 
-                <ul class="picture-slides-thumbnails">
-                <?php if($result['img2'] === 1): ?>
-                <?= '<li><img src="../webroot/img/items/thumbnails/' . $result['id'] . 'b.jpg" alt="image"/></li>' ?>
-                <?php endif; ?>
-                <?php if($result['img3'] === 1): ?>
-                <?= '<li><img src="../webroot/img/items/thumbnails/' . $result['id'] . 'c.jpg" alt="image"/></li>' ?>
-                <?php endif; ?>
-                <?php if($result['img4'] === 1): ?>
-                <?= '<li><img src="../webroot/img/items/thumbnails/' . $result['id'] . 'd.jpg" alt="image"/></li>' ?>
-                <?php endif; ?>
+                <!--<div class="picture-slides-fade-container"> -->
+                <center>
+                    <?php if($result['img1'] == 1): ?>
+                    <?= '<span><a class="picture-slides-image-link"> <img src="../webroot/img/items/thumbnails/' . $result['id'] . 'a.jpg" alt="image"/></a></span>'  ?>
+                    <?php endif; ?>
+                    <!--<?/php if($result['img2'] == 1): ?>
+                    <?/= '<span><a class="picture-slides-image-link"> <img src="../webroot/img/items/thumbnails/' . $result['id'] . 'b.jpg" alt="image"/></a></span>'  ?>
+                    <?/php endif; ?>
+                    <?/php if($result['img3'] == 1): ?>
+                    <?/= '<span><a class="picture-slides-image-link"> <img src="../webroot/img/items/thumbnails/' . $result['id'] . 'c.jpg" alt="image"/></a></span>'  ?>
+                    <?/php endif; ?>
+                    <?/php if($result['img4'] == 1): ?>
+                    <?/= '<span><a class="picture-slides-image-link"> <img src="../webroot/img/items/thumbnails/' . $result['id'] . 'd.jpg" alt="image"/></a></span>'  ?>
+                    <?/php endif; ?> -->
+                </center>
+                <br>
+                <!--</div> -->
+                
+                <div>    
+                <center>
+                <?php    
+                $output = '<h1> Title:'.$result['title'] .'<p> </h1><p> Description: ' .$result['description'] .'</p><p>Price: $' .$result['price'].'</p>' . '<p>Item ID: ' .$result['id'].'</p>' ?>
+                
                 <?php print($output); ?>
-                <?php echo '<p align="center"><a class = "btn right" href="reply">buy now</a></p></div>';?>
-                </ul>
+                <center>
+                <?php echo $this->Html->link('Buy Now', ['controller' => 'Messages', 'action' => 'add'], ['class' => 'btn right']); ?>
+                </center>
+                </center>
+                </div>
+                
+                <!--<ul class="picture-slides-thumbnails">
+                <?//php if($result['img2'] == 1): ?>
+                <?//= '<li><img src="../webroot/img/items/thumbnails/' . $result['id'] . 'b.jpg" alt="image"/></li>' ?>
+                <?//php endif; ?>
+                <?//php if($result['img3'] == 1): ?>
+                <?//= '<li><img src="../webroot/img/items/thumbnails/' . $result['id'] . 'c.jpg" alt="image"/></li>' ?>
+                <?//php endif; ?>
+                <?//php if($result['img4'] == 1): ?>
+                <?//= '<li><img src="../webroot/img/items/thumbnails/' . $result['id'] . 'd.jpg" alt="image"/></li>' ?>
+                <?//php endif; ?>
+                <?//php print($output); ?>
+                <?//php echo '<p align="center"><a class = "btn right" href="reply">buy now</a></p></div>';?>
+                </ul> -->
             </div>
 </div>
 <?php endforeach; ?>
